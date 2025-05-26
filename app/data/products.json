@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Domates Tohumu (Cherry)",
+    "description": "Özel seçilmiş Cherry domates tohumları. Yüksek verimli ve lezzetli.",
+    "price": 15.99,
+    "image": "/images/tomato.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Salatalık Tohumu (Turşuluk)",
+    "description": "Turşuluk salatalık tohumları. Dayanıklı ve bol mahsullü.",
+    "price": 12.5,
+    "image": "/images/cucumber.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Biber Tohumu (Tatlı)",
+    "description": "Tatlı biber tohumları. Yüksek A ve C vitamini içerir.",
+    "price": 14.75,
+    "image": "/images/pepper.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Maydanoz Tohumu",
+    "description": "Kıvırcık maydanoz tohumları. Kolay yetiştirilebilir ve aromatik.",
+    "price": 8.99,
+    "image": "/images/parsley.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Karpuz Tohumu",
+    "description": "Tatlı ve sulu karpuz tohumları. Sıcak iklimler için idealdir.",
+    "price": 18.5,
+    "image": "/images/watermelon.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Çilek Tohumu",
+    "description": "Aromalı ve tatlı çilek tohumları. Saksıda da yetiştirilebilir.",
+    "price": 22.99,
+    "image": "/images/strawberry.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Lavanta Tohumu",
+    "description": "Aromatik ve dekoratif lavanta tohumları. Balkonlar için idealdir.",
+    "price": 19.99,
+    "image": "/images/lavender.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Nane Tohumu",
+    "description": "Ferahlatıcı nane tohumları. Mutfak bahçeniz için mükemmel.",
+    "price": 9.5,
+    "image": "/images/mint.jpg"
+  }
+]

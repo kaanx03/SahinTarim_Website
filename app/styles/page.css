@@ -1,0 +1,187 @@
+/* =========================================================
+   Sayfa Başlık Stili page.css - Tamamen Optimize Edilmiş
+   ========================================================= */
+.page-header {
+  background-color: rgba(0, 0, 0, 0.7); /* Daha karanlık arkaplan */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/images/header-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* Dikey ortalama için display ve align-items özellikleri */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px; /* Minimum yükseklik */
+  padding: 0; /* Padding'i kaldırıp flexbox ile ortalama yapıyoruz */
+  margin-bottom: 3rem;
+}
+
+.page-header .container {
+  width: 100%;
+}
+
+.page-header h1 {
+  font-size: 3.5rem; /* Başlık boyutunu büyüttük */
+  color: #ffffff; /* Beyaz renk */
+  font-weight: 700;
+  margin: 0; /* Tüm kenar boşluklarını kaldırdık */
+  position: relative;
+  display: inline-block;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Gölgeyi artırdık */
+}
+
+.page-header h1:after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px; /* Çizgiyi daha da uzattık */
+  height: 4px; /* Çizgiyi kalınlaştırdık */
+  background-color: var(--primary-green);
+}
+
+/* Ürünler Toolbar */
+.products-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .products-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Mobil cihazlar için başlık boyutunu küçült */
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Sayfa İçerik Stili */
+.products-section {
+  padding: 2rem 0 4rem;
+}
+
+/* Özel Ürünler Bölümü */
+.featured-products {
+  padding: 4rem 0;
+  background-color: #f9f9f9;
+}
+
+.featured-products .section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.featured-product-slider {
+  position: relative;
+}
+
+.featured-slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.featured-slider-nav:hover {
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.featured-slider-prev {
+  left: -15px;
+}
+
+.featured-slider-next {
+  right: -15px;
+}
+
+/* Bülten Kayıt Bölümü */
+.newsletter {
+  padding: 4rem 0;
+  background-color: var(--primary-green);
+  color: white;
+  text-align: center;
+}
+
+.newsletter-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter p {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.newsletter-form {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.newsletter-btn {
+  padding: 0 1.5rem;
+  background-color: var(--dark-green);
+  color: white;
+  border: none;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.newsletter-btn:hover {
+  background-color: #134a1a;
+}
+
+@media (max-width: 576px) {
+  .newsletter-form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .newsletter-input,
+  .newsletter-btn {
+    width: 100%;
+    border-radius: 50px;
+  }
+}
