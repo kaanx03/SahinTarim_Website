@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { CartProvider } from "../contexts/CartContext";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -18,21 +19,25 @@ function AboutPage() {
             <div className="story-content">
               <h2>Hikayemiz</h2>
               <p>
-                Şahintarım, 2008 yılında Niğde'de küçük bir aile işletmesi
-                olarak kuruldu. Kurucumuz Şahin Bey'in tarıma olan tutkusu ve
-                kaliteli tohum arayışı, bugünkü Şahintarım'ın temellerini attı.
+                Şahintarım, 2008 yılında Niğde&apos;de küçük bir aile işletmesi
+                olarak kuruldu. Kurucumuz Şahin Bey&apos;in tarıma olan tutkusu
+                ve kaliteli tohum arayışı, bugünkü Şahintarım&apos;ın
+                temellerini attı.
               </p>
               <p>
                 15 yıl boyunca kesintisiz olarak büyüyen şirketimiz, bugün
-                Türkiye'nin dört bir yanındaki çiftçilere ve bahçe severlere
-                hizmet veriyor. Organik üretim prensiplerine bağlı kalarak,
-                doğaya saygılı bir yaklaşımla çalışmalarımızı sürdürüyoruz.
+                Türkiye&apos;nin dört bir yanındaki çiftçilere ve bahçe
+                severlere hizmet veriyor. Organik üretim prensiplerine bağlı
+                kalarak, doğaya saygılı bir yaklaşımla çalışmalarımızı
+                sürdürüyoruz.
               </p>
             </div>
             <div className="story-image">
-              <img
+              <Image
                 src="/images/company-history.jpg"
                 alt="Şahintarım Geçmişi"
+                width={500}
+                height={350}
                 style={{
                   width: "100%",
                   height: "350px",
@@ -55,8 +60,8 @@ function AboutPage() {
               </div>
               <h3>Misyonumuz</h3>
               <p>
-                Türkiye'nin her köşesindeki üreticilere en kaliteli, doğal ve
-                güvenilir tohumları ulaştırarak ülkemizin tarımsal üretimine
+                Türkiye&apos;nin her köşesindeki üreticilere en kaliteli, doğal
+                ve güvenilir tohumları ulaştırarak ülkemizin tarımsal üretimine
                 katkıda bulunmak ve sürdürülebilir tarımı desteklemek.
               </p>
             </div>
@@ -67,9 +72,9 @@ function AboutPage() {
               </div>
               <h3>Vizyonumuz</h3>
               <p>
-                Türkiye'nin en güvenilir tohum markası olmak ve uluslararası
-                pazarlarda da tanınan, kalite standartlarıyla öne çıkan bir
-                şirket haline gelmek.
+                Türkiye&apos;nin en güvenilir tohum markası olmak ve
+                uluslararası pazarlarda da tanınan, kalite standartlarıyla öne
+                çıkan bir şirket haline gelmek.
               </p>
             </div>
 
@@ -123,7 +128,12 @@ function AboutPage() {
           <div className="team-container">
             <div className="team-member">
               <div className="member-image">
-                <img src="/images/man1.jpg" alt="Şahin Bey - Kurucu" />
+                <Image
+                  src="/images/man1.jpg"
+                  alt="Şahin Bey - Kurucu"
+                  width={300}
+                  height={300}
+                />
               </div>
               <h4>Şahin Yılmaz</h4>
               <p className="position">Kurucu & Genel Müdür</p>
@@ -134,9 +144,11 @@ function AboutPage() {
 
             <div className="team-member">
               <div className="member-image">
-                <img
+                <Image
                   src="/images/woman.jpg"
                   alt="Ayşe Hanım - Kalite Kontrol"
+                  width={300}
+                  height={300}
                 />
               </div>
               <h4>Ayşe Yılmaz</h4>
@@ -148,7 +160,12 @@ function AboutPage() {
 
             <div className="team-member">
               <div className="member-image">
-                <img src="/images/man2.jpg" alt="Mehmet Bey - Satış" />
+                <Image
+                  src="/images/man2.jpg"
+                  alt="Mehmet Bey - Satış"
+                  width={300}
+                  height={300}
+                />
               </div>
               <h4>Mehmet Kaya</h4>
               <p className="position">Satış Müdürü</p>
@@ -187,7 +204,7 @@ function AboutPage() {
                 </div>
                 <div className="quality-item">
                   <i className="fas fa-check-circle"></i>
-                  <span>GDO'suz Doğal Tohum Üretimi</span>
+                  <span>GDO&apos;suz Doğal Tohum Üretimi</span>
                 </div>
                 <div className="quality-item">
                   <i className="fas fa-check-circle"></i>
@@ -196,9 +213,11 @@ function AboutPage() {
               </div>
             </div>
             <div className="quality-image">
-              <img
+              <Image
                 src="/images/quality-control.jpg"
                 alt="Kalite Kontrol"
+                width={500}
+                height={400}
                 style={{
                   width: "100%",
                   height: "400px",
@@ -223,9 +242,11 @@ function AboutPage() {
           <div className="facility-container">
             <div className="facility-item">
               <div className="facility-image">
-                <img
+                <Image
                   src="/images/production.jpg"
                   alt="Üretim Tesisi"
+                  width={400}
+                  height={200}
                   style={{
                     width: "100%",
                     height: "200px",
@@ -243,9 +264,11 @@ function AboutPage() {
 
             <div className="facility-item">
               <div className="facility-image">
-                <img
+                <Image
                   src="/images/storage.jpg"
                   alt="Depo"
+                  width={400}
+                  height={200}
                   style={{
                     width: "100%",
                     height: "200px",
@@ -260,9 +283,11 @@ function AboutPage() {
 
             <div className="facility-item">
               <div className="facility-image">
-                <img
+                <Image
                   src="/images/arge.jpg"
                   alt="Laboratuvar"
+                  width={400}
+                  height={200}
                   style={{
                     width: "100%",
                     height: "200px",
@@ -283,9 +308,11 @@ function AboutPage() {
         <div className="container">
           <div className="sustainability-container">
             <div className="sustainability-image">
-              <img
+              <Image
                 src="/images/sustainability.jpg"
                 alt="Sürdürülebilirlik"
+                width={500}
+                height={400}
                 style={{
                   width: "100%",
                   height: "400px",

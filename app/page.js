@@ -94,7 +94,7 @@ function HomePage() {
               <h3>Hızlı Teslimat</h3>
               <p>
                 Siparişleriniz en kısa sürede paketlenir ve kargoya verilir.
-                Türkiye'nin her yerine hızlı teslimat sağlıyoruz.
+                Türkiye&apos;nin her yerine hızlı teslimat sağlıyoruz.
               </p>
             </div>
             <div className="feature-box">
@@ -168,9 +168,9 @@ function HomePage() {
                 kaliteli tohumlar sunarak paylaşıyoruz.
               </p>
               <p>
-                Misyonumuz, Türkiye'nin dört bir yanındaki bahçe sahiplerine ve
-                çiftçilere en kaliteli tohumları sunarak ülkemizin tarımsal
-                üretimine katkıda bulunmaktır.
+                Misyonumuz, Türkiye&apos;nin dört bir yanındaki bahçe
+                sahiplerine ve çiftçilere en kaliteli tohumları sunarak
+                ülkemizin tarımsal üretimine katkıda bulunmaktır.
               </p>
               <p>
                 Tüm tohumlarımız özenle seçilir, test edilir ve en yüksek kalite

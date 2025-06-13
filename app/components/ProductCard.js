@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -24,7 +25,7 @@ const ProductCard = ({ product, addToCart }) => {
       <Link href={`/product/${product.id}`} className="product-img-link">
         <div className="product-img">
           {product.image ? (
-            <img
+            <Image
               src={product.image}
               alt={product.name}
               className="product-image"

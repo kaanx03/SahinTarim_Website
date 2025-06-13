@@ -286,8 +286,9 @@ function ContactPage() {
                   <strong>Kademeli indirim sistemi:</strong> 500 TL ve üzeri
                   siparişlerde %10, 1000 TL üzeri siparişlerde %15, 2500 TL
                   üzeri siparişlerde özel %20 indirim uygulanmaktadır. Çiftçi ve
-                  kooperatiflere yıllık anlaşma ile %25'e varan özel fiyatlar
-                  sunuyoruz. Mevsimlik kampanyalarımızı takip etmeyi unutmayın!
+                  kooperatiflere yıllık anlaşma ile %25&apos;e varan özel
+                  fiyatlar sunuyoruz. Mevsimlik kampanyalarımızı takip etmeyi
+                  unutmayın!
                 </p>
               </div>
             </div>

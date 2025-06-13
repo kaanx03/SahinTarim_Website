@@ -1,11 +1,34 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import ShoppingCart from "./ShoppingCart";
 
 const NavBar = ({ logo = "Şahintarım", links = [] }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // useCallback ile setupAnchorEventListeners'ı optimize et
+  const setupAnchorEventListeners = useCallback(() => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: "smooth",
+          });
+
+          if (isMobileMenuOpen) {
+            toggleMobileMenu();
+          }
+        }
+      });
+    });
+  }, [isMobileMenuOpen]); // isMobileMenuOpen'a bağımlı
 
   useEffect(() => {
     // Sadece sayfa içi bağlantılar için event listener
@@ -59,30 +82,7 @@ const NavBar = ({ logo = "Şahintarım", links = [] }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-
-  // Sadece sayfa içi bağlantılar için event listener
-  function setupAnchorEventListeners() {
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute("href");
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: "smooth",
-          });
-
-          if (isMobileMenuOpen) {
-            toggleMobileMenu();
-          }
-        }
-      });
-    });
-  }
+  }, [setupAnchorEventListeners]); // setupAnchorEventListeners dependency'si eklendi
 
   function toggleMobileMenu() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
