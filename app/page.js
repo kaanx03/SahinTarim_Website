@@ -1,6 +1,7 @@
+// app/page.js
 "use client";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartProvider, CartContext } from "./contexts/CartContext";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -12,6 +13,10 @@ import Link from "next/link";
 function HomePage() {
   // Context'ten sepet fonksiyonlarını al
   const { addToCart } = useContext(CartContext);
+
+  // Form state'leri
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formMessage, setFormMessage] = useState({ type: "", text: "" });
 
   // Ürün verisi
   const products = productsData;
@@ -34,30 +39,56 @@ function HomePage() {
     addToCart(product);
   };
 
-  function handleContactForm(e) {
+  // Çalışan form submit handler - Contact sayfasındaki ile aynı
+  async function handleContactForm(e) {
     e.preventDefault();
+    setIsSubmitting(true);
+    setFormMessage({ type: "", text: "" });
 
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const subject = e.target.subject.value;
-    const message = e.target.message.value;
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    };
 
-    // Success message
-    const successMessage = document.createElement("div");
-    successMessage.textContent =
-      "Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.";
-    successMessage.style.backgroundColor = "var(--primary-green)";
-    successMessage.style.color = "white";
-    successMessage.style.padding = "15px";
-    successMessage.style.borderRadius = "5px";
-    successMessage.style.marginTop = "15px";
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    e.target.reset();
-    e.target.appendChild(successMessage);
+      const data = await response.json();
 
-    setTimeout(() => {
-      successMessage.remove();
-    }, 5000);
+      if (response.ok) {
+        setFormMessage({
+          type: "success",
+          text: "Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.",
+        });
+        e.target.reset();
+      } else {
+        setFormMessage({
+          type: "error",
+          text: data.error || "Bir hata oluştu. Lütfen tekrar deneyiniz.",
+        });
+      }
+    } catch (error) {
+      console.error("Form gönderimi hatası:", error);
+      setFormMessage({
+        type: "error",
+        text: "Bağlantı hatası. Lütfen internet bağlantınızı kontrol ediniz.",
+      });
+    } finally {
+      setIsSubmitting(false);
+
+      // Mesajı 5 saniye sonra gizle
+      setTimeout(() => {
+        setFormMessage({ type: "", text: "" });
+      }, 5000);
+    }
   }
 
   return (
@@ -142,7 +173,7 @@ function HomePage() {
                   <button
                     className="add-to-cart"
                     onClick={(e) => {
-                      e.preventDefault(); // Tıklamanın bağlantıya gitmesini engelle
+                      e.preventDefault();
                       handleAddToCart(product);
                     }}
                   >
@@ -182,7 +213,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Contact Section - Yeniden Düzenlendi */}
+      {/* Contact Section - Tam Çalışan Versiyon */}
       <section className="contact" id="contact">
         <div className="container">
           <div className="section-title">
@@ -191,7 +222,7 @@ function HomePage() {
 
           {/* Üst Alan: Harita ve Form yanyana */}
           <div className="contact-top-container">
-            {/* Sadece Google Maps */}
+            {/* Google Maps */}
             <div className="contact-map">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50323.09314173468!2d34.67969545!3d37.9726175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1529e7e65b22ed61%3A0xe646b6c110f0ab6f!2zTmnEn2RlLCBOacSfZGUgTWVya2V6L05pxJ9kZQ!5e0!3m2!1str!2str!4v1747354769317!5m2!1str!2str&iwloc=off"
@@ -209,46 +240,80 @@ function HomePage() {
               ></iframe>
             </div>
 
-            {/* İletişim Formu */}
+            {/* İletişim Formu - Düzeltilmiş */}
             <div className="contact-form">
-              <form id="contact-form" onSubmit={handleContactForm}>
+              <form onSubmit={handleContactForm}>
                 <div className="form-group">
-                  <label htmlFor="name">Adınız</label>
+                  <label htmlFor="homepage-name">Adınız</label>
                   <input
                     type="text"
-                    id="name"
+                    id="homepage-name"
+                    name="name"
                     className="form-control"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email">E-posta Adresiniz</label>
+                  <label htmlFor="homepage-email">E-posta Adresiniz</label>
                   <input
                     type="email"
-                    id="email"
+                    id="homepage-email"
+                    name="email"
                     className="form-control"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="subject">Konu</label>
+                  <label htmlFor="homepage-subject">Konu</label>
                   <input
                     type="text"
-                    id="subject"
+                    id="homepage-subject"
+                    name="subject"
                     className="form-control"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="message">Mesajınız</label>
+                  <label htmlFor="homepage-message">Mesajınız</label>
                   <textarea
-                    id="message"
+                    id="homepage-message"
+                    name="message"
                     className="form-control"
                     required
+                    disabled={isSubmitting}
                   ></textarea>
                 </div>
-                <button type="submit" className="submit-btn">
-                  Gönder
+
+                {/* Form Mesajı */}
+                {formMessage.text && (
+                  <div className={`form-message ${formMessage.type}`}>
+                    <i
+                      className={`fas ${
+                        formMessage.type === "success"
+                          ? "fa-check-circle"
+                          : "fa-exclamation-triangle"
+                      }`}
+                    ></i>
+                    {formMessage.text}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  className={`submit-btn ${isSubmitting ? "submitting" : ""}`}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <i className="fas fa-spinner fa-spin"></i>
+                      Gönderiliyor...
+                    </>
+                  ) : (
+                    "Gönder"
+                  )}
                 </button>
               </form>
             </div>
@@ -290,7 +355,7 @@ function HomePage() {
 
               <div className="contact-info-item">
                 <a
-                  href="mailto:info@sahintarim.com"
+                  href="mailto:sahintarimcilik@gmail.com"
                   className="contact-info-icon-link"
                 >
                   <div className="contact-info-icon">
@@ -299,7 +364,7 @@ function HomePage() {
                 </a>
                 <div className="contact-info-text">
                   <h4>E-posta</h4>
-                  <p>info@sahintarim.com</p>
+                  <p>sahintarimcilik@gmail.com</p>
                 </div>
               </div>
 
@@ -320,7 +385,6 @@ function HomePage() {
       </section>
 
       {/* WhatsApp Float Button */}
-
       <a
         href="https://wa.me/+905303993246"
         className="whatsapp-float"
@@ -336,7 +400,7 @@ function HomePage() {
   );
 }
 
-// Wrapper Component: HomePage bileşenini CartProvider ile sarıyoruz
+// Wrapper Component
 export default function Home() {
   return (
     <CartProvider>

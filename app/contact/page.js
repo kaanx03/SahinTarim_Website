@@ -1,12 +1,16 @@
+// app/contact/page.js
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CartProvider } from "../contexts/CartContext";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
 // İletişim sayfa bileşeni
 function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formMessage, setFormMessage] = useState({ type: "", text: "" });
+
   // FAQ Accordion functionality
   useEffect(() => {
     const faqItems = document.querySelectorAll(".faq-item");
@@ -48,28 +52,54 @@ function ContactPage() {
   }, []);
 
   // Form submit handler
-  function handleContactForm(e) {
+  async function handleContactForm(e) {
     e.preventDefault();
+    setIsSubmitting(true);
+    setFormMessage({ type: "", text: "" });
 
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const subject = e.target.subject.value;
-    const message = e.target.message.value;
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    };
 
-    // Success message
-    const successMessage = document.createElement("div");
-    successMessage.className = "success-message";
-    successMessage.innerHTML = `
-      <i class="fas fa-check-circle"></i>
-      Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
-    `;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    e.target.reset();
-    e.target.appendChild(successMessage);
+      const data = await response.json();
 
-    setTimeout(() => {
-      successMessage.remove();
-    }, 5000);
+      if (response.ok) {
+        setFormMessage({
+          type: "success",
+          text: "Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.",
+        });
+        e.target.reset();
+      } else {
+        setFormMessage({
+          type: "error",
+          text: data.error || "Bir hata oluştu. Lütfen tekrar deneyiniz.",
+        });
+      }
+    } catch (error) {
+      setFormMessage({
+        type: "error",
+        text: "Bağlantı hatası. Lütfen internet bağlantınızı kontrol ediniz.",
+      });
+    } finally {
+      setIsSubmitting(false);
+
+      // Mesajı 5 saniye sonra gizle
+      setTimeout(() => {
+        setFormMessage({ type: "", text: "" });
+      }, 5000);
+    }
   }
 
   return (
@@ -89,7 +119,7 @@ function ContactPage() {
             {/* Sadece Google Maps */}
             <div className="contact-map">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50323.09314173468!2d34.67969545!3d37.9726175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1529e7e65b22ed61%3A0xe646b6c110f0ab6f!2zTmnEn2RlLCBOacSfZGUgTWVya2V6L05pxJ9kZQ!5e0!3m2!1str!2str!4v1747354769317!5m2!1str!2str&iwloc=off"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50323.09314173468!2d34.67969545!3d37.9726175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1529e7e65b22ed61%3A0xe646b6c110f0ab6f!2zTmnEn2RlLCBOacSfZGUgTWVya2V6L05pxZ9kZQ!5e0!3m2!1str!2str!4v1747354769317!5m2!1str!2str&iwloc=off"
                 width="100%"
                 height="450"
                 style={{
@@ -112,8 +142,10 @@ function ContactPage() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     className="form-control"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="form-group">
@@ -121,8 +153,10 @@ function ContactPage() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     className="form-control"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="form-group">
@@ -130,20 +164,50 @@ function ContactPage() {
                   <input
                     type="text"
                     id="subject"
+                    name="subject"
                     className="form-control"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Mesajınız</label>
                   <textarea
                     id="message"
+                    name="message"
                     className="form-control"
                     required
+                    disabled={isSubmitting}
                   ></textarea>
                 </div>
-                <button type="submit" className="submit-btn">
-                  Gönder
+
+                {/* Form Mesajı */}
+                {formMessage.text && (
+                  <div className={`form-message ${formMessage.type}`}>
+                    <i
+                      className={`fas ${
+                        formMessage.type === "success"
+                          ? "fa-check-circle"
+                          : "fa-exclamation-triangle"
+                      }`}
+                    ></i>
+                    {formMessage.text}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  className={`submit-btn ${isSubmitting ? "submitting" : ""}`}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <i className="fas fa-spinner fa-spin"></i>
+                      Gönderiliyor...
+                    </>
+                  ) : (
+                    "Gönder"
+                  )}
                 </button>
               </form>
             </div>
@@ -185,7 +249,7 @@ function ContactPage() {
 
               <div className="contact-info-item">
                 <a
-                  href="mailto:info@sahintarim.com"
+                  href="mailto:info@şahintarım.com"
                   className="contact-info-icon-link"
                 >
                   <div className="contact-info-icon">
@@ -194,7 +258,7 @@ function ContactPage() {
                 </a>
                 <div className="contact-info-text">
                   <h4>E-posta</h4>
-                  <p>info@sahintarim.com</p>
+                  <p>info@şahintarım.com</p>
                 </div>
               </div>
 
