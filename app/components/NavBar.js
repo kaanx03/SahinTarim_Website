@@ -22,8 +22,9 @@ const NavBar = ({ logo = "Şahintarım", links = [] }) => {
             behavior: "smooth",
           });
 
+          // Mobil menü açıksa kapat ve scroll'u geri aç
           if (isMobileMenuOpen) {
-            toggleMobileMenu();
+            closeMobileMenu();
           }
         }
       });
@@ -81,12 +82,30 @@ const NavBar = ({ logo = "Şahintarım", links = [] }) => {
     // Temizleme fonksiyonu
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      // Component unmount olduğunda scroll'u geri aç
+      document.body.style.overflow = "";
     };
   }, [setupAnchorEventListeners]); // setupAnchorEventListeners dependency'si eklendi
 
+  // Mobil menüyü açma/kapama
   function toggleMobileMenu() {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-    document.body.style.overflow = !isMobileMenuOpen ? "hidden" : "";
+    if (isMobileMenuOpen) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  }
+
+  // Mobil menüyü açma
+  function openMobileMenu() {
+    setIsMobileMenuOpen(true);
+    document.body.style.overflow = "hidden";
+  }
+
+  // Mobil menüyü kapatma - SCROLL'U GERİ AÇ
+  function closeMobileMenu() {
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = ""; // veya "auto"
   }
 
   // YENİ: Varsayılan linkler - sayfa yönlendirmeleri için düzeltildi
@@ -114,7 +133,17 @@ const NavBar = ({ logo = "Şahintarım", links = [] }) => {
     // Diğer tüm bağlantılar için Next.js Link bileşenini kullan
     return (
       <li key={index}>
-        <Link href={link.href}>{link.text}</Link>
+        <Link
+          href={link.href}
+          onClick={() => {
+            // Sayfa yönlendirmesi olduğunda mobil menüyü kapat
+            if (isMobileMenuOpen) {
+              closeMobileMenu();
+            }
+          }}
+        >
+          {link.text}
+        </Link>
       </li>
     );
   };
@@ -136,7 +165,15 @@ const NavBar = ({ logo = "Şahintarım", links = [] }) => {
 
           {/* Logo (solda kalacak) */}
           <div className="logo">
-            <Link href="/">
+            <Link
+              href="/"
+              onClick={() => {
+                // Logo tıklandığında da mobil menüyü kapat
+                if (isMobileMenuOpen) {
+                  closeMobileMenu();
+                }
+              }}
+            >
               <i className="fas fa-seedling"></i> {logo}
             </Link>
           </div>
