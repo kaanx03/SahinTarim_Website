@@ -31,6 +31,36 @@ export default function ShoppingCart() {
     };
   }, [isCartOpen]);
 
+  // WhatsApp mesajı oluşturma fonksiyonu
+  const generateWhatsAppMessage = () => {
+    if (cart.length === 0) {
+      return "Merhaba, ürünleriniz hakkında bilgi almak istiyorum.";
+    }
+
+    let message = "Merhaba, aşağıdaki ürünlerden sipariş vermek istiyorum:\n\n";
+
+    cart.forEach((item, index) => {
+      message += `${index + 1}. ${item.name || "Ürün"} - ${
+        item.quantity
+      } adet (₺${item.price.toFixed(2)})\n`;
+    });
+
+    message += `\nToplam: ₺${totalPrice.toFixed(2)}\n\n`;
+    message += "Yardımcı olabilir misiniz?";
+
+    return encodeURIComponent(message);
+  };
+
+  // WhatsApp'a yönlendirme fonksiyonu
+  const handleWhatsAppCheckout = () => {
+    const message = generateWhatsAppMessage();
+    const whatsappUrl = `https://wa.me/+905332234645?text=${message}`;
+    window.open(whatsappUrl, "_blank");
+
+    // Sepeti kapatabilirsiniz (isteğe bağlı)
+    toggleCart();
+  };
+
   return (
     <>
       <div
@@ -98,8 +128,13 @@ export default function ShoppingCart() {
         <div className="cart-total">
           <div className="cart-total-title">Toplam</div>
           <div className="cart-total-price">₺{totalPrice.toFixed(2)}</div>
-          <button className="checkout-btn" onClick={handleCheckout}>
-            Ödeme Yap
+          <button
+            className="checkout-btn"
+            onClick={handleWhatsAppCheckout}
+            disabled={cart.length === 0}
+          >
+            <i className="fab fa-whatsapp" style={{ marginRight: "8px" }}></i>
+            WhatsApp ile Sipariş Ver
           </button>
         </div>
       </div>
@@ -107,6 +142,16 @@ export default function ShoppingCart() {
         <i className="fas fa-shopping-cart"></i>
         <span className="cart-count">{totalItems}</span>
       </div>
+
+      {/* WhatsApp Float Button */}
+      <a
+        href={`https://wa.me/+905332234645?text=${generateWhatsAppMessage()}`}
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i className="fab fa-whatsapp"></i>
+      </a>
     </>
   );
 }
