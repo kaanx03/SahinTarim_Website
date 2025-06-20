@@ -43,7 +43,9 @@ export default function ProductDetail() {
         "/images/apples/redapple9.jpg",
         "/images/apples/redapple10.jpg",
         "/images/apples/redapple11.jpg",
-        // redapples.jpg, redapples2.jpg, redappletree.jpg kaldırıldı - 404 hatası veriyordu
+        "/images/apples/redapple12.jpg",
+        "/images/apples/redapple13.jpg",
+        "/images/apples/redapple14.jpg",
       ];
     } else {
       // Diğer ürünler için standart yapı
