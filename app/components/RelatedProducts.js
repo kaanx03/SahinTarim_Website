@@ -8,22 +8,23 @@ import { motion } from "framer-motion";
 const RelatedProducts = ({ currentProductId }) => {
   const { addToCart } = useContext(CartContext);
 
-  // Tüm ürünler listesi - products.json'dan gelen veriler
+  // Güncellenmiş ürünler listesi - elma ürünleri eklendi
   const allProducts = [
     {
       id: 1,
-      name: "Domates Tohumu (Cherry)",
+      name: "Yeşil Elma Tohumu (Granny Smith)",
       description:
-        "Özel seçilmiş Cherry domates tohumları. Yüksek verimli ve lezzetli.",
-      price: 15.99,
-      image: "/images/tomato.jpg",
+        "Ekşi ve çıtır yeşil elma tohumları. Serin iklimler için idealdir.",
+      price: 24.99,
+      image: "/images/apples/greenapple.jpg",
     },
     {
       id: 2,
-      name: "Salatalık Tohumu (Turşuluk)",
-      description: "Turşuluk salatalık tohumları. Dayanıklı ve bol mahsullü.",
-      price: 12.5,
-      image: "/images/cucumber.jpg",
+      name: "Kırmızı Elma Tohumu (Red Delicious)",
+      description:
+        "Tatlı ve sulu kırmızı elma tohumları. Geniş iklim aralığında yetişir.",
+      price: 26.5,
+      image: "/images/apples/redapple1.jpg",
     },
     {
       id: 3,

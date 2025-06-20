@@ -1,58 +1,76 @@
 [
   {
     "id": 1,
-    "name": "Domates Tohumu (Cherry)",
-    "description": "Özel seçilmiş Cherry domates tohumları. Yüksek verimli ve lezzetli.",
-    "price": 15.99,
-    "image": "/images/tomato.jpg"
+    "name": "Yeşil Elma Tohumu (Granny Smith)",
+    "description": "Ekşi ve çıtır yeşil elma tohumları. Serin iklimler için idealdir.",
+    "price": 24.99,
+    "image": "/images/apples/greenapple.jpg",
+    "extendedDescription": "Granny Smith yeşil elma çeşidi, dünyaca ünlü ekşi tadı ve çıtır dokusuyla bilinir. Bu tohumlar yüksek kaliteli ağaçlar yetiştirmenizi sağlar.",
+    "category": "meyve",
+    "isNew": true
   },
   {
     "id": 2,
-    "name": "Salatalık Tohumu (Turşuluk)",
-    "description": "Turşuluk salatalık tohumları. Dayanıklı ve bol mahsullü.",
-    "price": 12.5,
-    "image": "/images/cucumber.jpg"
+    "name": "Kırmızı Elma Tohumu (Red Delicious)",
+    "description": "Tatlı ve sulu kırmızı elma tohumları. Geniş iklim aralığında yetişir.",
+    "price": 26.5,
+    "image": "/images/apples/redapple1.jpg",
+    "extendedDescription": "Red Delicious kırmızı elma çeşidi, tatlı tadı ve güzel görünümüyle en popüler elma türlerinden biridir. Uzun süre saklanabilir.",
+    "category": "meyve",
+    "isNew": true
   },
   {
     "id": 3,
     "name": "Biber Tohumu (Tatlı)",
     "description": "Tatlı biber tohumları. Yüksek A ve C vitamini içerir.",
     "price": 14.75,
-    "image": "/images/pepper.jpg"
+    "image": "/images/pepper.jpg",
+    "extendedDescription": "Tatlı biber tohumları ile vitamin deposu sebzeler yetiştirin. Hem çiğ hem de pişmiş olarak tüketilebilir.",
+    "category": "sebze"
   },
   {
     "id": 4,
     "name": "Maydanoz Tohumu",
     "description": "Kıvırcık maydanoz tohumları. Kolay yetiştirilebilir ve aromatik.",
     "price": 8.99,
-    "image": "/images/parsley.jpg"
+    "image": "/images/parsley.jpg",
+    "extendedDescription": "Kıvırcık maydanoz, mutfaklarda vazgeçilmez bir baharattır. Vitamin ve mineral açısından zengindir.",
+    "category": "baharat"
   },
   {
     "id": 5,
     "name": "Karpuz Tohumu",
     "description": "Tatlı ve sulu karpuz tohumları. Sıcak iklimler için idealdir.",
     "price": 18.5,
-    "image": "/images/watermelon.jpg"
+    "image": "/images/watermelon.jpg",
+    "extendedDescription": "Yaz aylarının vazgeçilmezi karpuz. Bu tohumlar ile büyük ve tatlı karpuzlar yetiştirebilirsiniz.",
+    "category": "meyve"
   },
   {
     "id": 6,
     "name": "Çilek Tohumu",
     "description": "Aromalı ve tatlı çilek tohumları. Saksıda da yetiştirilebilir.",
     "price": 22.99,
-    "image": "/images/strawberry.jpg"
+    "image": "/images/strawberry.jpg",
+    "extendedDescription": "Çilek tohumları ile evde bile çilek yetiştirebilirsiniz. Vitamin C deposu olan çilekler çok lezzetlidir.",
+    "category": "meyve"
   },
   {
     "id": 7,
     "name": "Lavanta Tohumu",
     "description": "Aromatik ve dekoratif lavanta tohumları. Balkonlar için idealdir.",
     "price": 19.99,
-    "image": "/images/lavender.jpg"
+    "image": "/images/lavender.jpg",
+    "extendedDescription": "Lavanta hem güzel kokusu hem de mor çiçekleriyle bahçenizi süsler. Doğal böcek kovucu özelliği vardır.",
+    "category": "çiçek"
   },
   {
     "id": 8,
     "name": "Nane Tohumu",
     "description": "Ferahlatıcı nane tohumları. Mutfak bahçeniz için mükemmel.",
     "price": 9.5,
-    "image": "/images/mint.jpg"
+    "image": "/images/mint.jpg",
+    "extendedDescription": "Nane, çay ve yemeklerde kullanılan aromatik bir bitkidir. Çok hızlı büyür ve kolay yetişir.",
+    "category": "baharat"
   }
 ]
