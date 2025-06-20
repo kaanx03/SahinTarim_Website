@@ -58,13 +58,10 @@ export default function RootLayout({ children }) {
           property="og:description"
           content="Niğde'nin en kaliteli tohum ve fidan satış mağazası. Elma fidanları, sebze tohumları ve organik tohum çeşitleri."
         />
-        <meta property="og:url" content="https://sahintarim.com" />
-        <meta
-          property="og:image"
-          content="https://sahintarim.com/images/og-image.jpg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://şahintarım.com" />
+        <meta property="og:image" content="https://şahintarım.com/logo.ico" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
         <meta property="og:locale" content="tr_TR" />
         <meta property="og:site_name" content="Şahintarım" />
 
@@ -117,7 +114,7 @@ export default function RootLayout({ children }) {
               },
               openingHours: "Mo-Fr 09:00-18:00",
               priceRange: "₺₺",
-              image: "https://sahintarim.com/images/og-image.jpg",
+              image: "https://şahintarım.com/logo.ico",
               sameAs: ["https://wa.me/905332234645"],
             }),
           }}
