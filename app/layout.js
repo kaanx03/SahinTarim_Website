@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./styles/globals.css";
 import "./styles/components.css";
 import "./styles/home.css";
@@ -129,7 +130,10 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
