@@ -20,19 +20,109 @@ export default function RootLayout({ children }) {
 
     return () => {
       // Temizleme
-      document.body.removeChild(fontAwesomeScript);
+      if (document.body.contains(fontAwesomeScript)) {
+        document.body.removeChild(fontAwesomeScript);
+      }
     };
   }, []);
 
   return (
     <html lang="tr">
       <head>
-        <title>Şahintarım - Kaliteli Tohum ve Fideler</title>
+        {/* Temel Meta Tags */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* SEO Meta Tags */}
+        <title>
+          Şahintarım - Kaliteli Tohum, Fidan ve Elma Fidanları | Niğde
+        </title>
         <meta
           name="description"
-          content="Şahintarım - Organik ve kaliteli tohumların adresi"
+          content="Niğde'nin en kaliteli tohum ve fidan satış mağazası. Elma fidanları, sebze tohumları, meyve ağacı fidanları ve organik tohum çeşitleri. Hızlı teslimat, kalite garantisi."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="keywords"
+          content="tohum, fidan, elma fidanı, sebze tohumu, meyve ağacı, organik tohum, Niğde, tarım, bahçe, çiçek tohumu"
+        />
+        <meta name="author" content="Şahintarım" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Şahintarım - Kaliteli Tohum ve Fideler"
+        />
+        <meta
+          property="og:description"
+          content="Niğde'nin en kaliteli tohum ve fidan satış mağazası. Elma fidanları, sebze tohumları ve organik tohum çeşitleri."
+        />
+        <meta property="og:url" content="https://sahintarim.com" />
+        <meta
+          property="og:image"
+          content="https://sahintarim.com/images/og-image.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="tr_TR" />
+        <meta property="og:site_name" content="Şahintarım" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Şahintarım - Kaliteli Tohum ve Fideler"
+        />
+        <meta
+          name="twitter:description"
+          content="Niğde'nin en kaliteli tohum ve fidan satış mağazası. Elma fidanları, sebze tohumları ve organik tohum çeşitleri."
+        />
+        <meta
+          name="twitter:image"
+          content="https://sahintarim.com/images/og-image.jpg"
+        />
+
+        {/* WhatsApp Önizleme */}
+        <meta
+          property="og:image:alt"
+          content="Şahintarım - Kaliteli Tohum ve Fideler"
+        />
+
+        {/* Favicon ve İkonlar */}
+        <link rel="icon" href="/logo.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/logo.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/logo.ico" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://sahintarim.com" />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Şahintarım",
+              description:
+                "Kaliteli tohum, fidan ve elma fidanları satış mağazası",
+              url: "https://sahintarim.com",
+              telephone: "+905332234645",
+              email: "sahintarimcilik@gmail.com",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Niğde",
+                addressCountry: "TR",
+              },
+              openingHours: "Mo-Fr 09:00-18:00",
+              priceRange: "₺₺",
+              image: "https://sahintarim.com/images/og-image.jpg",
+              sameAs: ["https://wa.me/905332234645"],
+            }),
+          }}
+        />
+
         {/* Font Awesome (Alternatif CDN) */}
         <link
           rel="stylesheet"
