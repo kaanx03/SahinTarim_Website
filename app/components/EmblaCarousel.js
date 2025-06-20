@@ -10,37 +10,47 @@ const EmblaCarousel = () => {
     {
       id: 1,
       image: "/images/carousel1.jpg",
-      title: "Kaliteli Tohumlarla Bahçenizi Yeşillendirin",
+      title: "Premium Tohum Çeşitleri",
+      mobileTitle: "Premium Tohum",
       description:
-        "Şahintarım, en kaliteli bitki tohumlarını sunmaktadır. İster hobi bahçeniz için, ister profesyonel tarım için tohumlarımız size yüksek verim sağlar.",
+        "Niğde'nin verimli topraklarına uygun, yüksek kaliteli tohum çeşitlerimizle bereketli hasatlar elde edin.",
+      mobileDescription: "Kaliteli tohumlarla bereketli hasat.",
     },
     {
       id: 2,
       image: "/images/carousel2.jpg",
-      title: "Organik Sebze Tohumları",
+      title: "Elma Ağacı Fidanları",
+      mobileTitle: "Elma Fidanları",
       description:
-        "Pestisit içermeyen, organik sebze tohumlarımızla sağlıklı ürünler yetiştirin.",
+        "Niğde'nin ünlü elma çeşitleri için özel seçilmiş fidan ve tohum koleksiyonumuz.",
+      mobileDescription: "Niğde elması için özel fidanlar.",
     },
     {
       id: 3,
       image: "/images/carousel3.jpg",
-      title: "Çiçek Tohumları",
+      title: "Sebze Tohum Çeşitleri",
+      mobileTitle: "Sebze Tohumları",
       description:
-        "Balkonunuzu, bahçenizi renklendirmek için çeşitli çiçek tohumlarımızı deneyin.",
+        "Patates, soğan, havuç ve diğer sebze tohumlarıyla bahçenizi şenlendirin.",
+      mobileDescription: "Taze sebzeler için kaliteli tohum.",
     },
     {
       id: 4,
       image: "/images/carousel4.jpg",
-      title: "Fide & Fidan Çeşitleri",
+      title: "Meyve Ağacı Fidanları",
+      mobileTitle: "Meyve Fidanları",
       description:
-        "Hazır fide ve fidanlarımızla zaman kazanın, hızlı hasata ulaşın.",
+        "Elma, armut, vişne ve kiraz fidanlarıyla meyve bahçenizi kurun.",
+      mobileDescription: "Meyve bahçesi için fidan çeşitleri.",
     },
     {
       id: 5,
-      image: "/images/carousel5.jpg", // Düzeltildi: courasel5 -> carousel5
-      title: "Tıbbi ve Aromatik Bitkiler",
+      image: "/images/carousel5.jpg",
+      title: "Çiçek & Süs Bitkileri",
+      mobileTitle: "Çiçek Tohumları",
       description:
-        "Şifalı bitkileri kendi bahçenizde yetiştirmek için özel tohum koleksiyonumuz.",
+        "Balkon ve bahçenizi güzelleştiren çiçek tohum ve fide çeşitlerimiz.",
+      mobileDescription: "Renkli çiçekler için tohum çeşitleri.",
     },
   ];
 
@@ -69,6 +79,21 @@ const EmblaCarousel = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
+
+  // State for responsive title and description
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if screen is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Önceki slayta gitme işlevi
   const scrollPrev = useCallback(() => {
@@ -121,8 +146,10 @@ const EmblaCarousel = () => {
               >
                 <div className="container">
                   <div className="hero-content">
-                    <h1>{slide.title}</h1>
-                    <p>{slide.description}</p>
+                    <h1>{isMobile ? slide.mobileTitle : slide.title}</h1>
+                    <p>
+                      {isMobile ? slide.mobileDescription : slide.description}
+                    </p>
                     <a href="#products" className="btn btn-primary">
                       Ürünleri Keşfet
                     </a>

@@ -694,7 +694,7 @@ export default function ProductDetail() {
 
       {/* WhatsApp Float Button */}
       <a
-        href="https://wa.me/+905303993246"
+        href="https://wa.me/+905332234645"
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"
