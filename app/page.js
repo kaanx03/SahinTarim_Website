@@ -112,10 +112,10 @@ function HomePage() {
               <div className="feature-icon">
                 <i className="fas fa-leaf"></i>
               </div>
-              <h3>Organik Tohumlar</h3>
+              <h3>Organik Fidanlar</h3>
               <p>
-                Tüm tohumlarımız organik olarak yetiştirilmiş bitkilerden elde
-                edilmiştir. GDO içermeyen doğal tohumlar.
+                Tüm fidanlarımız organik olarak yetiştirilmiş bitkilerden elde
+                edilmiştir. GDO içermeyen doğal fidanlar.
               </p>
             </div>
             <div className="feature-box">
@@ -134,8 +134,8 @@ function HomePage() {
               </div>
               <h3>Kalite Garantisi</h3>
               <p>
-                Her bir tohum paketi dikkatle kontrol edilir ve en yüksek
-                çimlenme oranına sahip tohumlar seçilir.
+                Her bir fidan paketi dikkatle kontrol edilir ve en yüksek
+                kaliteye sahip fidanlar seçilir.
               </p>
             </div>
           </div>
@@ -196,15 +196,15 @@ function HomePage() {
               <p>
                 Şahintarım, 15 yıllık tarım deneyimine sahip bir aile
                 işletmesidir. Toprağa ve doğaya olan sevgimizi, sizlerle
-                kaliteli tohumlar sunarak paylaşıyoruz.
+                kaliteli fidanlar sunarak paylaşıyoruz.
               </p>
               <p>
                 Misyonumuz, Türkiye&apos;nin dört bir yanındaki bahçe
-                sahiplerine ve çiftçilere en kaliteli tohumları sunarak
+                sahiplerine ve çiftçilere en kaliteli fidanları sunarak
                 ülkemizin tarımsal üretimine katkıda bulunmaktır.
               </p>
               <p>
-                Tüm tohumlarımız özenle seçilir, test edilir ve en yüksek kalite
+                Tüm fidanlarımız özenle seçilir, test edilir ve en yüksek kalite
                 standartlarına uygun olarak paketlenir. Şahintarım olarak,
                 müşteri memnuniyetini her zaman ön planda tutuyoruz.
               </p>
@@ -222,10 +222,10 @@ function HomePage() {
 
           {/* Üst Alan: Harita ve Form yanyana */}
           <div className="contact-top-container">
-            {/* Google Maps */}
+            {/* Google Maps - Ovacık Kasabası Niğde */}
             <div className="contact-map">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50323.09314173468!2d34.67969545!3d37.9726175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1529e7e65b22ed61%3A0xe646b6c110f0ab6f!2zTmnEn2RlLCBOacSfZGUgTWVya2V6L05pxJ9kZQ!5e0!3m2!1str!2str!4v1747354769317!5m2!1str!2str&iwloc=off"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12326.397024725798!2d34.7890!3d37.9450!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1529f2c5e5c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sOvac%C4%B1k%2C%20Ni%C4%9Fde%20Merkez%2FNi%C4%9Fde!5e0!3m2!1str!2str!4v1647354769317!5m2!1str!2str&iwloc=off"
                 width="100%"
                 height="450"
                 style={{
@@ -236,7 +236,7 @@ function HomePage() {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Şahintarım Konum - Google Maps"
+                title="Şahintarım Konum - Ovacık Kasabası, Niğde"
               ></iframe>
             </div>
 
@@ -326,7 +326,7 @@ function HomePage() {
             <div className="contact-info-grid">
               <div className="contact-info-item">
                 <a
-                  href="https://www.google.com/maps?q=Niğde,+Türkiye"
+                  href="https://www.google.com/maps?q=Ovac%C4%B1k+Kasabas%C4%B1+Ni%C4%9Fde"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-info-icon-link"
@@ -337,25 +337,37 @@ function HomePage() {
                 </a>
                 <div className="contact-info-text">
                   <h4>Adres</h4>
-                  <p>Niğde, Türkiye</p>
+                  <p>Ovacık Kasabası, Niğde</p>
                 </div>
               </div>
 
               <div className="contact-info-item">
-                <a href="tel:+905303993246" className="contact-info-icon-link">
+                <a href="tel:+905386799995" className="contact-info-icon-link">
                   <div className="contact-info-icon">
                     <i className="fas fa-phone"></i>
                   </div>
                 </a>
                 <div className="contact-info-text">
                   <h4>Telefon</h4>
-                  <p>+90 530 399 3246</p>
+                  <p>0538 679 99 95</p>
+                </div>
+              </div>
+
+              <div className="contact-info-item">
+                <a href="tel:+905332234645" className="contact-info-icon-link">
+                  <div className="contact-info-icon">
+                    <i className="fas fa-phone"></i>
+                  </div>
+                </a>
+                <div className="contact-info-text">
+                  <h4>Telefon 2</h4>
+                  <p>0533 223 46 45</p>
                 </div>
               </div>
 
               <div className="contact-info-item">
                 <a
-                  href="mailto:sahintarimcilik@gmail.com"
+                  href="mailto:sahin.tarim@outlook.com"
                   className="contact-info-icon-link"
                 >
                   <div className="contact-info-icon">
@@ -364,19 +376,7 @@ function HomePage() {
                 </a>
                 <div className="contact-info-text">
                   <h4>E-posta</h4>
-                  <p>sahintarimcilik@gmail.com</p>
-                </div>
-              </div>
-
-              <div className="contact-info-item">
-                <a href="fax:+903882334567" className="contact-info-icon-link">
-                  <div className="contact-info-icon">
-                    <i className="fas fa-fax"></i>
-                  </div>
-                </a>
-                <div className="contact-info-text">
-                  <h4>Fax</h4>
-                  <p>+90 388 233 4567</p>
+                  <p>sahin.tarim@outlook.com</p>
                 </div>
               </div>
             </div>
@@ -386,7 +386,7 @@ function HomePage() {
 
       {/* WhatsApp Float Button */}
       <a
-        href="https://wa.me/+905332234645"
+        href="https://wa.me/+905386799995?text=Merhaba, elma fidanları hakkında bilgi almak istiyorum."
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"

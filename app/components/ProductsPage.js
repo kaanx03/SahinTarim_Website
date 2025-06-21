@@ -35,7 +35,40 @@ export default function ProductsPage() {
 
     // Apply category filter
     if (activeFilter !== "all") {
-      result = result.filter((product) => product.category === activeFilter);
+      switch (activeFilter) {
+        case "erken-hasat":
+          result = result.filter(
+            (product) =>
+              product.harvestTime && product.harvestTime.includes("Ağustos")
+          );
+          break;
+        case "ana-hasat":
+          result = result.filter(
+            (product) =>
+              product.harvestTime &&
+              (product.harvestTime.includes("Eylül") ||
+                product.harvestTime.includes("Ekim"))
+          );
+          break;
+        case "uzun-saklama":
+          result = result.filter((product) => {
+            const extendedDescription = (
+              product.extendedDescription || ""
+            ).toLowerCase();
+            return (
+              extendedDescription.includes("6 ay") ||
+              extendedDescription.includes("8-9 ay") ||
+              extendedDescription.includes("uzun") ||
+              extendedDescription.includes("saklama")
+            );
+          });
+          break;
+        default:
+          result = result.filter(
+            (product) => product.category === activeFilter
+          );
+          break;
+      }
     }
 
     // Apply search filter
@@ -44,7 +77,9 @@ export default function ProductsPage() {
       result = result.filter(
         (product) =>
           product.name.toLowerCase().includes(search) ||
-          product.description.toLowerCase().includes(search)
+          product.description.toLowerCase().includes(search) ||
+          (product.extendedDescription &&
+            product.extendedDescription.toLowerCase().includes(search))
       );
     }
 
@@ -63,18 +98,16 @@ export default function ProductsPage() {
         result.sort((a, b) => b.name.localeCompare(a.name));
         break;
       default:
-        // Keep default order
         break;
     }
 
     setFilteredProducts(result);
-    setCurrentPage(1); // Reset to first page when filters change
+    setCurrentPage(1);
   }, [activeFilter, sortBy, searchTerm, products]);
 
   // Handle search submit
   const handleSearch = (e) => {
     e.preventDefault();
-    // Search is already handled in the effect above
   };
 
   // Get current products for pagination
@@ -91,7 +124,6 @@ export default function ProductsPage() {
   // Page change handler
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    // Scroll to top of product list
     document
       .querySelector(".products-section")
       .scrollIntoView({ behavior: "smooth" });
@@ -101,7 +133,6 @@ export default function ProductsPage() {
   const renderPagination = () => {
     const pages = [];
 
-    // Previous button
     pages.push(
       <button
         key="prev"
@@ -113,7 +144,6 @@ export default function ProductsPage() {
       </button>
     );
 
-    // Page numbers
     for (let i = 1; i <= totalPages; i++) {
       pages.push(
         <button
@@ -126,7 +156,6 @@ export default function ProductsPage() {
       );
     }
 
-    // Next button
     pages.push(
       <button
         key="next"
@@ -170,10 +199,11 @@ export default function ProductsPage() {
     <main className="products-page">
       <NavBar />
 
-      {/* Page Header - Sadece Başlık */}
+      {/* Page Header */}
       <section className="page-header">
         <div className="container">
-          <h1>Tohum Ürünlerimiz</h1>
+          <h1>Niğde Elma Fidanları</h1>
+          <p>Yüksek kaliteli, sertifikalı elma fidanları</p>
         </div>
       </section>
 
@@ -186,39 +216,31 @@ export default function ProductsPage() {
               className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
               onClick={() => setActiveFilter("all")}
             >
-              Tümü
+              Tüm Çeşitler ({products.length})
             </button>
             <button
               className={`filter-btn ${
-                activeFilter === "vegetable" ? "active" : ""
+                activeFilter === "erken-hasat" ? "active" : ""
               }`}
-              onClick={() => setActiveFilter("vegetable")}
+              onClick={() => setActiveFilter("erken-hasat")}
             >
-              Sebze Tohumları
+              Erken Hasat (Ağustos)
             </button>
             <button
               className={`filter-btn ${
-                activeFilter === "fruit" ? "active" : ""
+                activeFilter === "ana-hasat" ? "active" : ""
               }`}
-              onClick={() => setActiveFilter("fruit")}
+              onClick={() => setActiveFilter("ana-hasat")}
             >
-              Meyve Tohumları
+              Ana Hasat (Eylül-Ekim)
             </button>
             <button
               className={`filter-btn ${
-                activeFilter === "flower" ? "active" : ""
+                activeFilter === "uzun-saklama" ? "active" : ""
               }`}
-              onClick={() => setActiveFilter("flower")}
+              onClick={() => setActiveFilter("uzun-saklama")}
             >
-              Çiçek Tohumları
-            </button>
-            <button
-              className={`filter-btn ${
-                activeFilter === "herb" ? "active" : ""
-              }`}
-              onClick={() => setActiveFilter("herb")}
-            >
-              Aromatik Bitkiler
+              Uzun Saklama
             </button>
           </div>
 
@@ -229,7 +251,7 @@ export default function ProductsPage() {
                 <input
                   type="text"
                   className="search-input"
-                  placeholder="Ürün ara..."
+                  placeholder="Elma çeşidi ara..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -253,20 +275,25 @@ export default function ProductsPage() {
                 <option value="name-desc">İsim: Z-A</option>
               </select>
             </div>
+
+            {/* Sonuç sayısı */}
+            <div className="results-count">
+              <span>{filteredProducts.length} ürün bulundu</span>
+            </div>
           </div>
 
           {/* Products Grid */}
           {loading ? (
             <div className="products-loading">
               <div className="loading-spinner"></div>
-              <p>Ürünler yükleniyor...</p>
+              <p>Elma fidanları yükleniyor...</p>
             </div>
           ) : filteredProducts.length === 0 ? (
             <div className="no-products">
               <h3>Ürün Bulunamadı</h3>
               <p>
-                Arama kriterlerinize uygun ürün bulunamadı. Lütfen farklı bir
-                arama terimi deneyin veya filtreleri temizleyin.
+                Arama kriterlerinize uygun elma fidanı bulunamadı. Lütfen farklı
+                bir arama terimi deneyin veya filtreleri temizleyin.
               </p>
             </div>
           ) : (
@@ -285,19 +312,17 @@ export default function ProductsPage() {
           )}
 
           {/* Pagination */}
-          {!loading && filteredProducts.length > 0 && (
+          {!loading && filteredProducts.length > 0 && totalPages > 1 && (
             <div className="pagination">{renderPagination()}</div>
           )}
         </div>
       </section>
 
-      {/* Featured Products or Newsletter Section could go here */}
-
       <Footer />
 
       {/* WhatsApp Float Button */}
       <a
-        href="https://wa.me/+905332234645?text=Merhaba, ürünleriniz hakkında bilgi almak istiyorum."
+        href="https://wa.me/+905386799995?text=Merhaba, elma fidanları hakkında bilgi almak istiyorum."
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"

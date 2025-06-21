@@ -1,76 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Yeşil Elma Tohumu (Granny Smith)",
-    "description": "Ekşi ve çıtır yeşil elma tohumları. Serin iklimler için idealdir.",
-    "price": 24.99,
+    "name": "Niğde Granny Smith Elma Fidanı",
+    "description": "Niğde'nin yüksek rakımında yetişen, dünyaca ünlü Granny Smith çeşidi. Ekşi ve çıtır dokusuyla pasta ve turta yapımının vazgeçilmezi.",
+    "price": 185.0,
     "image": "/images/apples/greenapple.jpg",
-    "extendedDescription": "Granny Smith yeşil elma çeşidi, dünyaca ünlü ekşi tadı ve çıtır dokusuyla bilinir. Bu tohumlar yüksek kaliteli ağaçlar yetiştirmenizi sağlar.",
-    "category": "meyve",
-    "isNew": true
+    "extendedDescription": "Niğde'nin 1200m yükseklikteki elma bahçelerinde yetiştirilen Granny Smith fidanları, özel iklim koşulları sayesinde eşsiz bir tada sahiptir. Soğuk kış şartlarına mükemmel dayanıklılık gösteren bu çeşit, -25°C'ye kadar soğuğa dayanabilir. Niğde'nin volcans toprak yapısı ve yüksek rakımı, elmanın çıtırlığını ve ekşi tadını artırır. Ticari değeri yüksek olan bu çeşit, 3-4 yıl sonra meyve vermeye başlar ve yılda ortalama 80-120 kg verim sağlar.",
+    "category": "elma",
+    "isNew": true,
+    "hasMultipleImages": false,
+    "origin": "Niğde",
+    "harvestTime": "Ekim",
+    "resistance": "Çok Yüksek",
+    "productivity": "Yüksek"
   },
   {
     "id": 2,
-    "name": "Kırmızı Elma Tohumu (Red Delicious)",
-    "description": "Tatlı ve sulu kırmızı elma tohumları. Geniş iklim aralığında yetişir.",
-    "price": 26.5,
+    "name": "Niğde Starking Elma Fidanı",
+    "description": "Niğde'nin meşhur kırmızı elması! Sulu, sert ve lezzetli. Türkiye'nin en kaliteli Starking elma fidanı üretim merkezi Niğde'den.",
+    "price": 195.0,
     "image": "/images/apples/redapple1.jpg",
-    "extendedDescription": "Red Delicious kırmızı elma çeşidi, tatlı tadı ve güzel görünümüyle en popüler elma türlerinden biridir. Uzun süre saklanabilir.",
-    "category": "meyve",
-    "isNew": true
+    "extendedDescription": "Niğde Starking elması, Türkiye elma üretiminin kalbi olan Niğde'nin gururu! 1300m rakımdaki elma bahçelerinde, kar sularıyla sulanan bu eşsiz çeşit, Anadolu'nun en tatlı ve sulu elmasını üretir. Volkanik toprak yapısı sayesinde mineral açısından zengin olan Niğde Starking'i, 6 ay boyunca taze kalabilir. Yüksek kalitede olan bu fidanlar, dikimden 2-3 yıl sonra meyve vermeye başlar ve 15-20 yıl boyunca verim verir. Özellikle çocuklar ve yaşlılar için ideal olan bu çeşit, doğal şeker oranı %14-16 arasındadır.",
+    "category": "elma",
+    "isNew": true,
+    "hasMultipleImages": true,
+    "origin": "Niğde",
+    "harvestTime": "Eylül-Ekim",
+    "resistance": "Yüksek",
+    "productivity": "Çok Yüksek"
   },
   {
     "id": 3,
-    "name": "Biber Tohumu (Tatlı)",
-    "description": "Tatlı biber tohumları. Yüksek A ve C vitamini içerir.",
-    "price": 14.75,
-    "image": "/images/pepper.jpg",
-    "extendedDescription": "Tatlı biber tohumları ile vitamin deposu sebzeler yetiştirin. Hem çiğ hem de pişmiş olarak tüketilebilir.",
-    "category": "sebze"
+    "name": "Niğde Gala Elma Fidanı",
+    "description": "Niğde'nin erken hasat şampiyonu! Ağustos ayında hasadı yapılan, tatlı ve aromatik Gala çeşidi. Sofraların yıldızı.",
+    "price": 175.0,
+    "image": "/images/apples/gala1.jpg",
+    "extendedDescription": "Niğde Gala elması, erken hasat döneminin en değerli çeşididir. Ağustos ayının sonlarında hasadı yapılan bu elma, piyasaya ilk çıkan taze elma olma özelliğini taşır. Niğde'nin günlük sıcaklık farkı (gece-gündüz) Gala elmasının rengini ve aromasını mükemmelleştirir. Kompakt yapısı ve hoş kokusu ile tanınan bu çeşit, özellikle çocuk beslenmesinde önemli yer tutar. Fidanlar 2 yaşından itibaren meyve vermeye başlar ve düzenli bakımla 25 yıl boyunca verimli kalır. Niğde'nin kar suyu ile sulanan bu fidanlar, organik tarıma çok uygundu ve pestisit kullanımını minimize eder.",
+    "category": "elma",
+    "isNew": false,
+    "hasMultipleImages": true,
+    "origin": "Niğde",
+    "harvestTime": "Ağustos",
+    "resistance": "Orta",
+    "productivity": "Yüksek"
   },
   {
     "id": 4,
-    "name": "Maydanoz Tohumu",
-    "description": "Kıvırcık maydanoz tohumları. Kolay yetiştirilebilir ve aromatik.",
-    "price": 8.99,
-    "image": "/images/parsley.jpg",
-    "extendedDescription": "Kıvırcık maydanoz, mutfaklarda vazgeçilmez bir baharattır. Vitamin ve mineral açısından zengindir.",
-    "category": "baharat"
-  },
-  {
-    "id": 5,
-    "name": "Karpuz Tohumu",
-    "description": "Tatlı ve sulu karpuz tohumları. Sıcak iklimler için idealdir.",
-    "price": 18.5,
-    "image": "/images/watermelon.jpg",
-    "extendedDescription": "Yaz aylarının vazgeçilmezi karpuz. Bu tohumlar ile büyük ve tatlı karpuzlar yetiştirebilirsiniz.",
-    "category": "meyve"
-  },
-  {
-    "id": 6,
-    "name": "Çilek Tohumu",
-    "description": "Aromalı ve tatlı çilek tohumları. Saksıda da yetiştirilebilir.",
-    "price": 22.99,
-    "image": "/images/strawberry.jpg",
-    "extendedDescription": "Çilek tohumları ile evde bile çilek yetiştirebilirsiniz. Vitamin C deposu olan çilekler çok lezzetlidir.",
-    "category": "meyve"
-  },
-  {
-    "id": 7,
-    "name": "Lavanta Tohumu",
-    "description": "Aromatik ve dekoratif lavanta tohumları. Balkonlar için idealdir.",
-    "price": 19.99,
-    "image": "/images/lavender.jpg",
-    "extendedDescription": "Lavanta hem güzel kokusu hem de mor çiçekleriyle bahçenizi süsler. Doğal böcek kovucu özelliği vardır.",
-    "category": "çiçek"
-  },
-  {
-    "id": 8,
-    "name": "Nane Tohumu",
-    "description": "Ferahlatıcı nane tohumları. Mutfak bahçeniz için mükemmel.",
-    "price": 9.5,
-    "image": "/images/mint.jpg",
-    "extendedDescription": "Nane, çay ve yemeklerde kullanılan aromatik bir bitkidir. Çok hızlı büyür ve kolay yetişir.",
-    "category": "baharat"
+    "name": "Niğde Golden Delicious Elma Fidanı",
+    "description": "Niğde'nin altın elması! Bal tadında aroması ve uzun saklama süresi ile ünlü Golden Delicious. Yüksek kalitede fidan.",
+    "price": 190.0,
+    "image": "/images/apples/golden.jpg",
+    "extendedDescription": "Niğde Golden Delicious, 'Altın Elma' olarak bilinen bu çeşit, Niğde'nin yüksek rakımlı bölgelerinde mükemmel kaliteye ulaşır. Bal tadındaki aroması ve altın sarısı rengiyle tanınan bu elma, 8-9 ay boyunca bozulmadan saklanabilir. Niğde'nin kontinental iklimi ve volcans toprak yapısı, Golden'ın karakteristik tadını ve aromasını geliştiriyor. Bu fidanlar özellikle kurak bölgelere adapte olmuş olup, az suyla yüksek verim sağlar. Yüksek kalite potansiyeli olan bu çeşit, Avrupa standartlarında kaliteye sahiptir. Dikimden 3 yıl sonra meyve vermeye başlar ve 20-25 yıl boyunca istikrarlı üretim yapar.",
+    "category": "elma",
+    "isNew": false,
+    "hasMultipleImages": false,
+    "origin": "Niğde",
+    "harvestTime": "Ekim",
+    "resistance": "Çok Yüksek",
+    "productivity": "Yüksek"
   }
 ]

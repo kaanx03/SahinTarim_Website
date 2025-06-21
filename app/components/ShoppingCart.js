@@ -54,7 +54,7 @@ export default function ShoppingCart() {
   // WhatsApp'a yönlendirme fonksiyonu
   const handleWhatsAppCheckout = () => {
     const message = generateWhatsAppMessage();
-    const whatsappUrl = `https://wa.me/+905332234645?text=${message}`;
+    const whatsappUrl = `https://wa.me/+905386799995?text=${message}`;
     window.open(whatsappUrl, "_blank");
 
     // Sepeti kapatabilirsiniz (isteğe bağlı)
@@ -145,7 +145,7 @@ export default function ShoppingCart() {
 
       {/* WhatsApp Float Button */}
       <a
-        href={`https://wa.me/+905332234645?text=${generateWhatsAppMessage()}`}
+        href={`https://wa.me/+905386799995?text=${generateWhatsAppMessage()}`}
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"

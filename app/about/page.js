@@ -21,7 +21,7 @@ function AboutPage() {
               <p>
                 Şahintarım, 2008 yılında Niğde&apos;de küçük bir aile işletmesi
                 olarak kuruldu. Kurucumuz Şahin Bey&apos;in tarıma olan tutkusu
-                ve kaliteli tohum arayışı, bugünkü Şahintarım&apos;ın
+                ve kaliteli fidan arayışı, bugünkü Şahintarım&apos;ın
                 temellerini attı.
               </p>
               <p>
@@ -61,7 +61,7 @@ function AboutPage() {
               <h3>Misyonumuz</h3>
               <p>
                 Türkiye&apos;nin her köşesindeki üreticilere en kaliteli, doğal
-                ve güvenilir tohumları ulaştırarak ülkemizin tarımsal üretimine
+                ve güvenilir fidanları ulaştırarak ülkemizin tarımsal üretimine
                 katkıda bulunmak ve sürdürülebilir tarımı desteklemek.
               </p>
             </div>
@@ -72,7 +72,7 @@ function AboutPage() {
               </div>
               <h3>Vizyonumuz</h3>
               <p>
-                Türkiye&apos;nin en güvenilir tohum markası olmak ve
+                Türkiye&apos;nin en güvenilir fidan markası olmak ve
                 uluslararası pazarlarda da tanınan, kalite standartlarıyla öne
                 çıkan bir şirket haline gelmek.
               </p>
@@ -103,11 +103,11 @@ function AboutPage() {
               <div className="stat-text">Yıllık deneyim</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">500+</div>
-              <div className="stat-text">Tohum çeşidi</div>
+              <div className="stat-number">50+</div>
+              <div className="stat-text">Fidan çeşidi</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">10,000+</div>
+              <div className="stat-number">5,000+</div>
               <div className="stat-text">Mutlu müşteri</div>
             </div>
             <div className="stat-item">
@@ -154,7 +154,7 @@ function AboutPage() {
               <h4>Ayşe Yılmaz</h4>
               <p className="position">Kalite Kontrol Müdürü</p>
               <p className="description">
-                Ziraat mühendisi, tohum kalitesi ve test süreçleri uzmanı
+                Ziraat mühendisi, fidan kalitesi ve test süreçleri uzmanı
               </p>
             </div>
 
@@ -204,7 +204,7 @@ function AboutPage() {
                 </div>
                 <div className="quality-item">
                   <i className="fas fa-check-circle"></i>
-                  <span>GDO&apos;suz Doğal Tohum Üretimi</span>
+                  <span>GDO&apos;suz Doğal Fidan Üretimi</span>
                 </div>
                 <div className="quality-item">
                   <i className="fas fa-check-circle"></i>
@@ -257,7 +257,7 @@ function AboutPage() {
               </div>
               <h4>Üretim Tesisi</h4>
               <p>
-                5000 m² kapalı alanda modern makinelerle tohum işleme ve
+                5000 m² kapalı alanda modern makinelerle fidan işleme ve
                 paketleme
               </p>
             </div>
@@ -297,7 +297,7 @@ function AboutPage() {
                 />
               </div>
               <h4>Ar-Ge Laboratuvarı</h4>
-              <p>Kalite kontrol ve tohum geliştirme çalışmaları</p>
+              <p>Kalite kontrol ve fidan geliştirme çalışmaları</p>
             </div>
           </div>
         </div>
@@ -350,7 +350,7 @@ function AboutPage() {
 
       {/* WhatsApp Float Button - EKLENDİ */}
       <a
-        href="https://wa.me/+905303993246"
+        href="https://wa.me/+905386799995?text=Merhaba, elma fidanları hakkında bilgi almak istiyorum."
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"

@@ -22,15 +22,16 @@ export default function ProductDetail() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Ürün görselleri (her ürün için farklı açılardan resimler)
-  const getProductImages = (productId) => {
+  const getProductImages = (productId, hasMultipleImages) => {
     const baseImage = product?.image || "/images/placeholder.jpg";
 
-    // Elma ürünleri için özel klasör yapısı
-    if (productId === 1) {
-      // Yeşil Elma - tek görsel
-      return ["/images/apples/greenapple.jpg"];
-    } else if (productId === 2) {
-      // Kırmızı Elma - sadece mevcut olanlar
+    // Sadece birden fazla görseli olan ürünler için ek resimler döndür
+    if (!hasMultipleImages) {
+      return [baseImage];
+    }
+
+    // Kırmızı Elma için
+    if (productId === 2) {
       return [
         "/images/apples/redapple1.jpg",
         "/images/apples/redapple2.jpg",
@@ -47,8 +48,13 @@ export default function ProductDetail() {
         "/images/apples/redapple13.jpg",
         "/images/apples/redapple14.jpg",
       ];
-    } else {
-      // Diğer ürünler için standart yapı
+    }
+    // Gala Elma için
+    else if (productId === 3) {
+      return ["/images/apples/gala1.jpg", "/images/apples/gala2.jpg"];
+    }
+    // Diğer çoklu görsel ürünler için varsayılan yapı
+    else {
       return [
         baseImage,
         baseImage.replace(".jpg", "2.jpg"),
@@ -694,7 +700,7 @@ export default function ProductDetail() {
 
       {/* WhatsApp Float Button */}
       <a
-        href="https://wa.me/+905332234645"
+        href="https://wa.me/+905386799995"
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"

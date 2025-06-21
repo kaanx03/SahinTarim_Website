@@ -116,10 +116,10 @@ function ContactPage() {
 
           {/* Üst Alan: Harita ve Form yanyana */}
           <div className="contact-top-container">
-            {/* Sadece Google Maps */}
+            {/* Google Maps - Ovacık Kasabası Niğde */}
             <div className="contact-map">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50323.09314173468!2d34.67969545!3d37.9726175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1529e7e65b22ed61%3A0xe646b6c110f0ab6f!2zTmnEn2RlLCBOacSfZGUgTWVya2V6L05pxZ9kZQ!5e0!3m2!1str!2str!4v1747354769317!5m2!1str!2str&iwloc=off"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12326.397024725798!2d34.7890!3d37.9450!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1529f2c5e5c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sOvac%C4%B1k%2C%20Ni%C4%9Fde%20Merkez%2FNi%C4%9Fde!5e0!3m2!1str!2str!4v1647354769317!5m2!1str!2str&iwloc=off"
                 width="100%"
                 height="450"
                 style={{
@@ -130,7 +130,7 @@ function ContactPage() {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Şahintarım Konum - Google Maps"
+                title="Şahintarım Konum - Ovacık Kasabası, Niğde"
               ></iframe>
             </div>
 
@@ -220,7 +220,7 @@ function ContactPage() {
             <div className="contact-info-grid">
               <div className="contact-info-item">
                 <a
-                  href="https://www.google.com/maps?q=Niğde,+Türkiye"
+                  href="https://www.google.com/maps?q=Ovac%C4%B1k+Kasabas%C4%B1+Ni%C4%9Fde"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-info-icon-link"
@@ -231,25 +231,37 @@ function ContactPage() {
                 </a>
                 <div className="contact-info-text">
                   <h4>Adres</h4>
-                  <p>Niğde, Türkiye</p>
+                  <p>Ovacık Kasabası, Niğde</p>
                 </div>
               </div>
 
               <div className="contact-info-item">
-                <a href="tel:+905303993246" className="contact-info-icon-link">
+                <a href="tel:+905386799995" className="contact-info-icon-link">
                   <div className="contact-info-icon">
                     <i className="fas fa-phone"></i>
                   </div>
                 </a>
                 <div className="contact-info-text">
                   <h4>Telefon</h4>
-                  <p>+90 530 399 3246</p>
+                  <p>0538 679 99 95</p>
+                </div>
+              </div>
+
+              <div className="contact-info-item">
+                <a href="tel:+905332234645" className="contact-info-icon-link">
+                  <div className="contact-info-icon">
+                    <i className="fas fa-phone"></i>
+                  </div>
+                </a>
+                <div className="contact-info-text">
+                  <h4>Telefon 2</h4>
+                  <p>0533 223 46 45</p>
                 </div>
               </div>
 
               <div className="contact-info-item">
                 <a
-                  href="mailto:info@şahintarım.com"
+                  href="mailto:sahin.tarim@outlook.com"
                   className="contact-info-icon-link"
                 >
                   <div className="contact-info-icon">
@@ -258,19 +270,7 @@ function ContactPage() {
                 </a>
                 <div className="contact-info-text">
                   <h4>E-posta</h4>
-                  <p>info@şahintarım.com</p>
-                </div>
-              </div>
-
-              <div className="contact-info-item">
-                <a href="fax:+903882334567" className="contact-info-icon-link">
-                  <div className="contact-info-icon">
-                    <i className="fas fa-fax"></i>
-                  </div>
-                </a>
-                <div className="contact-info-text">
-                  <h4>Fax</h4>
-                  <p>+90 388 233 4567</p>
+                  <p>sahin.tarim@outlook.com</p>
                 </div>
               </div>
             </div>
@@ -308,16 +308,16 @@ function ContactPage() {
 
             <div className="faq-item">
               <div className="faq-question">
-                <h4>Tohumların çimlenme garantisi var mı?</h4>
+                <h4>Fidanların kalite garantisi var mı?</h4>
                 <i className="fas fa-plus"></i>
               </div>
               <div className="faq-answer">
                 <p>
-                  <strong>%98+ çimlenme garantisi:</strong> Tüm tohumlarımız
-                  laboratuvar testlerinden geçmiş olup %98+ çimlenme oranı
-                  garantisi ile satılmaktadır. Çimlenme sorunu yaşarsanız fatura
+                  <strong>%98+ kalite garantisi:</strong> Tüm fidanlarımız
+                  laboratuvar testlerinden geçmiş olup %98+ kalite oranı
+                  garantisi ile satılmaktadır. Kalite sorunu yaşarsanız fatura
                   ve fotoğraf ile birlikte 30 gün içinde tarafımıza
-                  başvurduğunuzda ücretsiz değişim yapıyoruz. Ayrıca doğru ekim
+                  başvurduğunuzda ücretsiz değişim yapıyoruz. Ayrıca doğru dikim
                   tekniği için uzman desteğimizden faydalanabilirsiniz.
                 </p>
               </div>
@@ -380,7 +380,7 @@ function ContactPage() {
               </div>
               <div className="faq-answer">
                 <p>
-                  <strong>Optimum saklama koşulları:</strong> Tohumlar serin
+                  <strong>Optimum saklama koşulları:</strong> Fidanlar serin
                   (15-20°C), kuru (%50-60 nem) ve karanlık yerde saklanmalıdır.
                   Gübreler nemden uzak, kapalı ambalajında muhafaza edilmeli.
                   Organik ürünler için özel saklama kılavuzumuz mevcuttur. Tüm
@@ -398,7 +398,7 @@ function ContactPage() {
                 <p>
                   <strong>Uzman teknik destek:</strong> Ziraat mühendisi ve
                   deneyimli tarım uzmanlarımızdan 7/24 ücretsiz teknik destek
-                  alabilirsiniz. Ekim, sulama, gübreleme, hastalık teşhisi ve
+                  alabilirsiniz. Dikim, sulama, gübreleme, hastalık teşhisi ve
                   verim artırıcı konularda profesyonel danışmanlık hizmeti
                   sunuyoruz. WhatsApp, telefon veya e-posta ile ulaşabilirsiniz.
                 </p>
@@ -415,7 +415,7 @@ function ContactPage() {
                   <strong>Koşulsuz iade garantisi:</strong> Ürün hatası
                   durumunda 30 gün içinde koşulsuz iade kabul edilir.
                   Kullanılmamış ürünlerde orijinal ambalajında iade mümkündür.
-                  Çimlenme sorunu yaşanan tohumlarda %100 ücretsiz değişim
+                  Kalite sorunu yaşanan fidanlarda %100 ücretsiz değişim
                   yapılır. İade kargo masrafları tarafımızdan karşılanır.
                 </p>
               </div>
@@ -424,9 +424,9 @@ function ContactPage() {
         </div>
       </section>
 
-      {/* WhatsApp Float Button */}
+      {/* WhatsApp Float Button - 1. telefon numarasına yönlendirme */}
       <a
-        href="https://wa.me/+905303993246"
+        href="https://wa.me/+905386799995?text=Merhaba, elma fidanları hakkında bilgi almak istiyorum."
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"

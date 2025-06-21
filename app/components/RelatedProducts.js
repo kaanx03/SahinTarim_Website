@@ -4,80 +4,15 @@ import { CartContext } from "../contexts/CartContext";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import productsData from "../data/products.json";
 
 const RelatedProducts = ({ currentProductId }) => {
   const { addToCart } = useContext(CartContext);
 
-  // Güncellenmiş ürünler listesi - elma ürünleri eklendi
-  const allProducts = [
-    {
-      id: 1,
-      name: "Yeşil Elma Tohumu (Granny Smith)",
-      description:
-        "Ekşi ve çıtır yeşil elma tohumları. Serin iklimler için idealdir.",
-      price: 24.99,
-      image: "/images/apples/greenapple.jpg",
-    },
-    {
-      id: 2,
-      name: "Kırmızı Elma Tohumu (Red Delicious)",
-      description:
-        "Tatlı ve sulu kırmızı elma tohumları. Geniş iklim aralığında yetişir.",
-      price: 26.5,
-      image: "/images/apples/redapple1.jpg",
-    },
-    {
-      id: 3,
-      name: "Biber Tohumu (Tatlı)",
-      description: "Tatlı biber tohumları. Yüksek A ve C vitamini içerir.",
-      price: 14.75,
-      image: "/images/pepper.jpg",
-    },
-    {
-      id: 4,
-      name: "Maydanoz Tohumu",
-      description:
-        "Kıvırcık maydanoz tohumları. Kolay yetiştirilebilir ve aromatik.",
-      price: 8.99,
-      image: "/images/parsley.jpg",
-    },
-    {
-      id: 5,
-      name: "Karpuz Tohumu",
-      description:
-        "Tatlı ve sulu karpuz tohumları. Sıcak iklimler için idealdir.",
-      price: 18.5,
-      image: "/images/watermelon.jpg",
-    },
-    {
-      id: 6,
-      name: "Çilek Tohumu",
-      description:
-        "Aromalı ve tatlı çilek tohumları. Saksıda da yetiştirilebilir.",
-      price: 22.99,
-      image: "/images/strawberry.jpg",
-    },
-    {
-      id: 7,
-      name: "Lavanta Tohumu",
-      description:
-        "Aromatik ve dekoratif lavanta tohumları. Balkonlar için idealdir.",
-      price: 19.99,
-      image: "/images/lavender.jpg",
-    },
-    {
-      id: 8,
-      name: "Nane Tohumu",
-      description: "Ferahlatıcı nane tohumları. Mutfak bahçeniz için mükemmel.",
-      price: 9.5,
-      image: "/images/mint.jpg",
-    },
-  ];
-
-  // Mevcut ürün hariç diğer ürünlerden 4 tanesini seç
-  const relatedProducts = allProducts
+  // products.json'dan veriyi çek ve mevcut ürün hariç diğer ürünlerden 3 tanesini seç
+  const relatedProducts = productsData
     .filter((product) => product.id !== currentProductId)
-    .slice(0, 4);
+    .slice(0, 3);
 
   // Animasyon varyantları
   const cardVariants = {
