@@ -11,7 +11,8 @@ yarn dev
 # or
 pnpm dev
 # or
-bun dev
+bun dev<img width="669" height="197" alt="image" src="https://github.com/user-attachments/assets/6c103ea9-7b24-4bc8-9816-1641a696c3da" />
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
