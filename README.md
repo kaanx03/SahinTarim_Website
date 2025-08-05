@@ -1,1 +1,3 @@
-<img width="669" height="197" alt="image" src="https://github.com/user-attachments/assets/94d38855-c918-4cd6-ada4-5546e5717ae6" />
+<img width="1903" height="943" alt="image" src="https://github.com/user-attachments/assets/f2e9210a-4af8-4b9b-a3be-60328e3c4484" />
+
+www.şahintarım.com
