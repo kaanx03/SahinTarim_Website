@@ -1,9 +1,9 @@
-// app/sitemap.js
+// app/sitemap.js -
 import fs from "fs";
 import path from "path";
 
 export default function sitemap() {
-  const baseUrl = "https://sahintarim.com";
+  const baseUrl = "https://şahintarım.com";
 
   // products.json dosyasını güvenli şekilde oku
   let products = [];
