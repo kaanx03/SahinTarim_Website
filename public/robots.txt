@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# Ana sayfalar - Google'ın taramasına izin ver
+Allow: /
+Allow: /products
+Allow: /about
+Allow: /contact
+Allow: /product/
+
+# Statik dosyalar - Google'ın taramasına izin ver
+Allow: /images/
+Allow: /favicons/
+
+# Engellenen dizinler - Google'ın taramamasını istediğimiz
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Sitemap konumu - Google'a site haritamızın yerini söylüyoruz
+Sitemap: https://sahintarim.com/sitemap.xml
+
+# Gecikme ayarı - Google botunun saygılı davranması için
+Crawl-delay: 1
+
+# Özel bot ayarları
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

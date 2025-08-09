@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./styles/globals.css";
 import "./styles/components.css";
@@ -11,89 +8,165 @@ import "./styles/page.css";
 import "./styles/about.css";
 import "./styles/contact.css";
 
+export const metadata = {
+  title: {
+    default:
+      "Şahintarım - Kaliteli Tohum, Fidan ve Elma Fidanları | Niğde Tarım Ürünleri",
+    template: "%s | Şahintarım",
+  },
+  description:
+    "Niğde'nin en güvenilir tarım ürünleri mağazası Şahintarım. Kaliteli elma fidanları, sebze tohumları, meyve ağacı fidanları ve organik tohum çeşitleri. 25+ yıl deneyim, hızlı teslimat, kalite garantisi.",
+  keywords: [
+    "tohum satışı",
+    "fidan satışı",
+    "elma fidanı",
+    "sebze tohumu",
+    "meyve ağacı fidanı",
+    "organik tohum",
+    "Niğde tohum",
+    "tarım ürünleri",
+    "bahçe malzemeleri",
+    "çiçek tohumu",
+  ],
+  authors: [{ name: "Şahintarım Tarım Ürünleri" }],
+  creator: "Şahintarım",
+  publisher: "Şahintarım",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://sahintarim.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Şahintarım - Kaliteli Tohum, Fidan ve Elma Fidanları | Niğde",
+    description:
+      "Niğde'nin en güvenilir tarım ürünleri mağazası. 25+ yıl deneyimle kaliteli tohum ve fidan satışı. Hızlı teslimat ve kalite garantisi.",
+    url: "https://sahintarim.com",
+    siteName: "Şahintarım Tarım Ürünleri",
+    images: [
+      {
+        url: "/images/og-sahintarim.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Şahintarım - Kaliteli Tohum ve Fideler",
+      },
+    ],
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Şahintarım - Kaliteli Tohum, Fidan ve Elma Fidanları",
+    description:
+      "Niğde'nin en güvenilir tarım ürünleri mağazası. Kaliteli tohum ve fidan satışı.",
+    images: ["/images/og-sahintarim.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicons/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/favicons/apple-icon-57x57.png",
+        sizes: "57x57",
+        type: "image/png",
+      },
+      {
+        url: "/favicons/apple-icon-60x60.png",
+        sizes: "60x60",
+        type: "image/png",
+      },
+      {
+        url: "/favicons/apple-icon-72x72.png",
+        sizes: "72x72",
+        type: "image/png",
+      },
+      {
+        url: "/favicons/apple-icon-76x76.png",
+        sizes: "76x76",
+        type: "image/png",
+      },
+      {
+        url: "/favicons/apple-icon-114x114.png",
+        sizes: "114x114",
+        type: "image/png",
+      },
+      {
+        url: "/favicons/apple-icon-120x120.png",
+        sizes: "120x120",
+        type: "image/png",
+      },
+      {
+        url: "/favicons/apple-icon-144x144.png",
+        sizes: "144x144",
+        type: "image/png",
+      },
+      {
+        url: "/favicons/apple-icon-152x152.png",
+        sizes: "152x152",
+        type: "image/png",
+      },
+      {
+        url: "/favicons/apple-icon-180x180.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    other: [
+      {
+        rel: "icon",
+        url: "/favicons/android-icon-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+    ],
+  },
+  manifest: "/manifest.json",
+  other: {
+    "msapplication-TileColor": "#2E7D32",
+    "msapplication-TileImage": "/favicons/ms-icon-144x144.png",
+    "theme-color": "#2E7D32",
+    "geo.region": "TR-51",
+    "geo.placename": "Niğde",
+    "geo.position": "37.9667;34.6833",
+    ICBM: "37.9667, 34.6833",
+    language: "Turkish",
+    "content-language": "tr",
+    rating: "general",
+    distribution: "global",
+    "revisit-after": "7 days",
+  },
+};
+
 export default function RootLayout({ children }) {
-  // Font Awesome CDN eklemek için
-  useEffect(() => {
-    const fontAwesomeScript = document.createElement("script");
-    fontAwesomeScript.src = "https://kit.fontawesome.com/a076d05399.js";
-    fontAwesomeScript.crossOrigin = "anonymous";
-    document.body.appendChild(fontAwesomeScript);
-
-    return () => {
-      // Temizleme
-      if (document.body.contains(fontAwesomeScript)) {
-        document.body.removeChild(fontAwesomeScript);
-      }
-    };
-  }, []);
-
   return (
     <html lang="tr">
       <head>
-        {/* Temel Meta Tags */}
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* SEO Meta Tags */}
-        <title>
-          Şahintarım - Kaliteli Tohum, Fidan ve Elma Fidanları | Niğde
-        </title>
-        <meta
-          name="description"
-          content="Niğde'nin en kaliteli tohum ve fidan satış mağazası. Elma fidanları, sebze tohumları, meyve ağacı fidanları ve organik tohum çeşitleri. Hızlı teslimat, kalite garantisi."
+        {/* External stylesheets */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
         />
-        <meta
-          name="keywords"
-          content="tohum, fidan, elma fidanı, sebze tohumu, meyve ağacı, organik tohum, Niğde, tarım, bahçe, çiçek tohumu"
-        />
-        <meta name="author" content="Şahintarım" />
-        <meta name="robots" content="index, follow" />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Şahintarım - Kaliteli Tohum ve Fideler"
-        />
-        <meta
-          property="og:description"
-          content="Niğde'nin en kaliteli tohum ve fidan satış mağazası. Elma fidanları, sebze tohumları ve organik tohum çeşitleri."
-        />
-        <meta property="og:url" content="https://şahintarım.com" />
-        <meta property="og:image" content="https://şahintarım.com/logo.ico" />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
-        <meta property="og:locale" content="tr_TR" />
-        <meta property="og:site_name" content="Şahintarım" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Şahintarım - Kaliteli Tohum ve Fideler"
-        />
-        <meta
-          name="twitter:description"
-          content="Niğde'nin en kaliteli tohum ve fidan satış mağazası. Elma fidanları, sebze tohumları ve organik tohum çeşitleri."
-        />
-        <meta
-          name="twitter:image"
-          content="https://sahintarim.com/images/og-image.jpg"
-        />
-
-        {/* WhatsApp Önizleme */}
-        <meta
-          property="og:image:alt"
-          content="Şahintarım - Kaliteli Tohum ve Fideler"
-        />
-
-        {/* Favicon ve İkonlar */}
-        <link rel="icon" href="/logo.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="/logo.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/logo.ico" />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://sahintarim.com" />
 
         {/* JSON-LD Structured Data */}
         <script
@@ -102,32 +175,107 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "Şahintarım",
+              "@id": "https://sahintarim.com/#organization",
+              name: "Şahintarım Tarım Ürünleri",
+              alternateName: "Şahintarım",
               description:
-                "Kaliteli tohum, fidan ve elma fidanları satış mağazası",
+                "Niğde'nin en güvenilir tarım ürünleri mağazası. Kaliteli tohum, fidan ve elma fidanları satışı.",
               url: "https://sahintarim.com",
               telephone: "+905332234645",
               email: "sahintarimcilik@gmail.com",
+              image: {
+                "@type": "ImageObject",
+                url: "https://sahintarim.com/favicon.ico",
+                width: 512,
+                height: 512,
+              },
+              logo: {
+                "@type": "ImageObject",
+                url: "https://sahintarim.com/favicon.ico",
+                width: 512,
+                height: 512,
+              },
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Niğde",
+                addressRegion: "Niğde",
                 addressCountry: "TR",
+                postalCode: "51000",
               },
-              openingHours: "Mo-Fr 09:00-18:00",
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 37.9667,
+                longitude: 34.6833,
+              },
+              openingHours: ["Mo-Fr 09:00-18:00", "Sa 09:00-17:00"],
               priceRange: "₺₺",
-              image: "https://şahintarım.com/logo.ico",
+              paymentAccepted: ["Cash", "Credit Card"],
+              currenciesAccepted: "TRY",
+              areaServed: {
+                "@type": "City",
+                name: "Niğde",
+              },
+              serviceArea: {
+                "@type": "GeoCircle",
+                geoMidpoint: {
+                  "@type": "GeoCoordinates",
+                  latitude: 37.9667,
+                  longitude: 34.6833,
+                },
+                geoRadius: "50000",
+              },
               sameAs: ["https://wa.me/905332234645"],
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Tarım Ürünleri",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Product",
+                      name: "Elma Fidanları",
+                      category: "Meyve Fidanı",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Product",
+                      name: "Sebze Tohumları",
+                      category: "Tohum",
+                    },
+                  },
+                ],
+              },
             }),
           }}
         />
 
-        {/* Font Awesome (Alternatif CDN) */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://sahintarim.com/#website",
+              url: "https://sahintarim.com",
+              name: "Şahintarım Tarım Ürünleri",
+              description:
+                "Kaliteli tohum, fidan ve elma fidanları satış mağazası",
+              inLanguage: "tr-TR",
+              potentialAction: [
+                {
+                  "@type": "SearchAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate:
+                      "https://sahintarim.com/products?search={search_term_string}",
+                  },
+                  "query-input": "required name=search_term_string",
+                },
+              ],
+            }),
+          }}
         />
       </head>
       <body>
