@@ -142,7 +142,8 @@ function HomePage() {
 
         {/* Canonical */}
         <link rel="canonical" href="https://sahintarim.com" />
-        {/* JSON-LD Structured Data - Ana Sayfa İçin */}
+
+        {/* JSON-LD Structured Data - Ana Sayfa İçin - GOOGLE FIX */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -162,34 +163,205 @@ function HomePage() {
               },
               mainEntity: {
                 "@type": "ItemList",
-                name: "Popüler Elma Fidanları",
-                description: "En çok tercih edilen elma fidan çeşitlerimiz",
-                numberOfItems: products.length,
-                itemListElement: products.slice(0, 6).map((product, index) => ({
-                  "@type": "ListItem",
-                  position: index + 1,
-                  item: {
-                    "@type": "Product",
-                    "@id": `https://sahintarim.com/product/${product.id}`,
-                    name: product.name,
-                    description: product.description,
-                    image: `https://sahintarim.com${product.image}`,
-                    offers: {
-                      "@type": "Offer",
-                      price: product.price,
-                      priceCurrency: "TRY",
-                      availability: "https://schema.org/InStock",
-                      seller: {
-                        "@id": "https://sahintarim.com/#organization",
+                name: "Niğde Elma Fidanları",
+                description: "En kaliteli Niğde elma fidan çeşitlerimiz",
+                numberOfItems: 4,
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    item: {
+                      "@type": "Product",
+                      "@id": "https://sahintarim.com/product/1",
+                      name: "Niğde Granny Smith Elma Fidanı",
+                      description:
+                        "Niğde'nin yüksek rakımında yetişen, dünyaca ünlü Granny Smith çeşidi. Ekşi ve çıtır dokusuyla pasta ve turta yapımının vazgeçilmezi.",
+                      image: [
+                        "https://sahintarim.com/images/apples/greenapple.jpg",
+                      ],
+                      url: "https://sahintarim.com/product/1",
+                      sku: "NIGDE-GRANNY-001",
+                      mpn: "NGR-001",
+                      brand: {
+                        "@type": "Brand",
+                        name: "Şahintarım",
+                        url: "https://sahintarim.com",
+                      },
+                      category: "Elma Fidanı",
+                      offers: {
+                        "@type": "Offer",
+                        price: "185.00",
+                        priceCurrency: "TRY",
+                        availability: "https://schema.org/InStock",
+                        itemCondition: "https://schema.org/NewCondition",
+                        priceValidUntil: new Date(
+                          Date.now() + 365 * 24 * 60 * 60 * 1000
+                        )
+                          .toISOString()
+                          .split("T")[0],
+                        url: "https://sahintarim.com/product/1",
+                        seller: {
+                          "@type": "Organization",
+                          "@id": "https://sahintarim.com/#organization",
+                          name: "Şahintarım",
+                          url: "https://sahintarim.com",
+                        },
+                      },
+                      aggregateRating: {
+                        "@type": "AggregateRating",
+                        ratingValue: "4.6",
+                        reviewCount: "18",
+                        bestRating: "5",
+                        worstRating: "1",
                       },
                     },
-                    brand: {
-                      "@type": "Brand",
-                      name: "Şahintarım",
-                    },
-                    category: "Elma Fidanı",
                   },
-                })),
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    item: {
+                      "@type": "Product",
+                      "@id": "https://sahintarim.com/product/2",
+                      name: "Niğde Starking Elma Fidanı",
+                      description:
+                        "Niğde'nin meşhur kırmızı elması! Sulu, sert ve lezzetli. Türkiye'nin en kaliteli Starking elma fidanı üretim merkezi Niğde'den.",
+                      image: [
+                        "https://sahintarim.com/images/apples/redapple1.jpg",
+                      ],
+                      url: "https://sahintarim.com/product/2",
+                      sku: "NIGDE-STARKING-002",
+                      mpn: "NST-002",
+                      brand: {
+                        "@type": "Brand",
+                        name: "Şahintarım",
+                        url: "https://sahintarim.com",
+                      },
+                      category: "Elma Fidanı",
+                      offers: {
+                        "@type": "Offer",
+                        price: "195.00",
+                        priceCurrency: "TRY",
+                        availability: "https://schema.org/InStock",
+                        itemCondition: "https://schema.org/NewCondition",
+                        priceValidUntil: new Date(
+                          Date.now() + 365 * 24 * 60 * 60 * 1000
+                        )
+                          .toISOString()
+                          .split("T")[0],
+                        url: "https://sahintarim.com/product/2",
+                        seller: {
+                          "@type": "Organization",
+                          "@id": "https://sahintarim.com/#organization",
+                          name: "Şahintarım",
+                          url: "https://sahintarim.com",
+                        },
+                      },
+                      aggregateRating: {
+                        "@type": "AggregateRating",
+                        ratingValue: "4.7",
+                        reviewCount: "25",
+                        bestRating: "5",
+                        worstRating: "1",
+                      },
+                    },
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    item: {
+                      "@type": "Product",
+                      "@id": "https://sahintarim.com/product/3",
+                      name: "Niğde Gala Elma Fidanı",
+                      description:
+                        "Niğde'nin erken hasat şampiyonu! Ağustos ayında hasadı yapılan, tatlı ve aromatik Gala çeşidi. Sofraların yıldızı.",
+                      image: ["https://sahintarim.com/images/apples/gala1.jpg"],
+                      url: "https://sahintarim.com/product/3",
+                      sku: "NIGDE-GALA-003",
+                      mpn: "NGL-003",
+                      brand: {
+                        "@type": "Brand",
+                        name: "Şahintarım",
+                        url: "https://sahintarim.com",
+                      },
+                      category: "Elma Fidanı",
+                      offers: {
+                        "@type": "Offer",
+                        price: "175.00",
+                        priceCurrency: "TRY",
+                        availability: "https://schema.org/InStock",
+                        itemCondition: "https://schema.org/NewCondition",
+                        priceValidUntil: new Date(
+                          Date.now() + 365 * 24 * 60 * 60 * 1000
+                        )
+                          .toISOString()
+                          .split("T")[0],
+                        url: "https://sahintarim.com/product/3",
+                        seller: {
+                          "@type": "Organization",
+                          "@id": "https://sahintarim.com/#organization",
+                          name: "Şahintarım",
+                          url: "https://sahintarim.com",
+                        },
+                      },
+                      aggregateRating: {
+                        "@type": "AggregateRating",
+                        ratingValue: "4.5",
+                        reviewCount: "15",
+                        bestRating: "5",
+                        worstRating: "1",
+                      },
+                    },
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 4,
+                    item: {
+                      "@type": "Product",
+                      "@id": "https://sahintarim.com/product/4",
+                      name: "Niğde Golden Delicious Elma Fidanı",
+                      description:
+                        "Niğde'nin altın elması! Bal tadında aroması ve uzun saklama süresi ile ünlü Golden Delicious. Yüksek kalitede fidan.",
+                      image: [
+                        "https://sahintarim.com/images/apples/golden.jpg",
+                      ],
+                      url: "https://sahintarim.com/product/4",
+                      sku: "NIGDE-GOLDEN-004",
+                      mpn: "NGD-004",
+                      brand: {
+                        "@type": "Brand",
+                        name: "Şahintarım",
+                        url: "https://sahintarim.com",
+                      },
+                      category: "Elma Fidanı",
+                      offers: {
+                        "@type": "Offer",
+                        price: "190.00",
+                        priceCurrency: "TRY",
+                        availability: "https://schema.org/InStock",
+                        itemCondition: "https://schema.org/NewCondition",
+                        priceValidUntil: new Date(
+                          Date.now() + 365 * 24 * 60 * 60 * 1000
+                        )
+                          .toISOString()
+                          .split("T")[0],
+                        url: "https://sahintarim.com/product/4",
+                        seller: {
+                          "@type": "Organization",
+                          "@id": "https://sahintarim.com/#organization",
+                          name: "Şahintarım",
+                          url: "https://sahintarim.com",
+                        },
+                      },
+                      aggregateRating: {
+                        "@type": "AggregateRating",
+                        ratingValue: "4.8",
+                        reviewCount: "22",
+                        bestRating: "5",
+                        worstRating: "1",
+                      },
+                    },
+                  },
+                ],
               },
             }),
           }}

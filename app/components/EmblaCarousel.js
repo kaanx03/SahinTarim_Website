@@ -5,52 +5,52 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 const EmblaCarousel = () => {
-  // Carousel içeriği
+  // Carousel içeriği - Niğde Elma Fidanlarına özel
   const slides = [
     {
       id: 1,
       image: "/images/carousel1.jpg",
-      title: "Premium Tohum Çeşitleri",
-      mobileTitle: "Premium Tohum",
+      title: "Premium Niğde Elma Fidanları",
+      mobileTitle: "Premium Fidanlar",
       description:
-        "Niğde'nin verimli topraklarına uygun, yüksek kaliteli tohum çeşitlerimizle bereketli hasatlar elde edin.",
-      mobileDescription: "Kaliteli tohumlarla bereketli hasat.",
+        "15+ yıl deneyimle Niğde'nin volcans topraklarında yetişen, organik ve kaliteli elma fidanları. Türkiye geneli teslimat.",
+      mobileDescription: "Organik ve kaliteli Niğde fidanları.",
     },
     {
       id: 2,
       image: "/images/carousel2.jpg",
-      title: "Elma Ağacı Fidanları",
-      mobileTitle: "Elma Fidanları",
+      title: "Niğde Golden Delicious Fidanları",
+      mobileTitle: "Golden Delicious",
       description:
-        "Niğde'nin ünlü elma çeşitleri için özel seçilmiş fidan ve tohum koleksiyonumuz.",
-      mobileDescription: "Niğde elması için özel fidanlar.",
+        "Niğde'nin altın elması! Bal tadında aroması ve 8-9 ay saklama süresi ile ünlü Golden Delicious fidanları.",
+      mobileDescription: "Niğde'nin altın elma fidanları.",
     },
     {
       id: 3,
       image: "/images/carousel3.jpg",
-      title: "Sebze Tohum Çeşitleri",
-      mobileTitle: "Sebze Tohumları",
+      title: "Niğde Granny Smith Fidanları",
+      mobileTitle: "Granny Smith",
       description:
-        "Patates, soğan, havuç ve diğer sebze tohumlarıyla bahçenizi şenlendirin.",
-      mobileDescription: "Taze sebzeler için kaliteli tohum.",
+        "Niğde'nin 1200m yükseklikteki elma bahçelerinden özel Granny Smith fidanları. Ekşi ve çıtır dokusuyla pasta yapımının vazgeçilmezi.",
+      mobileDescription: "Niğde'nin ekşi ve çıtır elma fidanı.",
     },
     {
       id: 4,
       image: "/images/carousel4.jpg",
-      title: "Meyve Ağacı Fidanları",
-      mobileTitle: "Meyve Fidanları",
+      title: "Niğde Starking Elma Fidanları",
+      mobileTitle: "Starking Elma",
       description:
-        "Elma, armut, vişne ve kiraz fidanlarıyla meyve bahçenizi kurun.",
-      mobileDescription: "Meyve bahçesi için fidan çeşitleri.",
+        "Türkiye'nin kalbi Niğde'den meşhur kırmızı Starking elma fidanları. Sulu, sert ve lezzetli elmaların anahtarı.",
+      mobileDescription: "Niğde'nin meşhur kırmızı elması.",
     },
     {
       id: 5,
       image: "/images/carousel5.jpg",
-      title: "Çiçek & Süs Bitkileri",
-      mobileTitle: "Çiçek Tohumları",
+      title: "Niğde Gala Elma Fidanları",
+      mobileTitle: "Gala Elma",
       description:
-        "Balkon ve bahçenizi güzelleştiren çiçek tohum ve fide çeşitlerimiz.",
-      mobileDescription: "Renkli çiçekler için tohum çeşitleri.",
+        "Erken hasat şampiyonu! Ağustos ayında hasadı yapılan, tatlı ve aromatik Niğde Gala elma fidanları.",
+      mobileDescription: "Erken hasat için Gala fidanları.",
     },
   ];
 
@@ -151,7 +151,7 @@ const EmblaCarousel = () => {
                       {isMobile ? slide.mobileDescription : slide.description}
                     </p>
                     <a href="#products" className="btn btn-primary">
-                      Ürünleri Keşfet
+                      Elma Fidanlarını Keşfet
                     </a>
                   </div>
                 </div>

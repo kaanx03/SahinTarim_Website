@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Footer = ({
   companyName = "Şahintarım",
-  description = "Kaliteli tohumlar, sağlıklı bitkiler ve bereketli hasat için doğru adres.",
+  description = "Kaliteli elma fidanları, sağlıklı bitkiler ve bereketli hasat için doğru adres.",
   quickLinks = [],
   categories = [],
   helpLinks = [],
@@ -18,16 +18,11 @@ const Footer = ({
     { href: "/contact", text: "İletişim" },
   ];
 
-  // Varsayılan kategoriler (farklı sayfalara giden bağlantılar)
+  // Varsayılan kategoriler - Products sayfasındaki filtrelere uygun
   const defaultCategories = [
-    { href: "/kategoriler/sebze-tohumlari", text: "Sebze Tohumları" },
-    { href: "/kategoriler/meyve-tohumlari", text: "Meyve Tohumları" },
-    { href: "/kategoriler/cicek-tohumlari", text: "Çiçek Tohumları" },
-    {
-      href: "/kategoriler/tibbi-bitki-tohumlari",
-      text: "Tıbbi Bitki Tohumları",
-    },
-    { href: "/kategoriler/fide-ve-fidanlar", text: "Fide ve Fidanlar" },
+    { href: "/products?filter=erken-hasat", text: "Erken Hasat (Ağustos)" },
+    { href: "/products?filter=ana-hasat", text: "Ana Hasat (Eylül-Ekim)" },
+    { href: "/products?filter=uzun-saklama", text: "Uzun Saklama" },
   ];
 
   // Varsayılan yardım bağlantıları (farklı sayfalara giden bağlantılar)
@@ -115,7 +110,7 @@ const Footer = ({
           </div>
 
           <div className="footer-col">
-            <h4>Kategoriler</h4>
+            <h4>Elma Çeşitleri</h4>
             <ul>
               {footerCategories.map((category, index) =>
                 renderLink(category, index)

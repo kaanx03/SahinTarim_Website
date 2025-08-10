@@ -1,4 +1,4 @@
-// app/contact/page.js - SEO eklenmiş versiyon
+// app/contact/page.js - SEO eklenmiş versiyon - BREADCRUMB DÜZELTİLDİ
 "use client";
 
 import { useEffect, useState } from "react";
@@ -113,11 +113,11 @@ function ContactPage() {
         </title>
         <meta
           name="description"
-          content="Şahintarım ile iletişime geçin. Elma fidanları ve tarım ürünleri hakkında sorularınız için bize ulaşın. Ovacık Kasabası, Niğde. Tel: 0538 679 99 95, 0533 223 46 45"
+          content="Şahintarım ile iletişime geçin. Elma fidanları hakkında sorularınız için bize ulaşın. Ovacık Kasabası, Niğde. Tel: 0538 679 99 95, 0533 223 46 45"
         />
         <meta
           name="keywords"
-          content="şahintarım iletişim, niğde elma fidanı sipariş, tarım ürünleri iletişim, ovacık kasabası, elma fidanı sipariş telefon, şahintarım adres, tarım danışmanlığı"
+          content="şahintarım iletişim, niğde elma fidanı sipariş, elma fidanı iletişim, ovacık kasabası, elma fidanı sipariş telefon, şahintarım adres, tarım danışmanlığı"
         />
 
         {/* Open Graph */}
@@ -127,7 +127,7 @@ function ContactPage() {
         />
         <meta
           property="og:description"
-          content="Elma fidanları ve tarım ürünleri hakkında sorularınız için bizimle iletişime geçin. 7/24 teknik destek."
+          content="Elma fidanları hakkında sorularınız için bizimle iletişime geçin. 7/24 teknik destek."
         />
         <meta property="og:image" content="/images/og-sahintarim.jpg" />
         <meta property="og:image:width" content="1200" />
@@ -148,7 +148,7 @@ function ContactPage() {
         {/* Canonical */}
         <link rel="canonical" href="https://sahintarim.com/contact" />
 
-        {/* JSON-LD Structured Data - Contact Page */}
+        {/* JSON-LD Structured Data - Contact Page - BREADCRUMB DÜZELTİLDİ */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -171,6 +171,12 @@ function ContactPage() {
                 itemListElement: [
                   {
                     "@type": "ListItem",
+                    position: 1,
+                    name: "Ana Sayfa",
+                    item: "https://sahintarim.com",
+                  },
+                  {
+                    "@type": "ListItem",
                     position: 2,
                     name: "İletişim",
                     item: "https://sahintarim.com/contact",
@@ -181,7 +187,7 @@ function ContactPage() {
           }}
         />
 
-        {/* JSON-LD Structured Data - FAQ Schema */}
+        {/* JSON-LD Structured Data - FAQ Schema - ELMA FIDANLARI İÇİN DÜZELTİLDİ */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -191,31 +197,31 @@ function ContactPage() {
               mainEntity: [
                 {
                   "@type": "Question",
-                  name: "Siparişim ne kadar sürede gelir?",
+                  name: "Elma fidanı siparişim ne kadar sürede gelir?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Siparişleriniz aynı gün işleme alınır ve 1-3 iş günü içerisinde kargoya teslim edilir. Kargo teslimat süresi bölgenize göre 1-3 gün arasında değişmektedir.",
+                    text: "Elma fidanı siparişleriniz aynı gün işleme alınır ve 1-3 iş günü içerisinde kargoya teslim edilir. Kargo teslimat süresi bölgenize göre 1-3 gün arasında değişmektedir.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Fidanların kalite garantisi var mı?",
+                  name: "Elma fidanlarının kalite garantisi var mı?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Tüm fidanlarımız laboratuvar testlerinden geçmiş olup %98+ kalite oranı garantisi ile satılmaktadır. Kalite sorunu yaşarsanız 30 gün içinde ücretsiz değişim yapıyoruz.",
+                    text: "Tüm elma fidanlarımız laboratuvar testlerinden geçmiş olup %98+ kalite oranı garantisi ile satılmaktadır. Kalite sorunu yaşarsanız 30 gün içinde ücretsiz değişim yapıyoruz.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Organik sertifikalarınız var mı?",
+                  name: "Elma fidanlarınız organik mi?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Tüm organik ürünlerimiz Tarım ve Orman Bakanlığı onaylı organik üretim sertifikalarına sahiptir. ECOCERT ve BCS Öko-Garantie gibi uluslararası sertifikasyon kuruluşları tarafından da onaylanmıştır.",
+                    text: "Tüm elma fidanlarımız organik olarak yetiştirilmiş bitkilerden elde edilmiştir. Tarım ve Orman Bakanlığı onaylı organik üretim sertifikalarına sahiptir.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Toplu sipariş indirimi var mı?",
+                  name: "Toplu elma fidanı siparişinde indirim var mı?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text: "500 TL ve üzeri siparişlerde %10, 1000 TL üzeri siparişlerde %15, 2500 TL üzeri siparişlerde özel %20 indirim uygulanmaktadır.",
@@ -231,10 +237,10 @@ function ContactPage() {
                 },
                 {
                   "@type": "Question",
-                  name: "Teknik destek hizmeti veriyor musunuz?",
+                  name: "Elma fidanı dikim konusunda teknik destek veriyor musunuz?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Ziraat mühendisi ve deneyimli tarım uzmanlarımızdan 7/24 ücretsiz teknik destek alabilirsiniz. Dikim, sulama, gübreleme konularında profesyonel danışmanlık sunuyoruz.",
+                    text: "Ziraat mühendisi ve deneyimli tarım uzmanlarımızdan 7/24 ücretsiz teknik destek alabilirsiniz. Elma fidanı dikim, sulama, gübreleme konularında profesyonel danışmanlık sunuyoruz.",
                   },
                 },
               ],
@@ -251,6 +257,7 @@ function ContactPage() {
               "@type": "Organization",
               "@id": "https://sahintarim.com/#contact-info",
               name: "Şahintarım Tarım Ürünleri",
+              description: "Niğde elma fidanları üreticisi",
               contactPoint: [
                 {
                   "@type": "ContactPoint",
@@ -491,54 +498,56 @@ function ContactPage() {
             <div className="section-header">
               <h2>Sık Sorulan Sorular</h2>
               <div className="section-line"></div>
-              <p>En çok merak edilen sorular ve cevapları</p>
+              <p>Elma fidanları hakkında en çok merak edilen sorular</p>
             </div>
 
             <div className="faq-container">
               <div className="faq-item">
                 <div className="faq-question">
-                  <h4>Siparişim ne kadar sürede gelir?</h4>
+                  <h4>Elma fidanı siparişim ne kadar sürede gelir?</h4>
                   <i className="fas fa-plus"></i>
                 </div>
                 <div className="faq-answer">
                   <p>
-                    <strong>Hızlı teslimat garantimiz:</strong> Siparişleriniz
-                    aynı gün işleme alınır ve 1-3 iş günü içerisinde kargoya
-                    teslim edilir. Kargo teslimat süresi bölgenize göre 1-3 gün
-                    arasında değişmektedir. İstanbul, Ankara, İzmir gibi büyük
-                    şehirlerde 1-2 gün, diğer illerde 2-3 gün içinde teslim
-                    edilir. Acil siparişler için aratıp özel teslimat
-                    seçeneklerini değerlendirebilirsiniz.
+                    <strong>Hızlı teslimat garantimiz:</strong> Elma fidanı
+                    siparişleriniz aynı gün işleme alınır ve 1-3 iş günü
+                    içerisinde kargoya teslim edilir. Kargo teslimat süresi
+                    bölgenize göre 1-3 gün arasında değişmektedir. İstanbul,
+                    Ankara, İzmir gibi büyük şehirlerde 1-2 gün, diğer illerde
+                    2-3 gün içinde teslim edilir. Acil siparişler için aratıp
+                    özel teslimat seçeneklerini değerlendirebilirsiniz.
                   </p>
                 </div>
               </div>
 
               <div className="faq-item">
                 <div className="faq-question">
-                  <h4>Fidanların kalite garantisi var mı?</h4>
+                  <h4>Elma fidanlarının kalite garantisi var mı?</h4>
                   <i className="fas fa-plus"></i>
                 </div>
                 <div className="faq-answer">
                   <p>
-                    <strong>%98+ kalite garantisi:</strong> Tüm fidanlarımız
-                    laboratuvar testlerinden geçmiş olup %98+ kalite oranı
-                    garantisi ile satılmaktadır. Kalite sorunu yaşarsanız fatura
-                    ve fotoğraf ile birlikte 30 gün içinde tarafımıza
-                    başvurduğunuzda ücretsiz değişim yapıyoruz. Ayrıca doğru
-                    dikim tekniği için uzman desteğimizden faydalanabilirsiniz.
+                    <strong>%98+ kalite garantisi:</strong> Tüm elma
+                    fidanlarımız laboratuvar testlerinden geçmiş olup %98+
+                    kalite oranı garantisi ile satılmaktadır. Kalite sorunu
+                    yaşarsanız fatura ve fotoğraf ile birlikte 30 gün içinde
+                    tarafımıza başvurduğunuzda ücretsiz değişim yapıyoruz.
+                    Ayrıca doğru dikim tekniği için uzman desteğimizden
+                    faydalanabilirsiniz.
                   </p>
                 </div>
               </div>
 
               <div className="faq-item">
                 <div className="faq-question">
-                  <h4>Organik sertifikalarınız var mı?</h4>
+                  <h4>Elma fidanlarınız organik mi?</h4>
                   <i className="fas fa-plus"></i>
                 </div>
                 <div className="faq-answer">
                   <p>
-                    <strong>Tam organik sertifika:</strong> Tüm organik
-                    ürünlerimiz Tarım ve Orman Bakanlığı onaylı organik üretim
+                    <strong>Tam organik sertifika:</strong> Tüm elma
+                    fidanlarımız organik olarak yetiştirilmiş bitkilerden elde
+                    edilmiştir. Tarım ve Orman Bakanlığı onaylı organik üretim
                     sertifikalarına sahiptir. ECOCERT ve BCS Öko-Garantie gibi
                     uluslararası sertifikasyon kuruluşları tarafından da
                     onaylanmıştır. Sertifika bilgilerine ürün sayfalarından veya
@@ -549,7 +558,7 @@ function ContactPage() {
 
               <div className="faq-item">
                 <div className="faq-question">
-                  <h4>Toplu sipariş indirimi var mı?</h4>
+                  <h4>Toplu elma fidanı siparişinde indirim var mı?</h4>
                   <i className="fas fa-plus"></i>
                 </div>
                 <div className="faq-answer">
@@ -582,34 +591,35 @@ function ContactPage() {
 
               <div className="faq-item">
                 <div className="faq-question">
-                  <h4>Ürünlerinizin saklama koşulları nelerdir?</h4>
+                  <h4>Elma fidanlarının saklama koşulları nelerdir?</h4>
                   <i className="fas fa-plus"></i>
                 </div>
                 <div className="faq-answer">
                   <p>
-                    <strong>Optimum saklama koşulları:</strong> Fidanlar serin
-                    (15-20°C), kuru (%50-60 nem) ve karanlık yerde
-                    saklanmalıdır. Gübreler nemden uzak, kapalı ambalajında
-                    muhafaza edilmeli. Organik ürünler için özel saklama
-                    kılavuzumuz mevcuttur. Tüm ürünlerimizde detaylı saklama
-                    talimatları yer almaktadır.
+                    <strong>Optimum saklama koşulları:</strong> Elma fidanları
+                    serin (15-20°C), kuru (%50-60 nem) ve karanlık yerde
+                    saklanmalıdır. Organik fidanlar için özel saklama
+                    kılavuzumuz mevcuttur. Tüm elma fidanlarımızda detaylı
+                    saklama talimatları yer almaktadır.
                   </p>
                 </div>
               </div>
 
               <div className="faq-item">
                 <div className="faq-question">
-                  <h4>Teknik destek hizmeti veriyor musunuz?</h4>
+                  <h4>
+                    Elma fidanı dikim konusunda teknik destek veriyor musunuz?
+                  </h4>
                   <i className="fas fa-plus"></i>
                 </div>
                 <div className="faq-answer">
                   <p>
                     <strong>Uzman teknik destek:</strong> Ziraat mühendisi ve
                     deneyimli tarım uzmanlarımızdan 7/24 ücretsiz teknik destek
-                    alabilirsiniz. Dikim, sulama, gübreleme, hastalık teşhisi ve
-                    verim artırıcı konularda profesyonel danışmanlık hizmeti
-                    sunuyoruz. WhatsApp, telefon veya e-posta ile
-                    ulaşabilirsiniz.
+                    alabilirsiniz. Elma fidanı dikim, sulama, gübreleme,
+                    hastalık teşhisi ve verim artırıcı konularda profesyonel
+                    danışmanlık hizmeti sunuyoruz. WhatsApp, telefon veya
+                    e-posta ile ulaşabilirsiniz.
                   </p>
                 </div>
               </div>
@@ -623,9 +633,10 @@ function ContactPage() {
                   <p>
                     <strong>Koşulsuz iade garantisi:</strong> Ürün hatası
                     durumunda 30 gün içinde koşulsuz iade kabul edilir.
-                    Kullanılmamış ürünlerde orijinal ambalajında iade mümkündür.
-                    Kalite sorunu yaşanan fidanlarda %100 ücretsiz değişim
-                    yapılır. İade kargo masrafları tarafımızdan karşılanır.
+                    Kullanılmamış elma fidanlarında orijinal ambalajında iade
+                    mümkündür. Kalite sorunu yaşanan fidanlarda %100 ücretsiz
+                    değişim yapılır. İade kargo masrafları tarafımızdan
+                    karşılanır.
                   </p>
                 </div>
               </div>

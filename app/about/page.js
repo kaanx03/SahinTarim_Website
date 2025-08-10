@@ -1,4 +1,4 @@
-// app/about/page.js - SEO eklenmiş versiyon
+// app/about/page.js - SEO eklenmiş versiyon - GOOGLE HATALARI DÜZELTİLDİ
 "use client";
 
 import Image from "next/image";
@@ -17,7 +17,7 @@ function AboutPage() {
         <title>Hakkımızda - Şahintarım Tarım Ürünleri | 15+ Yıl Deneyim</title>
         <meta
           name="description"
-          content="Şahintarım hakkında bilgi edinin. 2008'den beri Niğde'de faaliyet gösteren aile işletmesi. 15+ yıl deneyim, 50+ fidan çeşidi, 5000+ mutlu müşteri. Misyon, vizyon ve değerlerimiz."
+          content="Şahintarım hakkında bilgi edinin. 2008'den beri Niğde'de faaliyet gösteren aile işletmesi. 15+ yıl deneyim, 4 elma fidan çeşidi, 5000+ mutlu müşteri. Misyon, vizyon ve değerlerimiz."
         />
         <meta
           name="keywords"
@@ -94,7 +94,7 @@ function AboutPage() {
           }}
         />
 
-        {/* JSON-LD Structured Data - Organization Details */}
+        {/* JSON-LD Structured Data - Organization Details - DÜZELTİLDİ */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -105,7 +105,7 @@ function AboutPage() {
               name: "Şahintarım Tarım Ürünleri",
               alternateName: "Şahintarım",
               description:
-                "2008 yılından beri Niğde'de faaliyet gösteren aile işletmesi. Organik elma fidanları ve tarım ürünleri üretimi.",
+                "2008 yılından beri Niğde'de faaliyet gösteren aile işletmesi. Organik elma fidanları üretimi.",
               url: "https://sahintarim.com",
               logo: "https://sahintarim.com/favicon.ico",
               image: "https://sahintarim.com/images/company-history.jpg",
@@ -187,7 +187,7 @@ function AboutPage() {
           }}
         />
 
-        {/* JSON-LD Structured Data - Company Statistics */}
+        {/* JSON-LD Structured Data - Company Statistics - DÜZELTİLDİ */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -207,8 +207,8 @@ function AboutPage() {
                 },
                 {
                   "@type": "PropertyValue",
-                  name: "Fidan Çeşidi",
-                  value: "50+",
+                  name: "Elma Fidan Çeşidi",
+                  value: "4",
                 },
                 {
                   "@type": "PropertyValue",
@@ -279,8 +279,8 @@ function AboutPage() {
                 <h3>Misyonumuz</h3>
                 <p>
                   Türkiye&apos;nin her köşesindeki üreticilere en kaliteli,
-                  doğal ve güvenilir fidanları ulaştırarak ülkemizin tarımsal
-                  üretimine katkıda bulunmak ve sürdürülebilir tarımı
+                  doğal ve güvenilir elma fidanlarını ulaştırarak ülkemizin
+                  tarımsal üretimine katkıda bulunmak ve sürdürülebilir tarımı
                   desteklemek.
                 </p>
               </div>
@@ -291,7 +291,7 @@ function AboutPage() {
                 </div>
                 <h3>Vizyonumuz</h3>
                 <p>
-                  Türkiye&apos;nin en güvenilir fidan markası olmak ve
+                  Türkiye&apos;nin en güvenilir elma fidanı markası olmak ve
                   uluslararası pazarlarda da tanınan, kalite standartlarıyla öne
                   çıkan bir şirket haline gelmek.
                 </p>
@@ -305,14 +305,14 @@ function AboutPage() {
                 <p>
                   Dürüstlük, kalite, müşteri memnuniyeti, çevre bilinci ve
                   sürdürülebilirlik ilkelerimizin temelini oluşturur. Her zaman
-                  doğal ve organik üretimi destekliyoruz.
+                  doğal ve organik elma fidanı üretimini destekliyoruz.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Statistics Section */}
+        {/* Statistics Section - DÜZELTİLDİ */}
         <section className="statistics">
           <div className="container">
             <h2>Rakamlarla Şahintarım</h2>
@@ -322,8 +322,8 @@ function AboutPage() {
                 <div className="stat-text">Yıllık deneyim</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">50+</div>
-                <div className="stat-text">Fidan çeşidi</div>
+                <div className="stat-number">4</div>
+                <div className="stat-text">Elma fidan çeşidi</div>
               </div>
               <div className="stat-item">
                 <div className="stat-number">5,000+</div>
