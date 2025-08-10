@@ -1,27 +1,57 @@
-// app/sitemap.js - TAM DÜZELTİLMİŞ VERSİYON
+// app/sitemap.js - SON DÜZELTİLMİŞ VERSİYON
 import fs from "fs";
 import path from "path";
 
 export default function sitemap() {
-  // ✅ TÜRKÇE KARAKTER YOK
+  // ✅ DOĞRU DOMAIN
   const baseUrl = "https://sahintarim.com";
 
-  // products.json dosyasını güvenli şekilde oku
+  // products.json dosyasını güvenli şekilde oku - YOLU DÜZELTİLDİ
   let products = [];
   try {
-    const filePath = path.join(process.cwd(), "app", "data", "products.json");
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const data = JSON.parse(fileContents);
-    products = data.products || data || [];
+    // Farklı olası yolları dene
+    const possiblePaths = [
+      path.join(process.cwd(), "app", "data", "products.json"),
+      path.join(process.cwd(), "data", "products.json"),
+      path.join(process.cwd(), "src", "data", "products.json"),
+    ];
+
+    let fileContents = null;
+    let usedPath = null;
+
+    for (const filePath of possiblePaths) {
+      try {
+        if (fs.existsSync(filePath)) {
+          fileContents = fs.readFileSync(filePath, "utf8");
+          usedPath = filePath;
+          break;
+        }
+      } catch (err) {
+        continue;
+      }
+    }
+
+    if (fileContents) {
+      const data = JSON.parse(fileContents);
+      // JSON yapısını kontrol et - hem array hem object destekle
+      if (Array.isArray(data)) {
+        products = data;
+      } else if (data.products && Array.isArray(data.products)) {
+        products = data.products;
+      } else {
+        products = [];
+      }
+      console.log(`✅ Products.json bulundu: ${usedPath}`);
+      console.log(`📦 ${products.length} ürün yüklendi`);
+    } else {
+      console.log("❌ Products.json hiçbir yolda bulunamadı");
+    }
   } catch (error) {
-    console.log(
-      "Products.json okunamadı, sadece statik sayfalar sitemap'e eklenecek:",
-      error.message
-    );
+    console.log("❌ Products.json okuma hatası:", error.message);
     products = [];
   }
 
-  // Ana sayfalar - Contact priority artırıldı
+  // Ana sayfalar - SADECE 4 TEMEL SAYFA
   const staticRoutes = [
     {
       url: baseUrl,
@@ -36,7 +66,7 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/contact`, // ✅ Priority artırıldı
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
@@ -49,10 +79,10 @@ export default function sitemap() {
     },
   ];
 
-  // Dinamik ürün sayfaları
+  // Dinamik ürün sayfaları - SADECE VARSA EKLE
   const productRoutes =
     products.length > 0
-      ? products.map((product) => ({
+      ? products.slice(0, 4).map((product) => ({
           url: `${baseUrl}/product/${product.id}`,
           lastModified: new Date(),
           changeFrequency: "weekly",
@@ -60,13 +90,15 @@ export default function sitemap() {
         }))
       : [];
 
-  // Debug için log
+  // Tüm route'ları birleştir
   const allRoutes = [...staticRoutes, ...productRoutes];
+
+  // Debug bilgisi
   console.log(`✅ Sitemap oluşturuldu: ${allRoutes.length} sayfa`);
-  console.log(
-    "📄 Sayfalar:",
-    allRoutes.map((r) => r.url)
-  );
+  console.log("📄 Sayfalar:");
+  allRoutes.forEach((route, index) => {
+    console.log(`  ${index + 1}. ${route.url}`);
+  });
 
   return allRoutes;
 }
