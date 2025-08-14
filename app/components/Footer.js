@@ -68,7 +68,7 @@ const Footer = ({
             <p>{description}</p>
             <div className="social-links">
               <Link
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=61579175140952"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -76,15 +76,7 @@ const Footer = ({
                 <i className="fab fa-facebook-f"></i>
               </Link>
               <Link
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-              >
-                <i className="fab fa-twitter"></i>
-              </Link>
-              <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/sahintarimcilik51/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -92,7 +84,7 @@ const Footer = ({
                 <i className="fab fa-instagram"></i>
               </Link>
               <Link
-                href="https://youtube.com"
+                href="https://www.youtube.com/@%C5%9EahinTar%C4%B1m-s4e6e"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
