@@ -1,4 +1,4 @@
-// app/contact/page.js - SEO eklenmiş versiyon - BREADCRUMB DÜZELTİLDİ
+// app/contact/page.js - Sadece SEO Meta Tags düzeltilmiş, içerik aynı
 "use client";
 
 import { useEffect, useState } from "react";
@@ -18,22 +18,16 @@ function ContactPage() {
 
     const handleFaqClick = (item) => {
       return () => {
-        // Tıklanan item'ı toggle et
         const isActive = item.classList.contains("active");
-
-        // Tüm item'ları kapat
         faqItems.forEach((otherItem) => {
           otherItem.classList.remove("active");
         });
-
-        // Eğer tıklanan item aktif değilse, aç
         if (!isActive) {
           item.classList.add("active");
         }
       };
     };
 
-    // Her FAQ item'a click listener ekle
     const clickHandlers = [];
     faqItems.forEach((item) => {
       const question = item.querySelector(".faq-question");
@@ -44,7 +38,6 @@ function ContactPage() {
       }
     });
 
-    // Cleanup function
     return () => {
       clickHandlers.forEach(({ question, handler }) => {
         question.removeEventListener("click", handler);
@@ -95,8 +88,6 @@ function ContactPage() {
       });
     } finally {
       setIsSubmitting(false);
-
-      // Mesajı 5 saniye sonra gizle
       setTimeout(() => {
         setFormMessage({ type: "", text: "" });
       }, 5000);
@@ -105,50 +96,74 @@ function ContactPage() {
 
   return (
     <>
-      {/* Contact Sayfası SEO */}
+      {/* Contact Sayfası SEO - Sadece Meta Tags Optimize */}
       <Head>
-        {/* Meta Tags */}
+        {/* Ana Meta Tags - Niğde Elma Fidanı Odaklı */}
         <title>
-          İletişim - Şahintarım ile İletişime Geçin | Ovacık Kasabası, Niğde
+          İletişim - Niğde Elma Fidanı Siparişi | Şahintarım | Ovacık Kasabası,
+          Niğde
         </title>
         <meta
           name="description"
-          content="Şahintarım ile iletişime geçin. Elma fidanları hakkında sorularınız için bize ulaşın. Ovacık Kasabası, Niğde. Tel: 0538 679 99 95, 0533 223 46 45"
+          content="Niğde elma fidanları için Şahintarım ile iletişime geçin. Granny Smith, Starking, Gala elma fidanı siparişi ve teknik destek. Tel: 0538 679 99 95. Ovacık Kasabası, Niğde."
         />
         <meta
           name="keywords"
-          content="şahintarım iletişim, niğde elma fidanı sipariş, elma fidanı iletişim, ovacık kasabası, elma fidanı sipariş telefon, şahintarım adres, tarım danışmanlığı"
+          content="niğde elma fidanı iletişim, şahintarım telefon, elma fidanı sipariş, niğde elma fidanı satış, ovacık kasabası, granny smith sipariş, starking elma fidanı telefon, niğde tarım iletişim, elma fidanı danışmanlık"
         />
+
+        {/* Geo Meta Tags */}
+        <meta name="geo.region" content="TR-51" />
+        <meta name="geo.placename" content="Niğde, Ovacık Kasabası" />
+        <meta name="geo.position" content="37.9450;34.7890" />
+        <meta name="ICBM" content="37.9450, 34.7890" />
 
         {/* Open Graph */}
         <meta
           property="og:title"
-          content="İletişim - Şahintarım ile İletişime Geçin"
+          content="İletişim - Niğde Elma Fidanı Siparişi | Şahintarım"
         />
         <meta
           property="og:description"
-          content="Elma fidanları hakkında sorularınız için bizimle iletişime geçin. 7/24 teknik destek."
+          content="Niğde'nin en kaliteli elma fidanları için bizimle iletişime geçin. 15+ yıl deneyim, organik üretim, 7/24 teknik destek."
         />
-        <meta property="og:image" content="/images/og-sahintarim.jpg" />
+        <meta
+          property="og:image"
+          content="https://sahintarim.com/images/og-sahintarim.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Şahintarım İletişim" />
+        <meta
+          property="og:image:alt"
+          content="Şahintarım İletişim - Niğde Elma Fidanı"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sahintarim.com/contact" />
+        <meta property="og:locale" content="tr_TR" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="İletişim - Şahintarım" />
+        <meta
+          name="twitter:title"
+          content="İletişim - Niğde Elma Fidanı Siparişi | Şahintarım"
+        />
         <meta
           name="twitter:description"
-          content="Elma fidanları hakkında sorularınız için bizimle iletişime geçin."
+          content="Niğde elma fidanları için bizimle iletişime geçin. Organik üretim, kalite garantisi."
         />
-        <meta name="twitter:image" content="/images/og-sahintarim.jpg" />
+        <meta
+          name="twitter:image"
+          content="https://sahintarim.com/images/og-sahintarim.jpg"
+        />
 
         {/* Canonical */}
         <link rel="canonical" href="https://sahintarim.com/contact" />
 
-        {/* JSON-LD Structured Data - Contact Page - BREADCRUMB DÜZELTİLDİ */}
+        {/* Additional SEO */}
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="author" content="Şahintarım - Niğde Elma Fidanı Uzmanı" />
+
+        {/* JSON-LD Structured Data - Contact Page */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -187,7 +202,61 @@ function ContactPage() {
           }}
         />
 
-        {/* JSON-LD Structured Data - FAQ Schema - ELMA FIDANLARI İÇİN DÜZELTİLDİ */}
+        {/* JSON-LD Structured Data - Local Business */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "@id": "https://sahintarim.com/#organization",
+              name: "Şahintarım - Niğde Elma Fidanı Uzmanı",
+              alternateName: "Şahintarım",
+              description:
+                "Niğde'nin en kaliteli elma fidanı üreticisi. 15+ yıl deneyimle organik üretim.",
+              url: "https://sahintarim.com",
+              telephone: "+905386799995",
+              email: "sahin.tarim@outlook.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Ovacık Kasabası",
+                addressLocality: "Niğde",
+                addressRegion: "Niğde",
+                postalCode: "51100",
+                addressCountry: "TR",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: "37.9450",
+                longitude: "34.7890",
+              },
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  telephone: "+905386799995",
+                  contactType: "customer service",
+                  availableLanguage: "Turkish",
+                  areaServed: "TR",
+                },
+                {
+                  "@type": "ContactPoint",
+                  telephone: "+905332234645",
+                  contactType: "sales",
+                  availableLanguage: "Turkish",
+                  areaServed: "TR",
+                },
+                {
+                  "@type": "ContactPoint",
+                  email: "sahin.tarim@outlook.com",
+                  contactType: "customer support",
+                  availableLanguage: "Turkish",
+                },
+              ],
+            }),
+          }}
+        />
+
+        {/* JSON-LD Structured Data - FAQ Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -247,75 +316,13 @@ function ContactPage() {
             }),
           }}
         />
-
-        {/* JSON-LD Structured Data - ContactPoint */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "@id": "https://sahintarim.com/#contact-info",
-              name: "Şahintarım Tarım Ürünleri",
-              description: "Niğde elma fidanları üreticisi",
-              contactPoint: [
-                {
-                  "@type": "ContactPoint",
-                  telephone: "+905386799995",
-                  contactType: "customer service",
-                  availableLanguage: "Turkish",
-                  areaServed: "TR",
-                  hoursAvailable: {
-                    "@type": "OpeningHoursSpecification",
-                    dayOfWeek: [
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday",
-                      "Sunday",
-                    ],
-                    opens: "08:00",
-                    closes: "20:00",
-                  },
-                },
-                {
-                  "@type": "ContactPoint",
-                  telephone: "+905332234645",
-                  contactType: "sales",
-                  availableLanguage: "Turkish",
-                  areaServed: "TR",
-                },
-                {
-                  "@type": "ContactPoint",
-                  email: "sahin.tarim@outlook.com",
-                  contactType: "customer support",
-                  availableLanguage: "Turkish",
-                },
-              ],
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Ovacık Kasabası",
-                addressLocality: "Niğde",
-                addressRegion: "Niğde",
-                addressCountry: "TR",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: "37.9450",
-                longitude: "34.7890",
-              },
-            }),
-          }}
-        />
       </Head>
 
       <main>
         {/* NavBar bileşeni */}
         <NavBar />
 
-        {/* Contact Section */}
+        {/* Contact Section - İÇERİK AYNI KALDI */}
         <section className="contact" id="contact">
           <div className="container">
             <div className="section-title">
@@ -492,7 +499,7 @@ function ContactPage() {
           </div>
         </section>
 
-        {/* FAQ Section */}
+        {/* FAQ Section - İÇERİK AYNI KALDI */}
         <section className="contact-faq">
           <div className="container">
             <div className="section-header">
@@ -644,7 +651,7 @@ function ContactPage() {
           </div>
         </section>
 
-        {/* WhatsApp Float Button - 1. telefon numarasına yönlendirme */}
+        {/* WhatsApp Float Button */}
         <a
           href="https://wa.me/+905386799995?text=Merhaba, elma fidanları hakkında bilgi almak istiyorum."
           className="whatsapp-float"
@@ -654,14 +661,12 @@ function ContactPage() {
           <i className="fab fa-whatsapp"></i>
         </a>
 
-        {/* Footer Bileşeni */}
         <Footer />
       </main>
     </>
   );
 }
 
-// Wrapper Component
 export default function Contact() {
   return (
     <CartProvider>

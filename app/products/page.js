@@ -1,4 +1,4 @@
-// app/products/page.js - SEO eklenmiş versiyon - GOOGLE HATALARI DÜZELTİLDİ
+// app/products/page.js - SEO eklenmiş versiyon - Niğde Elma Fidanı Odaklı
 "use client";
 
 import ProductsPage from "@/app/components/ProductsPage";
@@ -8,54 +8,71 @@ import Head from "next/head";
 export default function Products() {
   return (
     <>
-      {/* Products Sayfası SEO */}
+      {/* Products Sayfası SEO - Niğde Elma Fidanı Odaklı */}
       <Head>
         {/* Meta Tags */}
-        <title>Ürünlerimiz - Kaliteli Niğde Elma Fidanları | Şahintarım</title>
+        <title>Ürünlerimiz - Niğde Elma Fidanları | Şahintarım Katalog</title>
         <meta
           name="description"
-          content="Şahintarım'ın kaliteli Niğde elma fidanı kataloğunu keşfedin. Granny Smith, Starking, Gala, Golden Delicious elma fidanları. Tüm Türkiye'ye hızlı kargo."
+          content="Şahintarım'ın kaliteli Niğde elma fidanı kataloğunu keşfedin. Granny Smith, Starking, Gala, Golden Delicious elma fidanları. Organik üretim, %98 kalite garantisi, Türkiye geneli hızlı kargo."
         />
         <meta
           name="keywords"
-          content="niğde elma fidanı çeşitleri, granny smith fidan, starking elma fidanı, gala elma fidanı, golden delicious fidan, organik elma fidanı, meyve fidanı satış, niğde elma fidanı"
+          content="niğde elma fidanı çeşitleri, granny smith elma fidanı, starking elma fidanı, gala elma fidanı, golden delicious fidan, organik elma fidanı, meyve fidanı satış, elma ağacı fidanı, şahintarım katalog, niğde tarım ürünleri"
         />
+
+        {/* Geo Meta Tags */}
+        <meta name="geo.region" content="TR-51" />
+        <meta name="geo.placename" content="Niğde" />
+        <meta name="geo.position" content="37.9450;34.7890" />
+        <meta name="ICBM" content="37.9450, 34.7890" />
 
         {/* Open Graph */}
         <meta
           property="og:title"
-          content="Ürünlerimiz - Kaliteli Niğde Elma Fidanları | Şahintarım"
+          content="Ürünlerimiz - Niğde Elma Fidanları | Şahintarım"
         />
         <meta
           property="og:description"
-          content="Kaliteli Niğde elma fidanlarımızı keşfedin. 15+ yıl deneyim, kalite garantisi."
+          content="Niğde'nin en kaliteli elma fidanları! Organik Granny Smith, Starking, Gala, Golden Delicious. 15+ yıl deneyim, kalite garantisi."
         />
-        <meta property="og:image" content="/images/og-sahintarim.jpg" />
+        <meta
+          property="og:image"
+          content="https://sahintarim.com/images/og-sahintarim.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
           property="og:image:alt"
-          content="Şahintarım Elma Fidanları Kataloğu"
+          content="Şahintarım Niğde Elma Fidanları Kataloğu"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sahintarim.com/products" />
+        <meta property="og:locale" content="tr_TR" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Ürünlerimiz - Kaliteli Niğde Elma Fidanları | Şahintarım"
+          content="Ürünlerimiz - Niğde Elma Fidanları | Şahintarım"
         />
         <meta
           name="twitter:description"
-          content="Kaliteli Niğde elma fidanlarımızı keşfedin."
+          content="Niğde'nin en kaliteli organik elma fidanları. Granny Smith, Starking, Gala, Golden Delicious."
         />
-        <meta name="twitter:image" content="/images/og-sahintarim.jpg" />
+        <meta
+          name="twitter:image"
+          content="https://sahintarim.com/images/og-sahintarim.jpg"
+        />
 
         {/* Canonical */}
         <link rel="canonical" href="https://sahintarim.com/products" />
 
-        {/* JSON-LD Structured Data - Product Catalog - DÜZELTİLDİ */}
+        {/* Additional SEO */}
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="author" content="Şahintarım - Niğde Elma Fidanı Uzmanı" />
+
+        {/* JSON-LD Structured Data - Product Catalog - Niğde Elma Fidanı Odaklı */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -65,7 +82,8 @@ export default function Products() {
               "@id": "https://sahintarim.com/products#webpage",
               url: "https://sahintarim.com/products",
               name: "Ürünlerimiz - Niğde Elma Fidanları",
-              description: "Şahintarım'ın kaliteli Niğde elma fidanları",
+              description:
+                "Şahintarım'ın kaliteli Niğde elma fidanları kataloğu",
               isPartOf: {
                 "@id": "https://sahintarim.com/#website",
               },
@@ -95,7 +113,7 @@ export default function Products() {
                       ],
                       url: "https://sahintarim.com/product/1",
                       sku: "NIGDE-GRANNY-001",
-                      category: "Elma Fidanı",
+                      category: "Niğde Elma Fidanı",
                       brand: {
                         "@type": "Brand",
                         name: "Şahintarım",
@@ -136,7 +154,7 @@ export default function Products() {
                       ],
                       url: "https://sahintarim.com/product/2",
                       sku: "NIGDE-STARKING-002",
-                      category: "Elma Fidanı",
+                      category: "Niğde Elma Fidanı",
                       brand: {
                         "@type": "Brand",
                         name: "Şahintarım",
@@ -175,7 +193,7 @@ export default function Products() {
                       image: ["https://sahintarim.com/images/apples/gala1.jpg"],
                       url: "https://sahintarim.com/product/3",
                       sku: "NIGDE-GALA-003",
-                      category: "Elma Fidanı",
+                      category: "Niğde Elma Fidanı",
                       brand: {
                         "@type": "Brand",
                         name: "Şahintarım",
@@ -216,7 +234,7 @@ export default function Products() {
                       ],
                       url: "https://sahintarim.com/product/4",
                       sku: "NIGDE-GOLDEN-004",
-                      category: "Elma Fidanı",
+                      category: "Niğde Elma Fidanı",
                       brand: {
                         "@type": "Brand",
                         name: "Şahintarım",
