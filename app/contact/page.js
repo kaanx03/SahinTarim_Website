@@ -1,4 +1,4 @@
-// app/contact/page.js - Sadece SEO Meta Tags düzeltilmiş, içerik aynı
+// app/contact/page.js - Redirect Error düzeltmesi ve About sayfası tarzında optimize
 "use client";
 
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 
 // İletişim sayfa bileşeni
-function ContactPage() {
+function ContactPageComponent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formMessage, setFormMessage] = useState({ type: "", text: "" });
 
@@ -96,12 +96,11 @@ function ContactPage() {
 
   return (
     <>
-      {/* Contact Sayfası SEO - Sadece Meta Tags Optimize */}
+      {/* Contact Sayfası SEO - About Sayfası Tarzında */}
       <Head>
-        {/* Ana Meta Tags - Niğde Elma Fidanı Odaklı */}
+        {/* Meta Tags */}
         <title>
-          İletişim - Niğde Elma Fidanı Siparişi | Şahintarım | Ovacık Kasabası,
-          Niğde
+          İletişim - Niğde Elma Fidanı Siparişi | Şahintarım | Ovacık Kasabası
         </title>
         <meta
           name="description"
@@ -112,12 +111,6 @@ function ContactPage() {
           content="niğde elma fidanı iletişim, şahintarım telefon, elma fidanı sipariş, niğde elma fidanı satış, ovacık kasabası, granny smith sipariş, starking elma fidanı telefon, niğde tarım iletişim, elma fidanı danışmanlık"
         />
 
-        {/* Geo Meta Tags */}
-        <meta name="geo.region" content="TR-51" />
-        <meta name="geo.placename" content="Niğde, Ovacık Kasabası" />
-        <meta name="geo.position" content="37.9450;34.7890" />
-        <meta name="ICBM" content="37.9450, 34.7890" />
-
         {/* Open Graph */}
         <meta
           property="og:title"
@@ -127,10 +120,7 @@ function ContactPage() {
           property="og:description"
           content="Niğde'nin en kaliteli elma fidanları için bizimle iletişime geçin. 15+ yıl deneyim, organik üretim, 7/24 teknik destek."
         />
-        <meta
-          property="og:image"
-          content="https://sahintarim.com/images/og-sahintarim.jpg"
-        />
+        <meta property="og:image" content="/images/og-sahintarim.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
@@ -139,7 +129,6 @@ function ContactPage() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sahintarim.com/contact" />
-        <meta property="og:locale" content="tr_TR" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -151,17 +140,10 @@ function ContactPage() {
           name="twitter:description"
           content="Niğde elma fidanları için bizimle iletişime geçin. Organik üretim, kalite garantisi."
         />
-        <meta
-          name="twitter:image"
-          content="https://sahintarim.com/images/og-sahintarim.jpg"
-        />
+        <meta name="twitter:image" content="/images/og-sahintarim.jpg" />
 
         {/* Canonical */}
         <link rel="canonical" href="https://sahintarim.com/contact" />
-
-        {/* Additional SEO */}
-        <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta name="author" content="Şahintarım - Niğde Elma Fidanı Uzmanı" />
 
         {/* JSON-LD Structured Data - Contact Page */}
         <script
@@ -202,14 +184,14 @@ function ContactPage() {
           }}
         />
 
-        {/* JSON-LD Structured Data - Local Business */}
+        {/* JSON-LD Structured Data - Organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "@id": "https://sahintarim.com/#organization",
+              "@type": "Organization",
+              "@id": "https://sahintarim.com/#organization-contact",
               name: "Şahintarım - Niğde Elma Fidanı Uzmanı",
               alternateName: "Şahintarım",
               description:
@@ -322,7 +304,7 @@ function ContactPage() {
         {/* NavBar bileşeni */}
         <NavBar />
 
-        {/* Contact Section - İÇERİK AYNI KALDI */}
+        {/* Contact Section */}
         <section className="contact" id="contact">
           <div className="container">
             <div className="section-title">
@@ -499,7 +481,7 @@ function ContactPage() {
           </div>
         </section>
 
-        {/* FAQ Section - İÇERİK AYNI KALDI */}
+        {/* FAQ Section */}
         <section className="contact-faq">
           <div className="container">
             <div className="section-header">
@@ -667,10 +649,11 @@ function ContactPage() {
   );
 }
 
+// Wrapper Component - About sayfası gibi
 export default function Contact() {
   return (
     <CartProvider>
-      <ContactPage />
+      <ContactPageComponent />
     </CartProvider>
   );
 }
