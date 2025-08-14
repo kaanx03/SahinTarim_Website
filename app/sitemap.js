@@ -4,7 +4,7 @@ import path from "path";
 
 export default function sitemap() {
   // ✅ DOĞRU DOMAIN
-  const baseUrl = "https://sahintarim.com";
+  const baseUrl = "https://şahintarim.com";
 
   // products.json dosyasını güvenli şekilde oku - YOLU DÜZELTİLDİ
   let products = [];
