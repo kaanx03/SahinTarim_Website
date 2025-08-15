@@ -1,4 +1,4 @@
-// app/page.js - SEO Metadata düzeltilmiş versiyon
+// app/page.js - DÜZELTILMIŞ VERSIYON - SADECE ELMA FIDANLARI
 "use client";
 
 import { useContext, useState } from "react";
@@ -102,7 +102,7 @@ function HomePage() {
         </title>
         <meta
           name="description"
-          content="Şahintarım ile bahçenizi bereketli hale getirin! 15+ yıl deneyimle Niğde'den taze elma fidanları, sebze tohumları ve organik ürünler. Hızlı teslimat, kalite garantisi."
+          content="Şahintarım ile bahçenizi bereketli hale getirin! 15+ yıl deneyimle Niğde'den taze elma fidanları. Hızlı teslimat, kalite garantisi."
         />
         <meta
           name="keywords"
@@ -143,7 +143,7 @@ function HomePage() {
         {/* Canonical */}
         <link rel="canonical" href="https://sahintarim.com" />
 
-        {/* JSON-LD Structured Data - Ana Sayfa İçin - GOOGLE FIX */}
+        {/* JSON-LD Structured Data - SADECE ELMA FIDANLARI - GOOGLE FIX */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -153,8 +153,7 @@ function HomePage() {
               "@id": "https://sahintarim.com/#webpage",
               url: "https://sahintarim.com",
               name: "Şahintarım Ana Sayfa",
-              description:
-                "Niğde'nin en kaliteli elma fidanları ve tarım ürünleri",
+              description: "Niğde'nin en kaliteli elma fidanları",
               isPartOf: {
                 "@id": "https://sahintarim.com/#website",
               },
@@ -367,7 +366,7 @@ function HomePage() {
           }}
         />
 
-        {/* FAQ Schema - Sık Sorulan Sorular */}
+        {/* FAQ Schema - Sadece Elma Fidanları */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -388,7 +387,7 @@ function HomePage() {
                   name: "Fidanlarınız organik mi?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Evet, tüm fidanlarımız organik olarak yetiştirilmiş bitkilerden elde edilmiştir. GDO içermeyen doğal fidanlar sunuyoruz.",
+                    text: "Evet, tüm elma fidanlarımız organik olarak yetiştirilmiş bitkilerden elde edilmiştir. GDO içermeyen doğal fidanlar sunuyoruz.",
                   },
                 },
                 {
@@ -422,7 +421,7 @@ function HomePage() {
           <EmblaCarousel />
         </section>
 
-        {/* Features Section */}
+        {/* Features Section - SADECE ELMA FIDANLARI */}
         <section className="features">
           <div className="container">
             <div className="section-title">
@@ -433,10 +432,10 @@ function HomePage() {
                 <div className="feature-icon">
                   <i className="fas fa-leaf"></i>
                 </div>
-                <h3>Organik Fidanlar</h3>
+                <h3>Organik Elma Fidanları</h3>
                 <p>
-                  Tüm fidanlarımız organik olarak yetiştirilmiş bitkilerden elde
-                  edilmiştir. GDO içermeyen doğal fidanlar.
+                  Tüm elma fidanlarımız organik olarak yetiştirilmiş bitkilerden
+                  elde edilmiştir. GDO içermeyen doğal fidanlar.
                 </p>
               </div>
               <div className="feature-box">
@@ -455,8 +454,8 @@ function HomePage() {
                 </div>
                 <h3>Kalite Garantisi</h3>
                 <p>
-                  Her bir fidan paketi dikkatle kontrol edilir ve en yüksek
-                  kaliteye sahip fidanlar seçilir.
+                  Her bir elma fidanı paketi dikkatle kontrol edilir ve en
+                  yüksek kaliteye sahip fidanlar seçilir.
                 </p>
               </div>
             </div>
@@ -468,7 +467,7 @@ function HomePage() {
           <div className="container">
             <div className="section-title">
               <Link href="/products">
-                <h2>Popüler Ürünlerimiz</h2>
+                <h2>Popüler Elma Fidanlarımız</h2>
               </Link>
             </div>
             <div className="products-container">
@@ -515,17 +514,17 @@ function HomePage() {
               <div className="about-content">
                 <h2>Şahintarım Hakkında</h2>
                 <p>
-                  Şahintarım, 15 yıllık tarım deneyimine sahip bir aile
-                  işletmesidir. Toprağa ve doğaya olan sevgimizi, sizlerle
-                  kaliteli fidanlar sunarak paylaşıyoruz.
+                  Şahintarım, 15 yıllık elma fidanı üretim deneyimine sahip bir
+                  aile işletmesidir. Toprağa ve doğaya olan sevgimizi, sizlerle
+                  kaliteli elma fidanları sunarak paylaşıyoruz.
                 </p>
                 <p>
                   Misyonumuz, Türkiye&apos;nin dört bir yanındaki bahçe
-                  sahiplerine ve çiftçilere en kaliteli fidanları sunarak
-                  ülkemizin tarımsal üretimine katkıda bulunmaktır.
+                  sahiplerine ve çiftçilere en kaliteli elma fidanlarını sunarak
+                  ülkemizin elma üretimine katkıda bulunmaktır.
                 </p>
                 <p>
-                  Tüm fidanlarımız özenle seçilir, test edilir ve en yüksek
+                  Tüm elma fidanlarımız özenle seçilir, test edilir ve en yüksek
                   kalite standartlarına uygun olarak paketlenir. Şahintarım
                   olarak, müşteri memnuniyetini her zaman ön planda tutuyoruz.
                 </p>
