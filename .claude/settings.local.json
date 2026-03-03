@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const p = require\\(''./app/data/products.json''\\); const f = p.find\\(x=>x.id===5\\); console.log\\(''origin:'', f.origin, ''| isImported:'', f.isImported, ''| distributor:'', f.distributor, ''| customSizeAvailable:'', f.customSizeAvailable\\);\")"
+    ]
+  }
+}

@@ -522,3 +522,434 @@
     grid-template-columns: 1fr; /* Özellikler tek sütunda görünsün */
   }
 }
+
+/* =========================================================
+   Dolu Koruma Filesi - Öne Çıkan Ürün Section
+   ========================================================= */
+.file-featured-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 50%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.file-featured-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/images/file/main.webp") center / cover no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.file-featured-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.file-section-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: white;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+
+.file-featured-header h2 {
+  font-size: 2.2rem;
+  color: white;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.file-featured-header h2 span {
+  color: #f39c12;
+}
+
+.file-featured-header p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.file-featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+}
+
+/* Görsel alanı */
+.file-featured-images {
+  position: relative;
+}
+
+.file-main-image-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: zoom-in;
+}
+
+.file-main-image-wrap img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.file-main-image-wrap:hover img {
+  transform: scale(1.04);
+}
+
+.file-thumbnails-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.file-thumb-item {
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.file-thumb-item:hover,
+.file-thumb-item.active {
+  border-color: #f39c12;
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.25);
+  transform: translateY(-3px);
+}
+
+.file-thumb-item img {
+  width: 100%;
+  height: 76px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.file-thumb-item:hover img {
+  transform: scale(1.08);
+}
+
+/* Bilgi alanı */
+.file-featured-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  position: relative;
+}
+
+/* Üst rozetler - Yurtdışı Üretim + Türkiye Distribütörü */
+.file-top-badges {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.file-top-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.file-top-badge i {
+  font-size: 1rem;
+}
+
+.file-top-badge.badge-import {
+  background: rgba(41, 128, 185, 0.22);
+  border: 1.5px solid rgba(41, 128, 185, 0.55);
+  color: #aed6f1;
+}
+
+.file-top-badge.badge-dist {
+  background: rgba(39, 174, 96, 0.2);
+  border: 1.5px solid rgba(39, 174, 96, 0.5);
+  color: #a9dfbf;
+}
+
+/* İstenilen Ölçülerde Üretim notu - butonların altında */
+.file-custom-size-note {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 11px 16px;
+  background: rgba(243, 156, 18, 0.1);
+  border: 1px dashed rgba(243, 156, 18, 0.45);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.file-custom-size-note i {
+  color: #f39c12;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.file-product-name {
+  font-size: 2rem;
+  color: white;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.file-product-desc {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Özellik etiketleri */
+.file-info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.file-info-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  padding: 9px 16px;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.file-info-tag:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.file-info-tag i {
+  color: #f39c12;
+  font-size: 1rem;
+}
+
+.file-info-tag.tag-gold {
+  background: rgba(243, 156, 18, 0.15);
+  border-color: rgba(243, 156, 18, 0.35);
+}
+
+/* Renkler */
+.file-colors-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.file-block-label {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 60px;
+}
+
+.file-color-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.file-color-dot:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.4);
+}
+
+.file-color-dot[title="Siyah"] { background: #1a1a1a; border-color: #666; }
+.file-color-dot[title="Kristal"] { background: linear-gradient(135deg, #b8d4f0, #e8f4fd); border-color: rgba(184, 212, 240, 0.7); }
+.file-color-dot[title="Beyaz"] { background: #f5f5f5; border-color: rgba(255,255,255,0.6); }
+
+.file-color-name {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+}
+
+/* Ölçüler */
+.file-sizes-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.file-size-chip {
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Fiyat alanı */
+.file-price-box {
+  background: rgba(243, 156, 18, 0.12);
+  border: 1px solid rgba(243, 156, 18, 0.3);
+  border-radius: 12px;
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.file-price-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.file-price-label {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.file-price-value {
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.file-price-sub {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+
+/* CTA butonlar */
+.file-cta-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.file-btn-primary {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.35);
+}
+
+.file-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(243, 156, 18, 0.45);
+  color: white;
+}
+
+.file-btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.file-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .file-featured-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .file-featured-section {
+    padding: 3.5rem 0;
+  }
+
+  .file-product-name {
+    font-size: 1.7rem;
+  }
+
+  .file-featured-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .file-featured-section {
+    padding: 2.5rem 0;
+  }
+
+  .file-main-image-wrap img {
+    height: 260px;
+  }
+
+  .file-thumb-item img {
+    height: 60px;
+  }
+
+  .file-cta-buttons {
+    flex-direction: column;
+  }
+
+  .file-product-name {
+    font-size: 1.5rem;
+  }
+}

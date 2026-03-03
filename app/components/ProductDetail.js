@@ -20,6 +20,8 @@ export default function ProductDetail() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("description");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
 
   // Ürün görselleri (her ürün için farklı açılardan resimler)
   const getProductImages = (productId, hasMultipleImages) => {
@@ -52,6 +54,16 @@ export default function ProductDetail() {
     // Gala Elma için
     else if (productId === 3) {
       return ["/images/apples/gala1.jpg", "/images/apples/gala2.jpg"];
+    }
+    // Dolu Koruma Filesi için
+    else if (productId === 5) {
+      return [
+        "/images/file/main.webp",
+        "/images/file/1.webp",
+        "/images/file/2.webp",
+        "/images/file/3.webp",
+        "/images/file/4.webp",
+      ];
     }
     // Diğer çoklu görsel ürünler için varsayılan yapı
     else {
@@ -90,25 +102,15 @@ export default function ProductDetail() {
     }
   };
 
-  // Görsel navigasyon fonksiyonları
-  const nextImage = () => {
-    if (product) {
-      const images = getProductImages(product.id);
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }
-  };
-
-  const previousImage = () => {
-    if (product) {
-      const images = getProductImages(product.id);
-      setCurrentImageIndex(
-        (prev) => (prev - 1 + images.length) % images.length
-      );
-    }
-  };
-
   const selectImage = (index) => {
     setCurrentImageIndex(index);
+  };
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setZoomPos({ x, y });
   };
 
   // Yükleme durumu
@@ -158,7 +160,7 @@ export default function ProductDetail() {
     );
   }
 
-  const productImages = getProductImages(product.id);
+  const productImages = getProductImages(product.id, product.hasMultipleImages);
 
   return (
     <main className="product-detail-page">
@@ -177,7 +179,13 @@ export default function ProductDetail() {
             >
               <div className="product-image-wrapper">
                 {/* Ana Görsel */}
-                <div className="main-image-container">
+                <div
+                  className="main-image-container"
+                  style={{ overflow: "hidden", cursor: isZoomed ? "zoom-in" : "default" }}
+                  onMouseEnter={() => setIsZoomed(true)}
+                  onMouseLeave={() => setIsZoomed(false)}
+                  onMouseMove={handleMouseMove}
+                >
                   <Image
                     src={productImages[currentImageIndex]}
                     alt={`${product.name} - Görsel ${currentImageIndex + 1}`}
@@ -185,75 +193,62 @@ export default function ProductDetail() {
                     height={500}
                     priority
                     className="product-main-image"
+                    style={{
+                      transform: isZoomed ? "scale(2.5)" : "scale(1)",
+                      transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+                      transition: "none",
+                    }}
                     onError={(e) => {
-                      // Görsel yükleme hatası durumunda ana görseli göster
                       e.target.src = product.image;
                     }}
                   />
-
-                  {/* Görsel Navigasyon Okları - Sadece birden fazla görsel varsa göster */}
-                  {productImages.length > 1 && (
-                    <>
-                      <button
-                        className="image-nav-btn prev-btn"
-                        onClick={previousImage}
-                        aria-label="Önceki Görsel"
-                      >
-                        <i className="fas fa-chevron-left"></i>
-                      </button>
-                      <button
-                        className="image-nav-btn next-btn"
-                        onClick={nextImage}
-                        aria-label="Sonraki Görsel"
-                      >
-                        <i className="fas fa-chevron-right"></i>
-                      </button>
-                    </>
-                  )}
-
-                  {/* Görsel Sayısı Göstergesi - Sadece birden fazla görsel varsa göster */}
-                  {productImages.length > 1 && (
-                    <div className="image-counter">
-                      {currentImageIndex + 1} / {productImages.length}
-                    </div>
-                  )}
                 </div>
 
-                {/* Thumbnail Görseller - Sadece birden fazla görsel varsa göster */}
-                {productImages.length > 1 && (
-                  <div className="thumbnail-images">
-                    {productImages.map((image, index) => (
-                      <div
-                        key={index}
-                        className={`thumbnail-item ${
-                          index === currentImageIndex ? "active" : ""
-                        }`}
-                        onClick={() => selectImage(index)}
-                      >
-                        <Image
-                          src={image}
-                          alt={`${product.name} thumbnail ${index + 1}`}
-                          width={80}
-                          height={80}
-                          className="thumbnail-image"
-                          onError={(e) => {
-                            // Thumbnail yükleme hatası durumunda ana görseli göster
-                            e.target.src = product.image;
-                          }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-
                 <div className="product-badges">
-                  <span className="badge organic">Organik</span>
-                  {product.isNew && <span className="badge new">Yeni</span>}
+                  {product.isOrganic !== false && <span className="badge organic">Organik</span>}
+                  {product.isImported ? (
+                    <>
+                      <span className="badge badge-import">
+                        <i className="fas fa-globe-europe"></i> Yurtdışı Üretim
+                      </span>
+                      <span className="badge badge-dist">
+                        🇹🇷 TR Distribütörü
+                      </span>
+                    </>
+                  ) : (
+                    product.isNew && <span className="badge new">Yeni</span>
+                  )}
                   {product.discount && (
                     <span className="badge discount">-{product.discount}%</span>
                   )}
                 </div>
               </div>
+
+              {/* Thumbnail Görseller - product-image-wrapper DIŞINDA */}
+              {productImages.length > 1 && (
+                <div className="thumbnail-images">
+                  {productImages.map((image, index) => (
+                    <div
+                      key={index}
+                      className={`thumbnail-item ${
+                        index === currentImageIndex ? "active" : ""
+                      }`}
+                      onClick={() => selectImage(index)}
+                    >
+                      <Image
+                        src={image}
+                        alt={`${product.name} thumbnail ${index + 1}`}
+                        width={80}
+                        height={80}
+                        className="thumbnail-image"
+                        onError={(e) => {
+                          e.target.src = product.image;
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </motion.div>
 
             {/* Ürün Bilgileri */}
@@ -300,38 +295,110 @@ export default function ProductDetail() {
                 )}
               </div>
 
+              {/* Renkler ve Boyutlar */}
+              {(product.colors || product.sizes) && (
+                <div className="product-variants-block">
+                  {product.colors && (
+                    <div className="variant-row">
+                      <span className="variant-row-label">Mevcut Renkler:</span>
+                      <div className="variant-pills">
+                        {product.colors.map((color) => (
+                          <span key={color} className={`color-pill color-pill-${color.toLowerCase()}`}>
+                            {color}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {product.sizes && (
+                    <div className="variant-row">
+                      <span className="variant-row-label">Sunulan Boyutlar:</span>
+                      <div className="variant-pills">
+                        {product.sizes.map((size) => (
+                          <span key={size} className="size-pill">{size}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Fiyat ve Alt Kısım */}
               <div className="product-info-bottom">
-                <div className="product-price">
-                  <span className="current-price">
-                    ₺{product.price.toFixed(2)}
-                  </span>
-                  {product.oldPrice && (
-                    <span className="old-price">
-                      ₺{product.oldPrice.toFixed(2)}
-                    </span>
+                {product.price !== 0 && (
+                  <div className="product-price">
+                    <span className="current-price">{`₺${product.price.toFixed(2)}`}</span>
+                    {product.oldPrice && (
+                      <span className="old-price">₺{product.oldPrice.toFixed(2)}</span>
+                    )}
+                  </div>
+                )}
+
+                <div className="cart-actions">
+                  {product.price === 0 ? (
+                    <a
+                      href="https://wa.me/+905386799995?text=Merhaba, Dolu Koruma Filesi hakkında fiyat bilgisi almak istiyorum."
+                      className="contact-price-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-whatsapp"></i>
+                      Fiyat için iletişime geçin
+                    </a>
+                  ) : (
+                    <button
+                      className="add-to-cart-btn"
+                      onClick={() => handleAddToCart()}
+                    >
+                      <i className="fas fa-shopping-cart"></i>
+                      Sepete Ekle
+                    </button>
                   )}
                 </div>
 
-                <div className="cart-actions">
-                  <button
-                    className="add-to-cart-btn"
-                    onClick={() => handleAddToCart()}
-                  >
-                    <i className="fas fa-shopping-cart"></i>
-                    Sepete Ekle
-                  </button>
-                </div>
+                {/* UV Dayanıklılık Garantisi */}
+                {product.isImported && (
+                  <div className="uv-guarantee-block">
+                    <div className="uv-guarantee-icon">
+                      <i className="fas fa-shield-alt"></i>
+                      <span className="uv-label">UV-11</span>
+                    </div>
+                    <div className="uv-guarantee-content">
+                      <p className="uv-guarantee-title">UV Dayanıklılık Garantisi</p>
+                      <p className="uv-guarantee-desc">
+                        UV-11 kimyasal bileşiği sayesinde filenin güneş ışığından erken
+                        bozulmayacağını <strong>garanti ediyoruz.</strong>
+                      </p>
+                      <ul className="uv-durability-list">
+                        <li>
+                          <i className="fas fa-check-circle"></i>
+                          Siyah renkte minimum <strong>7 yıl</strong> dayanıklılık
+                        </li>
+                        <li>
+                          <i className="fas fa-check-circle"></i>
+                          Kristal renkte minimum <strong>5 yıl</strong> dayanıklılık
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
 
                 <div className="product-features">
                   <div className="feature">
                     <i className="fas fa-truck"></i>
                     <span>Hızlı Kargo</span>
                   </div>
-                  <div className="feature">
-                    <i className="fas fa-leaf"></i>
-                    <span>%100 Organik</span>
-                  </div>
+                  {product.isOrganic !== false ? (
+                    <div className="feature">
+                      <i className="fas fa-leaf"></i>
+                      <span>%100 Organik</span>
+                    </div>
+                  ) : (
+                    <div className="feature">
+                      <i className="fas fa-ruler-combined"></i>
+                      <span>İstenilen Ölçülerde Üretim</span>
+                    </div>
+                  )}
                   <div className="feature">
                     <i className="fas fa-shield-alt"></i>
                     <span>Kalite Garantisi</span>

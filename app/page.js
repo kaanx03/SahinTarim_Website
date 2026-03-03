@@ -9,6 +9,7 @@ import EmblaCarousel from "./components/EmblaCarousel";
 import productsData from "./data/products.json";
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 
 // Ana sayfa bileşeni
 function HomePage() {
@@ -18,6 +19,15 @@ function HomePage() {
   // Form state'leri
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formMessage, setFormMessage] = useState({ type: "", text: "" });
+  const [fileActiveImg, setFileActiveImg] = useState(0);
+
+  const fileImages = [
+    "/images/file/main.webp",
+    "/images/file/1.webp",
+    "/images/file/2.webp",
+    "/images/file/3.webp",
+    "/images/file/4.webp",
+  ];
 
   // Ürün verisi
   const products = productsData;
@@ -488,7 +498,9 @@ function HomePage() {
                     </Link>
                     <p>{product.description}</p>
                     <div className="product-price">
-                      ₺{product.price.toFixed(2)}
+                      {product.price === 0
+                        ? "Fiyat için iletişime geçin"
+                        : `₺${product.price.toFixed(2)}`}
                     </div>
                     <button
                       className="add-to-cart"
@@ -502,6 +514,139 @@ function HomePage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Dolu Koruma Filesi - Öne Çıkan Ürün */}
+        <section className="file-featured-section" id="file-urun">
+          <div className="container">
+            <div className="file-featured-header">
+              <span className="file-section-tag">
+                <i className="fas fa-star"></i> Öne Çıkan Ürün
+              </span>
+              <h2>
+                Güçlendirilmiş{" "}
+                <span>Dolu Koruma Filesi</span>
+              </h2>
+              <p>
+                Bahçenizi dolu ve çevre etkilerine karşı koruyan, yüksek
+                dayanımlı UV korumalı profesyonel file
+              </p>
+            </div>
+
+            <div className="file-featured-grid">
+              {/* Sol: Görsel Galerisi */}
+              <div className="file-featured-images">
+                <div className="file-main-image-wrap">
+                  <Image
+                    src={fileImages[fileActiveImg]}
+                    alt="Güçlendirilmiş Dolu Koruma Filesi"
+                    width={600}
+                    height={390}
+                    style={{ width: "100%", height: "390px", objectFit: "cover" }}
+                    priority
+                  />
+                </div>
+                <div className="file-thumbnails-row">
+                  {fileImages.map((img, idx) => (
+                    <div
+                      key={idx}
+                      className={`file-thumb-item ${idx === fileActiveImg ? "active" : ""}`}
+                      onClick={() => setFileActiveImg(idx)}
+                    >
+                      <Image
+                        src={img}
+                        alt={`Dolu Koruma Filesi görsel ${idx + 1}`}
+                        width={120}
+                        height={76}
+                        style={{ width: "100%", height: "76px", objectFit: "cover" }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Sağ: Ürün Bilgileri */}
+              <div className="file-featured-info">
+
+                {/* Üst rozetler: Yurtdışı Üretim + Türkiye Distribütörü */}
+                <div className="file-top-badges">
+                  <span className="file-top-badge badge-import">
+                    <i className="fas fa-globe-europe"></i>
+                    Yurtdışı Üretim
+                  </span>
+                  <span className="file-top-badge badge-dist">
+                    <i className="fas fa-flag"></i>
+                    Türkiye Distribütörü
+                  </span>
+                </div>
+
+                <h3 className="file-product-name">
+                  Güçlendirilmiş Dolu Koruma Filesi
+                </h3>
+
+                <p className="file-product-desc">
+                  Elma, üzüm, çilek ve şeftali bahçelerinde kullanıma uygun,
+                  UV dayanımlı polietilen malzemeden üretilen yüksek dayanımlı
+                  file. Hem doluya hem güçlü rüzgarlara karşı uzun yıllar
+                  boyunca etkili koruma sağlar.
+                </p>
+
+                {/* Renkler */}
+                <div className="file-colors-block">
+                  <span className="file-block-label">Renkler:</span>
+                  <div className="file-color-dot" title="Siyah"></div>
+                  <div className="file-color-dot" title="Kristal"></div>
+                  <div className="file-color-dot" title="Beyaz"></div>
+                  <span className="file-color-name">Siyah / Kristal / Beyaz</span>
+                </div>
+
+                {/* Standart Ölçüler */}
+                <div className="file-sizes-block">
+                  <span className="file-block-label">Ölçüler:</span>
+                  <span className="file-size-chip">3,70 × 200 MT</span>
+                  <span className="file-size-chip">1,85 × 200 MT</span>
+                </div>
+
+                {/* Fiyat */}
+                <div className="file-price-box">
+                  <div className="file-price-info">
+                    <span className="file-price-label">Fiyat</span>
+                    <span className="file-price-value">
+                      Fiyat için iletişime geçin
+                    </span>
+                    <span className="file-price-sub">
+                      Ölçü ve renge göre fiyat belirlenir
+                    </span>
+                  </div>
+                  <i className="fas fa-phone-alt" style={{ color: "#f39c12", fontSize: "1.5rem" }}></i>
+                </div>
+
+                {/* CTA Butonlar */}
+                <div className="file-cta-buttons">
+                  <Link href="/product/5" className="file-btn-primary">
+                    <i className="fas fa-eye"></i>
+                    Ürünü İncele
+                  </Link>
+                  <a
+                    href="https://wa.me/+905386799995?text=Merhaba, Dolu Koruma Filesi hakkında fiyat bilgisi almak istiyorum."
+                    className="file-btn-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="fab fa-whatsapp"></i>
+                    WhatsApp
+                  </a>
+                </div>
+
+                {/* İstenilen Ölçülerde Üretim - Butonların altında */}
+                <div className="file-custom-size-note">
+                  <i className="fas fa-ruler-combined"></i>
+                  <span>İstenilen ölçülerde üretim gerçekleştirilir</span>
+                </div>
+
+              </div>
             </div>
           </div>
         </section>

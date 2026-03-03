@@ -58,5 +58,24 @@
     "harvestTime": "Ekim",
     "resistance": "Çok Yüksek",
     "productivity": "Yüksek"
+  },
+  {
+    "id": 5,
+    "name": "Güçlendirilmiş Dolu Koruma Filesi",
+    "description": "Dolu zararına karşı ürünleri koruyan güçlendirilmiş file. Elma, üzüm, çilek ve şeftali bahçelerinde yaygın olarak kullanılır.",
+    "price": 0,
+    "image": "/images/file/main.webp",
+    "extendedDescription": "Güçlendirilmiş Dolu Koruma Filesi, bahçelerinizi dolu hasarından korumak için özel olarak üretilmiş yüksek dayanımlı bir üründür. Elma, üzüm, çilek ve şeftali bahçeleri başta olmak üzere tüm meyve bahçelerinde kullanım için idealdir. Yüksek yoğunluklu polietilen malzemeden üretilen file, hem dolu hem de güçlü rüzgarlara karşı etkili koruma sağlar. UV ışınlarına dayanıklı yapısı sayesinde uzun yıllar boyunca performansını korur.",
+    "category": "file",
+    "isNew": true,
+    "hasMultipleImages": true,
+    "colors": ["Siyah", "Kristal", "Beyaz"],
+    "sizes": ["3,70 × 200 MT", "1,85 × 200 MT"],
+    "origin": "Yurtdışı",
+    "material": "UV Dayanımlı Polietilen",
+    "isOrganic": false,
+    "isImported": true,
+    "distributor": "Şahintarım",
+    "customSizeAvailable": true
   }
 ]
