@@ -59,10 +59,10 @@ export default function ProductDetail() {
     else if (productId === 5) {
       return [
         "/images/file/main.webp",
-        "/images/file/1.webp",
         "/images/file/2.webp",
         "/images/file/3.webp",
         "/images/file/4.webp",
+        "/images/file/5.webp",
       ];
     }
     // Diğer çoklu görsel ürünler için varsayılan yapı

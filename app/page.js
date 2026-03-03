@@ -23,10 +23,10 @@ function HomePage() {
 
   const fileImages = [
     "/images/file/main.webp",
-    "/images/file/1.webp",
     "/images/file/2.webp",
     "/images/file/3.webp",
     "/images/file/4.webp",
+    "/images/file/5.webp",
   ];
 
   // Ürün verisi
