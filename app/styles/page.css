@@ -2,9 +2,9 @@
    Sayfa Başlık Stili page.css - Tamamen Optimize Edilmiş
    ========================================================= */
 .page-header {
-  background-color: rgba(0, 0, 0, 0.7); /* Daha karanlık arkaplan */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("/images/header-bg.jpg");
+  background-color: rgba(0, 0, 0, 0.7);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/images/products-background.webp");
   background-position: center;
   background-size: cover;
   text-align: center;
@@ -25,13 +25,13 @@
 }
 
 .page-header h1 {
-  font-size: 3.5rem; /* Başlık boyutunu büyüttük */
-  color: #ffffff; /* Beyaz renk */
+  font-size: 3.5rem;
+  color: #ffffff;
   font-weight: 700;
-  margin: 0; /* Tüm kenar boşluklarını kaldırdık */
+  margin: 0;
   position: relative;
   display: inline-block;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Gölgeyi artırdık */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .page-header h1:after {

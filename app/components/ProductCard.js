@@ -77,18 +77,31 @@ const ProductCard = ({ product, addToCart }) => {
         <p className="product-desc">{product.description}</p>
 
         {/* Ürün Fiyatı */}
-        <div className="product-price">
-          ₺{product.price ? product.price.toFixed(2) : "0.00"}
-        </div>
+        {product.price !== 0 && (
+          <div className="product-price">
+            ₺{product.price.toFixed(2)}
+          </div>
+        )}
 
-        {/* Mobil Sepete Ekle Butonu */}
-        <button
-          className="add-to-cart"
-          onClick={handleAddToCart}
-          disabled={isAdding}
-        >
-          {isAdding ? "Eklendi ✓" : "Sepete Ekle"}
-        </button>
+        {/* Mobil Sepete Ekle / İletişim Butonu */}
+        {product.price === 0 ? (
+          <a
+            href={`https://wa.me/+905386799995?text=Merhaba, ${encodeURIComponent(product.name)} hakkında fiyat bilgisi almak istiyorum.`}
+            className="add-to-cart whatsapp-contact-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-whatsapp"></i> Fiyat için iletişime geçin
+          </a>
+        ) : (
+          <button
+            className="add-to-cart"
+            onClick={handleAddToCart}
+            disabled={isAdding}
+          >
+            {isAdding ? "Eklendi ✓" : "Sepete Ekle"}
+          </button>
+        )}
       </div>
     </div>
   );

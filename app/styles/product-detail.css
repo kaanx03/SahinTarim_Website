@@ -1760,6 +1760,19 @@
   font-size: 1.1rem;
 }
 
+.custom-size-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.custom-size-text i {
+  color: #e67e22;
+}
+
 /* WhatsApp Fiyat İletişim Butonu */
 .contact-price-btn {
   display: inline-flex;

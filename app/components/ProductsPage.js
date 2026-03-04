@@ -202,8 +202,7 @@ export default function ProductsPage() {
       {/* Page Header */}
       <section className="page-header">
         <div className="container">
-          <h1>Niğde Elma Fidanları</h1>
-          <p>Yüksek kaliteli, sertifikalı elma fidanları</p>
+          <h1>Niğde Elma ve Elma Fidanları</h1>
         </div>
       </section>
 
@@ -241,6 +240,14 @@ export default function ProductsPage() {
               onClick={() => setActiveFilter("uzun-saklama")}
             >
               Uzun Saklama
+            </button>
+            <button
+              className={`filter-btn ${
+                activeFilter === "file" ? "active" : ""
+              }`}
+              onClick={() => setActiveFilter("file")}
+            >
+              Dolu Koruma Filesi
             </button>
           </div>
 

@@ -432,3 +432,19 @@
   background-color: var(--primary-green);
   color: white;
 }
+
+.add-to-cart.whatsapp-contact-btn {
+  background-color: #25d366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.add-to-cart.whatsapp-contact-btn:hover {
+  background-color: #128c7e;
+  color: white;
+}

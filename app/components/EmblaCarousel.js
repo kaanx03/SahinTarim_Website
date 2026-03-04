@@ -17,6 +17,15 @@ const EmblaCarousel = () => {
       mobileDescription: "Organik ve kaliteli Niğde fidanları.",
     },
     {
+      id: 6,
+      image: "/images/file/main.webp",
+      title: "Güçlendirilmiş Dolu Koruma Filesi",
+      mobileTitle: "Dolu Koruma Filesi",
+      description:
+        "Bahçelerinizi dolu hasarından koruyun. UV-11 garantili, yurtdışı üretim, istenilen ölçülerde üretim imkânı.",
+      mobileDescription: "UV-11 garantili dolu koruma filesi.",
+    },
+    {
       id: 2,
       image: "/images/carousel2.jpg",
       title: "Niğde Golden Delicious Fidanları",
@@ -151,7 +160,7 @@ const EmblaCarousel = () => {
                       {isMobile ? slide.mobileDescription : slide.description}
                     </p>
                     <a href="#products" className="btn btn-primary">
-                      Elma Fidanlarını Keşfet
+                      Ürünlerimizi Keşfet
                     </a>
                   </div>
                 </div>

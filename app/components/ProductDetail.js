@@ -313,11 +313,17 @@ export default function ProductDetail() {
                   {product.sizes && (
                     <div className="variant-row">
                       <span className="variant-row-label">Sunulan Boyutlar:</span>
-                      <div className="variant-pills">
-                        {product.sizes.map((size) => (
-                          <span key={size} className="size-pill">{size}</span>
-                        ))}
-                      </div>
+                      {product.customSizeAvailable ? (
+                        <span className="custom-size-text">
+                          Her ölçüye göre sipariş alıyoruz
+                        </span>
+                      ) : (
+                        <div className="variant-pills">
+                          {product.sizes.map((size) => (
+                            <span key={size} className="size-pill">{size}</span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
