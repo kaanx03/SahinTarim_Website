@@ -16,7 +16,7 @@
 
 .product-detail-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.4fr;
   grid-template-rows: 1fr;
   gap: 2.5rem;
   align-items: start;
@@ -117,13 +117,34 @@
 /* Thumbnail Görseller */
 .thumbnail-images {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  grid-template-rows: 120px;
+  grid-auto-flow: column;
+  grid-auto-columns: 120px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 534px;
+  gap: 10px;
   margin-top: 16px;
   padding: 12px;
   background-color: #f8f9fa;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #bbb transparent;
+}
+
+.thumbnail-images.two-row {
+  grid-template-rows: repeat(2, 120px);
+}
+
+.thumbnail-images::-webkit-scrollbar {
+  height: 4px;
+}
+
+.thumbnail-images::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
 }
 
 .thumbnail-item {
@@ -199,6 +220,11 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .product-image-wrapper {
+    padding-bottom: 0;
+    height: auto;
+  }
+
   .main-image-container {
     height: 350px;
   }
@@ -223,6 +249,17 @@
   .thumbnail-images {
     gap: 8px;
     padding: 8px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: unset;
+    grid-auto-columns: unset;
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+    overflow-x: visible;
+    max-width: 100%;
+  }
+
+  .thumbnail-images.two-row {
+    grid-template-rows: unset;
   }
 }
 
@@ -235,6 +272,17 @@
   .thumbnail-images {
     gap: 6px;
     padding: 6px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: unset;
+    grid-auto-columns: unset;
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+    overflow-x: visible;
+    max-width: 100%;
+  }
+
+  .thumbnail-images.two-row {
+    grid-template-rows: unset;
   }
 
   .image-counter {
@@ -327,7 +375,7 @@
 
 .product-detail-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.4fr;
   grid-template-rows: 1fr;
   gap: 2.5rem;
   align-items: start; /* Üst hizalama */
@@ -410,7 +458,7 @@
 
 .product-detail-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.4fr;
   grid-template-rows: 1fr;
   gap: 2.5rem;
   align-items: stretch;
@@ -583,6 +631,44 @@
   margin-bottom: 0;
 }
 
+/* İki bölümlü açıklama (elma + fidan) */
+.product-description-dual {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  background: none;
+  border-left: none;
+  box-shadow: none;
+}
+
+.desc-section {
+  background-color: #f9f9f9;
+  border-left: 4px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 1rem 1.2rem 1rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.desc-section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.desc-section p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
 /* Alt kısım - Fiyat ve Butonlar Alanı */
 .product-info-bottom {
   display: flex;
@@ -649,7 +735,7 @@
 .product-features {
   display: flex;
   gap: 1.5rem;
-  padding: 1.2rem;
+  padding: 1.2rem 1.5rem;
   background-color: #f9f9f9;
   border-radius: 8px;
 }
@@ -660,6 +746,8 @@
   gap: 0.5rem;
   color: #555;
   font-size: 0.95rem;
+  flex: 1 1 auto;
+  white-space: nowrap;
 }
 
 .feature i {
@@ -676,8 +764,10 @@
   }
 
   .product-image-wrapper {
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 100%;
+    padding-bottom: 0;
+    height: auto;
+    margin: 0 0 1.5rem;
   }
 }
 
@@ -1304,7 +1394,8 @@
 
   .product-image-wrapper {
     width: 100%;
-    padding-bottom: 100%; /* Kare oran koruması */
+    padding-bottom: 0;
+    height: auto;
     max-width: 100%;
     margin: 0 0 1.5rem;
   }

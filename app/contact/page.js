@@ -2,7 +2,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CartProvider } from "../contexts/CartContext";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Head from "next/head";
@@ -649,11 +648,6 @@ function ContactPageComponent() {
   );
 }
 
-// Wrapper Component - About sayfası gibi
 export default function Contact() {
-  return (
-    <CartProvider>
-      <ContactPageComponent />
-    </CartProvider>
-  );
+  return <ContactPageComponent />;
 }

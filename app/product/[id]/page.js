@@ -2,7 +2,6 @@
 "use client";
 
 import ProductDetail from "@/app/components/ProductDetail";
-import { CartProvider } from "@/app/contexts/CartContext";
 import Head from "next/head";
 import { useEffect, useState, use } from "react";
 import productsData from "@/app/data/products.json";
@@ -266,9 +265,7 @@ export default function ProductPage({ params }) {
         />
       </Head>
 
-      <CartProvider>
-        <ProductDetail />
-      </CartProvider>
+      <ProductDetail />
     </>
   );
 }

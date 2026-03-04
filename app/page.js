@@ -1,8 +1,7 @@
 // app/page.js - DÜZELTILMIŞ VERSIYON - SADECE ELMA FIDANLARI
 "use client";
 
-import { useContext, useState } from "react";
-import { CartProvider, CartContext } from "./contexts/CartContext";
+import { useState } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import EmblaCarousel from "./components/EmblaCarousel";
@@ -13,9 +12,6 @@ import Image from "next/image";
 
 // Ana sayfa bileşeni
 function HomePage() {
-  // Context'ten sepet fonksiyonlarını al
-  const { addToCart } = useContext(CartContext);
-
   // Form state'leri
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formMessage, setFormMessage] = useState({ type: "", text: "" });
@@ -31,24 +27,6 @@ function HomePage() {
 
   // Ürün verisi
   const products = productsData;
-
-  // Debug: ürün ekleme işlevi
-  const handleAddToCart = (product) => {
-    console.log("Ürün sepete eklenecek:", product);
-    console.log("Ürün adı:", product.name);
-
-    // Eksik veri kontrolü
-    if (!product.name) {
-      console.error("HATA: Ürün adı eksik!", product);
-      // Ürünü düzelt
-      product = {
-        ...product,
-        name: `Ürün ${product.id}`,
-      };
-    }
-
-    addToCart(product);
-  };
 
   // Çalışan form submit handler - Contact sayfasındaki ile aynı
   async function handleContactForm(e) {
@@ -497,31 +475,14 @@ function HomePage() {
                       <h3>{product.name}</h3>
                     </Link>
                     <p>{product.description}</p>
-                    {product.price !== 0 && (
-                      <div className="product-price">
-                        ₺{product.price.toFixed(2)}
-                      </div>
-                    )}
-                    {product.price === 0 ? (
-                      <a
-                        href={`https://wa.me/+905386799995?text=Merhaba, ${encodeURIComponent(product.name)} hakkında fiyat bilgisi almak istiyorum.`}
-                        className="add-to-cart whatsapp-contact-btn"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="fab fa-whatsapp"></i> Fiyat için iletişime geçin
-                      </a>
-                    ) : (
-                      <button
-                        className="add-to-cart"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleAddToCart(product);
-                        }}
-                      >
-                        Sepete Ekle
-                      </button>
-                    )}
+                    <a
+                      href={`https://wa.me/+905386799995?text=Merhaba, ${encodeURIComponent(product.name)} hakkında fiyat bilgisi almak istiyorum.`}
+                      className="add-to-cart whatsapp-contact-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-whatsapp"></i> Fiyat için iletişime geçin
+                    </a>
                   </div>
                 </div>
               ))}
@@ -534,7 +495,7 @@ function HomePage() {
             <div className="about-container">
               <div className="about-img"></div>
               <div className="about-content">
-                <h2>Şahintarım Hakkında</h2>
+                <h2>Şahintarım Elma ve Fidan Üretimi</h2>
                 <p>
                   Şahintarım, 15 yıllık elma fidanı üretim deneyimine sahip bir
                   aile işletmesidir. Toprağa ve doğaya olan sevgimizi, sizlerle
@@ -749,11 +710,6 @@ function HomePage() {
   );
 }
 
-// Wrapper Component
 export default function Home() {
-  return (
-    <CartProvider>
-      <HomePage />
-    </CartProvider>
-  );
+  return <HomePage />;
 }

@@ -2,7 +2,6 @@
 "use client";
 
 import ProductsPage from "@/app/components/ProductsPage";
-import { CartProvider } from "@/app/contexts/CartContext";
 import Head from "next/head";
 
 // Ürünler sayfa bileşeni
@@ -282,11 +281,6 @@ function ProductsPageComponent() {
   );
 }
 
-// Wrapper Component - About sayfası gibi
 export default function Products() {
-  return (
-    <CartProvider>
-      <ProductsPageComponent />
-    </CartProvider>
-  );
+  return <ProductsPageComponent />;
 }

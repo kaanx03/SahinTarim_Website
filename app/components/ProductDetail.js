@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import NavBar from "../components/NavBar";
@@ -13,7 +12,6 @@ import RelatedProducts from "../components/RelatedProducts";
 
 // Ürün Detay Sayfası bileşeni
 export default function ProductDetail() {
-  const { addToCart } = useContext(CartContext);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -63,6 +61,8 @@ export default function ProductDetail() {
         "/images/file/3.webp",
         "/images/file/4.webp",
         "/images/file/5.webp",
+        "/images/file/6.webp",
+        "/images/file/7.webp",
       ];
     }
     // Diğer çoklu görsel ürünler için varsayılan yapı
@@ -90,17 +90,6 @@ export default function ProductDetail() {
     // Sayfanın en üstüne kaydırma işlemi
     window.scrollTo(0, 0);
   }, [id]);
-
-  // Sepete ekle fonksiyonu
-  const handleAddToCart = () => {
-    if (product) {
-      // Miktar seçimi kaldırıldığı için quantity her zaman 1 olarak gönderilecek
-      addToCart({
-        ...product,
-        quantity: 1,
-      });
-    }
-  };
 
   const selectImage = (index) => {
     setCurrentImageIndex(index);
@@ -226,27 +215,36 @@ export default function ProductDetail() {
 
               {/* Thumbnail Görseller - product-image-wrapper DIŞINDA */}
               {productImages.length > 1 && (
-                <div className="thumbnail-images">
-                  {productImages.map((image, index) => (
-                    <div
-                      key={index}
-                      className={`thumbnail-item ${
-                        index === currentImageIndex ? "active" : ""
-                      }`}
-                      onClick={() => selectImage(index)}
-                    >
-                      <Image
-                        src={image}
-                        alt={`${product.name} thumbnail ${index + 1}`}
-                        width={80}
-                        height={80}
-                        className="thumbnail-image"
-                        onError={(e) => {
-                          e.target.src = product.image;
-                        }}
-                      />
-                    </div>
-                  ))}
+                <div className={`thumbnail-images${productImages.length > 4 ? " two-row" : ""}`}>
+                  {(() => {
+                    const N = productImages.length;
+                    const numPerRow = Math.ceil(N / 2);
+                    const ordered = [];
+                    for (let col = 0; col < numPerRow; col++) {
+                      ordered.push(col);
+                      if (col + numPerRow < N) ordered.push(col + numPerRow);
+                    }
+                    return ordered.map((origIndex) => (
+                      <div
+                        key={origIndex}
+                        className={`thumbnail-item ${
+                          origIndex === currentImageIndex ? "active" : ""
+                        }`}
+                        onClick={() => selectImage(origIndex)}
+                      >
+                        <Image
+                          src={productImages[origIndex]}
+                          alt={`${product.name} thumbnail ${origIndex + 1}`}
+                          width={120}
+                          height={120}
+                          className="thumbnail-image"
+                          onError={(e) => {
+                            e.target.src = product.image;
+                          }}
+                        />
+                      </div>
+                    ));
+                  })()}
                 </div>
               )}
             </motion.div>
@@ -287,13 +285,30 @@ export default function ProductDetail() {
                 </div>
               </div>
 
-              {/* Ürün Açıklaması - products.json'dan dinamik olarak gelecek */}
-              <div className="product-description">
-                <p>{product.description}</p>
-                {product.extendedDescription && (
-                  <p>{product.extendedDescription}</p>
-                )}
-              </div>
+              {/* Ürün Açıklaması */}
+              {product.category === "elma" ? (
+                <div className="product-description product-description-dual">
+                  <div className="desc-section">
+                    <h4 className="desc-section-title">
+                      <i className="fas fa-apple-alt"></i> Elma Meyvesi
+                    </h4>
+                    <p>{product.meyveDescription}</p>
+                  </div>
+                  <div className="desc-section">
+                    <h4 className="desc-section-title">
+                      <i className="fas fa-seedling"></i> Elma Fidanı
+                    </h4>
+                    <p>{product.fidanDescription}</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="product-description">
+                  <p>{product.description}</p>
+                  {product.extendedDescription && (
+                    <p>{product.extendedDescription}</p>
+                  )}
+                </div>
+              )}
 
               {/* Renkler ve Boyutlar */}
               {(product.colors || product.sizes) && (
@@ -341,25 +356,15 @@ export default function ProductDetail() {
                 )}
 
                 <div className="cart-actions">
-                  {product.price === 0 ? (
-                    <a
-                      href="https://wa.me/+905386799995?text=Merhaba, Dolu Koruma Filesi hakkında fiyat bilgisi almak istiyorum."
-                      className="contact-price-btn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i className="fab fa-whatsapp"></i>
-                      Fiyat için iletişime geçin
-                    </a>
-                  ) : (
-                    <button
-                      className="add-to-cart-btn"
-                      onClick={() => handleAddToCart()}
-                    >
-                      <i className="fas fa-shopping-cart"></i>
-                      Sepete Ekle
-                    </button>
-                  )}
+                  <a
+                    href={`https://wa.me/+905386799995?text=Merhaba, ${encodeURIComponent(product.name)} hakkında fiyat bilgisi almak istiyorum.`}
+                    className="contact-price-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="fab fa-whatsapp"></i>
+                    Fiyat için iletişime geçin
+                  </a>
                 </div>
 
                 {/* UV Dayanıklılık Garantisi */}

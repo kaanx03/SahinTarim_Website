@@ -2,7 +2,6 @@
 "use client";
 
 import Image from "next/image";
-import { CartProvider } from "../contexts/CartContext";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Head from "next/head";
@@ -237,17 +236,17 @@ function AboutPage() {
               <div className="story-content">
                 <h2>Hikayemiz</h2>
                 <p>
-                  Şahintarım, 2008 yılında Niğde&apos;de küçük bir aile
-                  işletmesi olarak kuruldu. Kurucumuz Şahin Bey&apos;in tarıma
-                  olan tutkusu ve kaliteli fidan arayışı, bugünkü
-                  Şahintarım&apos;ın temellerini attı.
+                  Şahin tarım, 3 ortağın Tarıma olan tutkusu neticesinde bir
+                  araya gelerek 2008 yılında Niğde&apos;de kuruldu.
+                  Kurucularımızın kaliteli Elma meyvesi - Elma fidanı üretimi
+                  ve Meyve bahçesi kurulumunu kendilerine prensip edinerek
+                  bugünkü Şahin tarımın temellerini atmış oldular.
                 </p>
                 <p>
                   15 yıl boyunca kesintisiz olarak büyüyen şirketimiz, bugün
-                  Türkiye&apos;nin dört bir yanındaki çiftçilere ve bahçe
-                  severlere hizmet veriyor. Organik üretim prensiplerine bağlı
-                  kalarak, doğaya saygılı bir yaklaşımla çalışmalarımızı
-                  sürdürüyoruz.
+                  Yurtiçi ve Yurtdışın da çiftçilere ve bahçe severlere hizmet
+                  veriyor. Organik üretim prensiplerine bağlı kalarak, doğaya
+                  saygılı bir yaklaşımla çalışmalarımızı sürdürüyoruz.
                 </p>
               </div>
               <div className="story-image">
@@ -585,11 +584,6 @@ function AboutPage() {
   );
 }
 
-// Wrapper Component
 export default function About() {
-  return (
-    <CartProvider>
-      <AboutPage />
-    </CartProvider>
-  );
+  return <AboutPage />;
 }

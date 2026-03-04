@@ -1,20 +1,14 @@
 "use client";
-import { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import productsData from "../data/products.json";
 
 const RelatedProducts = ({ currentProductId }) => {
-  const { addToCart } = useContext(CartContext);
-
-  // products.json'dan veriyi çek ve mevcut ürün hariç diğer ürünlerden 3 tanesini seç
   const relatedProducts = productsData
     .filter((product) => product.id !== currentProductId)
     .slice(0, 3);
 
-  // Animasyon varyantları
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
@@ -39,7 +33,6 @@ const RelatedProducts = ({ currentProductId }) => {
           animate="visible"
           variants={cardVariants}
         >
-          {/* Ürün görseli ve resim hover efektleri için */}
           <div className="product-img">
             <Link href={`/product/${product.id}`}>
               <Image
@@ -51,15 +44,6 @@ const RelatedProducts = ({ currentProductId }) => {
               />
             </Link>
             <div className="product-actions">
-              {/* Sepete ekle butonu */}
-              <button
-                className="quick-add-btn"
-                onClick={() => addToCart(product)}
-                aria-label="Sepete Ekle"
-              >
-                <i className="fas fa-cart-plus"></i>
-              </button>
-              {/* Detay butonu */}
               <Link
                 href={`/product/${product.id}`}
                 className="view-details-btn"
@@ -70,22 +54,19 @@ const RelatedProducts = ({ currentProductId }) => {
             </div>
           </div>
 
-          {/* Ürün bilgileri */}
           <div className="product-info">
-            <Link
-              href={`/product/${product.id}`}
-              className="product-title-link"
-            >
+            <Link href={`/product/${product.id}`} className="product-title-link">
               <h3 className="product-title">{product.name}</h3>
             </Link>
             <p className="product-desc">{product.description}</p>
-            <div className="product-price">₺{product.price.toFixed(2)}</div>
-            <button
-              className="add-to-cart-btn mobile"
-              onClick={() => addToCart(product)}
+            <a
+              href={`https://wa.me/+905386799995?text=Merhaba, ${encodeURIComponent(product.name)} hakkında fiyat bilgisi almak istiyorum.`}
+              className="add-to-cart whatsapp-contact-btn"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Sepete Ekle
-            </button>
+              <i className="fab fa-whatsapp"></i> Fiyat için iletişime geçin
+            </a>
           </div>
         </motion.div>
       ))}

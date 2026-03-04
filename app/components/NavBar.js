@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import ShoppingCart from "./ShoppingCart";
 
 const NavBar = ({ logo = "Şahintarım", links = [] }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -183,10 +182,6 @@ const NavBar = ({ logo = "Şahintarım", links = [] }) => {
             <ul>{navLinks.map((link, index) => renderNavLink(link, index))}</ul>
           </nav>
 
-          {/* Sepet ikonu en sağa */}
-          <div className="header-icons">
-            <ShoppingCart />
-          </div>
         </div>
       </div>
     </header>

@@ -1,27 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const ProductCard = ({ product, addToCart }) => {
-  const [isAdding, setIsAdding] = useState(false);
-
-  const handleAddToCart = () => {
-    setIsAdding(true);
-    addToCart(product);
-
-    // 2 saniye sonra eklendi bildirimini kaldır
-    setTimeout(() => {
-      setIsAdding(false);
-    }, 2000);
-  };
-
+const ProductCard = ({ product }) => {
   if (!product) return null;
 
   return (
     <div className="product-card">
-      {/* Ürün Resmi - Link olarak sadece resim kısmı */}
+      {/* Ürün Resmi */}
       <Link href={`/product/${product.id}`} className="product-img-link">
         <div className="product-img">
           {product.image ? (
@@ -38,25 +25,13 @@ const ProductCard = ({ product, addToCart }) => {
             </div>
           )}
 
-          {/* Ürün Aksiyonları - Sadece masaüstü için gösterilecek */}
+          {/* Görüntüle Butonu */}
           <div className="product-actions">
-            <button
-              className="quick-add-btn"
-              aria-label="Sepete Ekle"
-              onClick={(e) => {
-                e.preventDefault(); // Link yönlendirmesini engelle
-                handleAddToCart();
-              }}
-            >
-              <i className="fas fa-cart-plus"></i>
-            </button>
-
-            {/* Görüntüle Butonu - onClick ile programatik yönlendirme kullanacağız */}
             <button
               className="view-details-btn"
               aria-label="Ürün Detayını Görüntüle"
               onClick={(e) => {
-                e.preventDefault(); // Link yönlendirmesini engelle
+                e.preventDefault();
                 window.location.href = `/product/${product.id}`;
               }}
             >
@@ -68,40 +43,20 @@ const ProductCard = ({ product, addToCart }) => {
 
       {/* Ürün Bilgileri */}
       <div className="product-info">
-        {/* Ürün Başlığı */}
         <Link href={`/product/${product.id}`} className="product-title-link">
           <h3 className="product-title">{product.name}</h3>
         </Link>
 
-        {/* Ürün Açıklaması */}
         <p className="product-desc">{product.description}</p>
 
-        {/* Ürün Fiyatı */}
-        {product.price !== 0 && (
-          <div className="product-price">
-            ₺{product.price.toFixed(2)}
-          </div>
-        )}
-
-        {/* Mobil Sepete Ekle / İletişim Butonu */}
-        {product.price === 0 ? (
-          <a
-            href={`https://wa.me/+905386799995?text=Merhaba, ${encodeURIComponent(product.name)} hakkında fiyat bilgisi almak istiyorum.`}
-            className="add-to-cart whatsapp-contact-btn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fab fa-whatsapp"></i> Fiyat için iletişime geçin
-          </a>
-        ) : (
-          <button
-            className="add-to-cart"
-            onClick={handleAddToCart}
-            disabled={isAdding}
-          >
-            {isAdding ? "Eklendi ✓" : "Sepete Ekle"}
-          </button>
-        )}
+        <a
+          href={`https://wa.me/+905386799995?text=Merhaba, ${encodeURIComponent(product.name)} hakkında fiyat bilgisi almak istiyorum.`}
+          className="add-to-cart whatsapp-contact-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fab fa-whatsapp"></i> Fiyat için iletişime geçin
+        </a>
       </div>
     </div>
   );

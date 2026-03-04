@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -10,7 +9,6 @@ import { motion } from "framer-motion";
 import productsData from "../data/products.json";
 
 export default function ProductsPage() {
-  const { addToCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
@@ -215,31 +213,15 @@ export default function ProductsPage() {
               className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
               onClick={() => setActiveFilter("all")}
             >
-              Tüm Çeşitler ({products.length})
+              Tüm Ürünler ({products.length})
             </button>
             <button
               className={`filter-btn ${
-                activeFilter === "erken-hasat" ? "active" : ""
+                activeFilter === "elma" ? "active" : ""
               }`}
-              onClick={() => setActiveFilter("erken-hasat")}
+              onClick={() => setActiveFilter("elma")}
             >
-              Erken Hasat (Ağustos)
-            </button>
-            <button
-              className={`filter-btn ${
-                activeFilter === "ana-hasat" ? "active" : ""
-              }`}
-              onClick={() => setActiveFilter("ana-hasat")}
-            >
-              Ana Hasat (Eylül-Ekim)
-            </button>
-            <button
-              className={`filter-btn ${
-                activeFilter === "uzun-saklama" ? "active" : ""
-              }`}
-              onClick={() => setActiveFilter("uzun-saklama")}
-            >
-              Uzun Saklama
+              Elma ve Elma Fidanı
             </button>
             <button
               className={`filter-btn ${
@@ -312,7 +294,7 @@ export default function ProductsPage() {
             >
               {currentProducts.map((product) => (
                 <motion.div key={product.id} variants={itemVariants}>
-                  <ProductCard product={product} addToCart={addToCart} />
+                  <ProductCard product={product} />
                 </motion.div>
               ))}
             </motion.div>
