@@ -463,23 +463,18 @@ export default function ProductDetail() {
               >
                 <div className="tab-content">
                   <h3>Ürün Açıklaması</h3>
-                  <p>
-                    {product.description} Bu tohum paketi, %100 organik olarak
-                    yetiştirilmiş ve özenle seçilmiş tohumları içerir. Tüm
-                    ürünlerimiz, en yüksek kalite standartlarına uygun olarak
-                    üretilmekte ve paketlenmektedir.
-                  </p>
-                  <p>
-                    Şahintarım olarak amacımız, evinizde veya bahçenizde
-                    sağlıklı ve lezzetli sebzeler yetiştirmenize yardımcı
-                    olmaktır. Tohumlarımız GDO içermez ve tamamen doğaldır.
-                  </p>
-                  <p>
-                    Pakette yaklaşık 100 adet tohum bulunmaktadır. Bu miktar,
-                    orta büyüklükteki bir bahçe için yeterli olacaktır. Uygun
-                    koşullarda saklandığında tohumlarımız 2 yıl boyunca çimlenme
-                    özelliğini korumaktadır.
-                  </p>
+                  {product.category === "elma" ? (
+                    <>
+                      <p>
+                        <strong>Elma Meyvesi:</strong> {product.meyveDescription}
+                      </p>
+                      <p>
+                        <strong>Elma Fidanı:</strong> {product.fidanDescription}
+                      </p>
+                    </>
+                  ) : (
+                    <p>{product.description}</p>
+                  )}
                 </div>
               </div>
 
@@ -491,34 +486,6 @@ export default function ProductDetail() {
               >
                 <div className="tab-content">
                   <h3>Ürün Özellikleri</h3>
-                  <div className="product-specifications">
-                    <div className="spec-item">
-                      <div className="spec-label">Tohum Tipi</div>
-                      <div className="spec-value">Organik</div>
-                    </div>
-                    <div className="spec-item">
-                      <div className="spec-label">Çimlenme Süresi</div>
-                      <div className="spec-value">7-14 gün</div>
-                    </div>
-                    <div className="spec-item">
-                      <div className="spec-label">Paket İçeriği</div>
-                      <div className="spec-value">Yaklaşık 100 tohum</div>
-                    </div>
-                    <div className="spec-item">
-                      <div className="spec-label">Menşei</div>
-                      <div className="spec-value">Türkiye</div>
-                    </div>
-                    <div className="spec-item">
-                      <div className="spec-label">Raf Ömrü</div>
-                      <div className="spec-value">2 yıl</div>
-                    </div>
-                    <div className="spec-item">
-                      <div className="spec-label">Sertifikalar</div>
-                      <div className="spec-value">
-                        Organik Tarım Sertifikası
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -533,11 +500,7 @@ export default function ProductDetail() {
                   <div className="growing-guide">
                     <div className="guide-section">
                       <h4>Ekim Zamanı</h4>
-                      <p>
-                        İlkbahar (Mart-Nisan) veya sonbahar (Ağustos-Eylül)
-                        aylarında ekim yapabilirsiniz. Tohumlarımız direkt
-                        bahçeye veya saksıya ekilebilir.
-                      </p>
+                      <p>Kasım ve Mayıs arası ekim yapabilirsiniz.</p>
                     </div>
 
                     <div className="guide-section">

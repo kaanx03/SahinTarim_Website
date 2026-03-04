@@ -336,65 +336,6 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* Team Section - DÜZELTİLMİŞ VERSİYON */}
-        <section className="team">
-          <div className="container">
-            <div className="section-title">
-              <h2>Ekibimiz</h2>
-              <p>Deneyimli ve uzman kadromuzla hizmetinizdeyiz</p>
-            </div>
-            <div className="team-container">
-              <div className="team-member">
-                <div className="member-image">
-                  <Image
-                    src="/images/man1.jpg"
-                    alt="Şahin Bey - Kurucu"
-                    width={300}
-                    height={300}
-                  />
-                </div>
-                <h4>Şahin Yılmaz</h4>
-                <p className="position">Kurucu & Genel Müdür</p>
-                <p className="description">
-                  25 yıllık tarım deneyimine sahip, organik üretim uzmanı
-                </p>
-              </div>
-
-              <div className="team-member">
-                <div className="member-image">
-                  <Image
-                    src="/images/woman.jpg"
-                    alt="Ayşe Hanım - Kalite Kontrol"
-                    width={300}
-                    height={300}
-                  />
-                </div>
-                <h4>Ayşe Yılmaz</h4>
-                <p className="position">Kalite Kontrol Müdürü</p>
-                <p className="description">
-                  Ziraat mühendisi, fidan kalitesi ve test süreçleri uzmanı
-                </p>
-              </div>
-
-              <div className="team-member">
-                <div className="member-image">
-                  <Image
-                    src="/images/man2.jpg"
-                    alt="Mehmet Bey - Satış"
-                    width={300}
-                    height={300}
-                  />
-                </div>
-                <h4>Mehmet Kaya</h4>
-                <p className="position">Satış Müdürü</p>
-                <p className="description">
-                  15 yıllık satış deneyimi, müşteri ilişkileri uzmanı
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Quality Standards */}
         <section className="quality-standards">
           <div className="container">
