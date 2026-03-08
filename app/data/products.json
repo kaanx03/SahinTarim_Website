@@ -34,6 +34,18 @@
     "productivity": "Çok Yüksek"
   },
   {
+    "id": 6,
+    "name": "Bahçe Kurulumu",
+    "description": "Fidandan hasat ekipmanlarına kadar komple profesyonel elma bahçesi kurulum hizmeti. Sulama sistemi, tel kafes, fidan dikimi ve bahçe planlaması dahil.",
+    "price": 0,
+    "image": "/images/bahceKurulumu/1.jpeg",
+    "category": "bahce",
+    "isNew": true,
+    "hasMultipleImages": true,
+    "isOrganic": false,
+    "origin": "Niğde"
+  },
+  {
     "id": 3,
     "name": "Niğde Gala Elma ve Elma Fidanı",
     "description": "Fidanlarımız M9 - M111 - M106 anaçlar üzerine aşılar yapılarak üretilmektedir.",

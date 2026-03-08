@@ -10,6 +10,8 @@ import Image from "next/image";
 import productsData from "../data/products.json";
 import RelatedProducts from "../components/RelatedProducts";
 
+const isVideo = (path) => path?.endsWith(".mp4");
+
 // Ürün Detay Sayfası bileşeni
 export default function ProductDetail() {
   const { id } = useParams();
@@ -52,6 +54,17 @@ export default function ProductDetail() {
     // Gala Elma için
     else if (productId === 3) {
       return ["/images/apples/gala1.jpg", "/images/apples/gala2.jpg"];
+    }
+    // Bahçe Kurulumu için
+    else if (productId === 6) {
+      return [
+        "/images/bahceKurulumu/1.jpeg",
+        "/images/bahceKurulumu/2.jpeg",
+        "/images/bahceKurulumu/3.jpeg",
+        "/images/bahceKurulumu/1.mp4",
+        "/images/bahceKurulumu/2.mp4",
+        "/images/bahceKurulumu/3.mp4",
+      ];
     }
     // Dolu Koruma Filesi için
     else if (productId === 5) {
@@ -170,27 +183,38 @@ export default function ProductDetail() {
                 {/* Ana Görsel */}
                 <div
                   className="main-image-container"
-                  style={{ overflow: "hidden", cursor: isZoomed ? "zoom-in" : "default" }}
-                  onMouseEnter={() => setIsZoomed(true)}
+                  style={{ overflow: isVideo(productImages[currentImageIndex]) ? "visible" : "hidden", cursor: isVideo(productImages[currentImageIndex]) ? "default" : isZoomed ? "zoom-in" : "default" }}
+                  onMouseEnter={() => !isVideo(productImages[currentImageIndex]) && setIsZoomed(true)}
                   onMouseLeave={() => setIsZoomed(false)}
                   onMouseMove={handleMouseMove}
                 >
-                  <Image
-                    src={productImages[currentImageIndex]}
-                    alt={`${product.name} - Görsel ${currentImageIndex + 1}`}
-                    width={500}
-                    height={500}
-                    priority
-                    className="product-main-image"
-                    style={{
-                      transform: isZoomed ? "scale(2.5)" : "scale(1)",
-                      transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
-                      transition: "none",
-                    }}
-                    onError={(e) => {
-                      e.target.src = product.image;
-                    }}
-                  />
+                  {isVideo(productImages[currentImageIndex]) ? (
+                    <video
+                      key={productImages[currentImageIndex]}
+                      src={productImages[currentImageIndex]}
+                      controls
+                      autoPlay
+                      controlsList="nodownload"
+                      className="product-main-video"
+                    />
+                  ) : (
+                    <Image
+                      src={productImages[currentImageIndex]}
+                      alt={`${product.name} - Görsel ${currentImageIndex + 1}`}
+                      width={500}
+                      height={500}
+                      priority
+                      className="product-main-image"
+                      style={{
+                        transform: isZoomed ? "scale(2.5)" : "scale(1)",
+                        transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+                        transition: "none",
+                      }}
+                      onError={(e) => {
+                        e.target.src = product.image;
+                      }}
+                    />
+                  )}
                 </div>
 
                 <div className="product-badges">
@@ -232,6 +256,17 @@ export default function ProductDetail() {
                         }`}
                         onClick={() => selectImage(origIndex)}
                       >
+                        {isVideo(productImages[origIndex]) ? (
+                          <div className="thumbnail-video-placeholder">
+                            <video
+                              src={productImages[origIndex]}
+                              muted
+                              preload="metadata"
+                              className="thumbnail-video-preview"
+                            />
+                            <i className="fas fa-play-circle"></i>
+                          </div>
+                        ) : (
                         <Image
                           src={productImages[origIndex]}
                           alt={`${product.name} thumbnail ${origIndex + 1}`}
@@ -242,6 +277,7 @@ export default function ProductDetail() {
                             e.target.src = product.image;
                           }}
                         />
+                        )}
                       </div>
                     ));
                   })()}

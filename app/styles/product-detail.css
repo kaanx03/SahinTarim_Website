@@ -63,6 +63,14 @@
   transform: scale(1.05);
 }
 
+.product-main-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000;
+  display: block;
+}
+
 /* Görsel Navigasyon Okları */
 .image-nav-btn {
   position: absolute;
@@ -181,6 +189,33 @@
 
 .thumbnail-item:hover .thumbnail-image {
   transform: scale(1.1);
+}
+
+/* Video Thumbnail Placeholder */
+.thumbnail-video-placeholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thumbnail-video-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumbnail-video-placeholder i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 
 /* Ürün Rozetleri */

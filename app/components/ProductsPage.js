@@ -231,6 +231,14 @@ export default function ProductsPage() {
             >
               Dolu Koruma Filesi
             </button>
+            <button
+              className={`filter-btn ${
+                activeFilter === "bahce" ? "active" : ""
+              }`}
+              onClick={() => setActiveFilter("bahce")}
+            >
+              Bahçe Kurulumu
+            </button>
           </div>
 
           {/* Products Search & Sort */}
