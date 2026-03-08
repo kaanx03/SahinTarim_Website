@@ -455,7 +455,7 @@ function HomePage() {
           <div className="container">
             <div className="section-title">
               <Link href="/products">
-                <h2>Popüler Elma Fidanlarımız</h2>
+                <h2>Popüler Ürünlerimiz</h2>
               </Link>
             </div>
             <div className="products-container">
