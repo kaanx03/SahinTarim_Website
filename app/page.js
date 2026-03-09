@@ -420,10 +420,9 @@ function HomePage() {
                 <div className="feature-icon">
                   <i className="fas fa-leaf"></i>
                 </div>
-                <h3>Organik Elma Fidanları</h3>
+                <h3>Sertifikalı Elma Fidanları</h3>
                 <p>
-                  Tüm elma fidanlarımız organik olarak yetiştirilmiş bitkilerden
-                  elde edilmiştir. GDO içermeyen doğal fidanlar.
+                  Tüm elma fidanlarımız iyi tarım uygulaması sertifikasına sahip, kalite standartlarına uygun olarak üretilmektedir.
                 </p>
               </div>
               <div className="feature-box">
